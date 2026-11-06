@@ -1,22 +1,47 @@
 {
   "metadata": {
-    "version": "1.0.0",
-    "last_updated": "2026-11-06T10:00:00Z",
-    "learner_profile": "Senior .NET / C# Developer",
-    "target_certification": "Microsoft Certified: Power Platform Developer Associate (AB-400 / PL-400)",
+    "version": "2.0.0",
+    "last_updated": "2026-11-06T14:15:00Z",
+    "learner_profile": "Experienced .NET / C# Engineer transitioning to Microsoft Power Platform & Dataverse",
+    "target_certification": "Microsoft Certified: Power Platform Developer Associate (Exam AB-400)",
     "course_reference": "Course AB-400T00: Microsoft Power Platform Developer",
     "curriculum_version": "October 30, 2026 Live Study Guide",
-    "workspace_root": "e:\\Microsoft Dynamics"
+    "workspace_root": "e:\\Microsoft Dynamics",
+    "competency_state_definitions": {
+      "NOT_STARTED": "الموضوع لم يُدرس بعد ولم تبدأ أية أنشطة نظرية أو عملية بشأنه.",
+      "THEORETICAL": "تمت دراسة المفهوم المعماري، استيعاب أسبابه ومقارنته بمنظومة .NET/C#، وفهم آلية تنفيذه نظرياً.",
+      "PRACTICED_WITH_GUIDANCE": "تم تطبيق المفهوم عملياً داخل معمل موجه خطوة بخطوة بالاستعانة بالأدلة أو الشيفرات المرجعية.",
+      "INDEPENDENT": "تم حل تحديات برمجية أو بناء متطلبات حقيقية مستقلة تعتمد على هذا المفهوم دون الاستعانة المباشرة بالأدلة.",
+      "VALIDATED": "تم إثبات الكفاءة عبر شيفرة برمجية عاملة، اختبارات مؤتمتة ناجحة، وسجل قرار معماري مبرر ومثبت بالأدلة."
+    }
   },
   "overall_metrics": {
     "total_competencies": 24,
-    "not_started": 20,
-    "in_progress": 3,
-    "practiced": 1,
+    "not_started": 21,
+    "theoretical": 2,
+    "practiced_with_guidance": 1,
+    "independent": 0,
     "validated": 0,
-    "readiness_percentage": 10.5
+    "readiness_percentage": 6.25
   },
   "competencies": [
+    {
+      "id": "DEV-01-TOOLING",
+      "category": "Developer Tooling & ALM",
+      "title_en": "Power Platform CLI (PAC CLI), Solutions Packaging, and Source Control Integration",
+      "title_ar": "واجهة سطر أوامر Power Platform (PAC CLI) وحزم الحلول والتكامل مع إدارة الشيفرة",
+      "ab400_weight_percent": "10-15%",
+      "official_learn_url": "https://learn.microsoft.com/power-platform/developer/cli/introduction",
+      "net_analogy": "dotnet CLI, NuGet packaging, project SDKs, and Git repository workflows",
+      "status": "PRACTICED_WITH_GUIDANCE",
+      "target_milestone": "Milestone 0",
+      "lab_reference": "labs/00-environment-setup/",
+      "portfolio_module": "portfolio/equipment-provisioning/",
+      "evidence_links": [
+        "labs/00-environment-setup/README.md"
+      ],
+      "last_reviewed": "2026-11-06"
+    },
     {
       "id": "DV-01-SCHEMA",
       "category": "Dataverse Architecture & Data Modeling",
@@ -25,7 +50,7 @@
       "ab400_weight_percent": "20-25%",
       "official_learn_url": "https://learn.microsoft.com/training/modules/create-tables-power-apps/",
       "net_analogy": "SQL Server Tables, EF Core Navigation Properties, Unique Constraints, and Alternate Keys",
-      "status": "IN_PROGRESS",
+      "status": "THEORETICAL",
       "target_milestone": "Milestone 1",
       "lab_reference": "labs/01-dataverse-foundations/",
       "portfolio_module": "portfolio/equipment-provisioning/data-model/",
@@ -66,23 +91,6 @@
       "last_reviewed": null
     },
     {
-      "id": "DEV-01-TOOLING",
-      "category": "Developer Tooling & ALM",
-      "title_en": "Power Platform CLI (PAC CLI), Solutions Packaging, and Source Control Integration",
-      "title_ar": "واجهة سطر أوامر Power Platform (PAC CLI) وحزم الحلول والتكامل مع إدارة الشيفرة",
-      "ab400_weight_percent": "10-15%",
-      "official_learn_url": "https://learn.microsoft.com/power-platform/developer/cli/introduction",
-      "net_analogy": "dotnet CLI, NuGet packaging, project SDKs, and Git repository workflows",
-      "status": "PRACTICED",
-      "target_milestone": "Milestone 0",
-      "lab_reference": "labs/00-environment-setup/",
-      "portfolio_module": "portfolio/equipment-provisioning/",
-      "evidence_links": [
-        "labs/00-environment-setup/README.md"
-      ],
-      "last_reviewed": "2026-11-06"
-    },
-    {
       "id": "DEV-02-ALM-SOLUTIONS",
       "category": "Developer Tooling & ALM",
       "title_en": "Dataverse Solutions: Managed vs Unmanaged, Layering, Dependencies, and Solution Packager",
@@ -105,13 +113,13 @@
       "ab400_weight_percent": "25-30%",
       "official_learn_url": "https://learn.microsoft.com/training/modules/develop-plug-ins/",
       "net_analogy": "ASP.NET Core HTTP Middleware Pipeline, EF Core SaveChanges Interceptors, MediatR Behaviors",
-      "status": "IN_PROGRESS",
+      "status": "THEORETICAL",
       "target_milestone": "Milestone 2",
       "lab_reference": "labs/02-csharp-plugins/",
       "portfolio_module": "portfolio/equipment-provisioning/plugins/",
       "evidence_links": [
-        "book/labs-code/Build/LabReference/Lab03/",
-        "book/translated/v2/s07-m02/u03-csharp-plug-in-context.md"
+        "archive/legacy-encyclopedia/book/labs-code/Build/LabReference/Lab03/",
+        "archive/legacy-encyclopedia/book/translated/v2/s07/m02/03-develop-plug-in-execution-context.md"
       ],
       "last_reviewed": "2026-11-06"
     },
