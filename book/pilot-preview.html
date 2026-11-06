@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الإصدار التجريبي (Pilot Preview) — موسوعة مطوّر Microsoft Power Platform و Dynamics 365 لشهادة AB-400</title>
+  <style>
+:root {
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --primary: #0f6cbd;
+  --primary-dark: #0c4a6e;
+  --border-color: #cbd5e1;
+  --code-bg: #0f172a;
+  --code-text: #f8fafc;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  text-align: right;
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-main);
+  background: var(--bg-page);
+}
+
+.layout-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar-toc {
+  width: 300px;
+  background: #0f172a;
+  color: #f1f5f9;
+  padding: 24px 18px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  flex-shrink: 0;
+  border-left: 1px solid #1e293b;
+}
+
+.sidebar-toc h2 {
+  font-size: 1.05rem;
+  color: #38bdf8;
+  margin-top: 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #334155;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-list li {
+  margin-bottom: 8px;
+}
+
+.toc-list a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.92rem;
+  display: block;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.toc-list a:hover {
+  background: #1e293b;
+  color: #ffffff;
+}
+
+.main-content {
+  flex: 1;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 40px;
+}
+
+.book-cover {
+  background: linear-gradient(135deg, #0c4a6e 0%, #0f172a 100%);
+  color: #ffffff;
+  padding: 36px 36px;
+  border-radius: 14px;
+  margin-bottom: 32px;
+}
+
+.book-cover .badge {
+  display: inline-block;
+  direction: ltr;
+  unicode-bidi: isolate;
+  background: rgba(56, 189, 248, 0.2);
+  color: #7dd3fc;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.book-cover h1 {
+  margin: 0 0 10px 0;
+  font-size: 1.85rem;
+  line-height: 1.45;
+}
+
+.book-cover h1 .en-term {
+  color: #7dd3fc;
+}
+
+.book-cover p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 1rem;
+}
+
+.book-cover p .en-term {
+  color: #e0f2fe;
+}
+
+.unit-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 30px 34px;
+  margin-bottom: 30px;
+}
+
+.unit-header-group {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+.unit-meta-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: #f1f5f9;
+  padding: 8px 14px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+.unit-meta-bar a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.book-h1 {
+  font-size: 1.65rem;
+  color: #0f172a;
+  border-bottom: 3px solid var(--primary);
+  padding-bottom: 10px;
+  margin-top: 0;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+.book-h2 {
+  font-size: 1.32rem;
+  color: #0c4a6e;
+  margin-top: 26px;
+  padding-right: 12px;
+  border-right: 4px solid var(--primary);
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+.book-h3 {
+  font-size: 1.14rem;
+  color: #1e293b;
+  margin-top: 20px;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+.lead-para {
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+.en-term {
+  direction: ltr;
+  unicode-bidi: isolate;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-weight: 600;
+  color: #0369a1;
+  padding: 0 2px;
+}
+
+.inline-code {
+  direction: ltr;
+  unicode-bidi: isolate;
+  font-family: 'Cascadia Code', Consolas, 'Courier New', monospace;
+  font-size: 0.88em;
+  background: #f1f5f9;
+  color: #be123c;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+}
+
+.code-container {
+  direction: ltr;
+  text-align: left;
+  margin: 18px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--code-bg);
+  border: 1px solid #1e293b;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.code-container-long {
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+.code-header {
+  background: #1e293b;
+  padding: 5px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+.code-lang {
+  color: #38bdf8;
+  font-family: 'Cascadia Code', Consolas, monospace;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.code-pre {
+  margin: 0;
+  padding: 14px 16px;
+  overflow-x: auto;
+  font-family: 'Cascadia Code', Consolas, 'Courier New', monospace;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--code-text);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin: 18px 0;
+}
+
+.book-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+}
+
+.book-table thead {
+  display: table-header-group;
+}
+
+.book-table tr {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.book-table th, .book-table td {
+  border: 1px solid #cbd5e1;
+  padding: 10px 12px;
+  text-align: right;
+  vertical-align: top;
+}
+
+.book-table th {
+  background: #f1f5f9;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.book-table tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+.callout {
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 16px 0;
+  border-right: 5px solid #0284c7;
+  background: #f0f9ff;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.callout-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #0369a1;
+}
+
+.alert-tip { border-right-color: #16a34a; background: #f0fdf4; }
+.alert-tip .callout-title { color: #15803d; }
+.alert-important { border-right-color: #7c3aed; background: #f5f3ff; }
+.alert-important .callout-title { color: #6d28d9; }
+.alert-warning { border-right-color: #d97706; background: #fffbeb; }
+.alert-warning .callout-title { color: #b45309; }
+.alert-caution { border-right-color: #dc2626; background: #fef2f2; }
+.alert-caution .callout-title { color: #b91c1c; }
+
+.quiz-card {
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #f8fafc;
+  padding: 14px 18px;
+  margin: 14px 0;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.quiz-q-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.quiz-q-badge {
+  background: var(--primary);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 3px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.quiz-q-stem {
+  display: block;
+  flex: 1;
+  font-weight: 600;
+  color: #0f172a;
+  direction: rtl;
+  text-align: right;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quiz-opt-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.quiz-opt-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-weight: 700;
+  font-size: 0.88rem;
+  flex-shrink: 0;
+}
+
+.quiz-opt-text {
+  display: block;
+  flex: 1;
+  direction: rtl;
+  text-align: right;
+  line-height: 1.6;
+}
+
+.study-aid-container {
+  margin-top: 22px;
+  padding: 18px 22px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 2px solid #0284c7;
+}
+
+.book-figure {
+  margin: 20px auto;
+  text-align: center;
+  background: #f8fafc;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.book-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.book-figure figcaption {
+  margin-top: 8px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  .layout-shell {
+    flex-direction: column;
+  }
+  .sidebar-toc {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .main-content {
+    padding: 20px 16px;
+  }
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm 12mm;
+  }
+  body {
+    background: #ffffff;
+    font-size: 10.5pt;
+    line-height: 1.58;
+  }
+  .sidebar-toc {
+    display: none !important;
+  }
+  .main-content {
+    max-width: 100%;
+    padding: 0;
+  }
+  .book-cover {
+    margin-bottom: 18px;
+    padding: 22px 26px;
+  }
+  .unit-card {
+    box-shadow: none;
+    border: 1px solid #cbd5e1;
+    page-break-inside: auto;
+    margin-bottom: 16px;
+    padding: 16px 20px;
+  }
+  .unit-card + .unit-card {
+    break-before: page;
+    page-break-before: always;
+  }
+  .unit-header-group, .unit-meta-bar, .lead-para, h1, h2, h3, h4, .book-h1, .book-h2, .book-h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  .unit-header-group, .callout, .book-figure, .quiz-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .code-container {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .code-container-long {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+  .quiz-card {
+    padding: 10px 14px;
+    margin: 10px 0;
+  }
+  .quiz-q-header {
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+  }
+  .quiz-options {
+    gap: 6px;
+  }
+  .quiz-opt-row {
+    padding: 6px 10px;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="layout-shell">
+    <aside class="sidebar-toc">
+      <h2>فهرس المحتويات (4 وحدات)</h2>
+      <ul class="toc-list">
+        <li><a href="#unit-1">1. رسم خريطة مواقع تشغيل كود التوسيع وكيفية بدء تنفيذه (<bdi class="en-term" dir="ltr">Extension Runtimes</bdi> &amp; <bdi class="en-term" dir="ltr">Triggers</bdi>)</a></li><li><a href="#unit-2">2. تطوير إضافة برمجية (<bdi class="en-term" dir="ltr">Plug-in</bdi>) تستخدم سياق التنفيذ (<bdi class="en-term" dir="ltr">Execution Context</bdi>)</a></li><li><a href="#unit-3">3. تقييم الموديول (<bdi class="en-term" dir="ltr">Module Assessment</bdi>)</a></li><li><a href="#unit-4">4. بناء وتسجيل إضافة برمجية (<bdi class="en-term" dir="ltr">Plug-in</bdi>) للتحقق من أهلية المعدات</a></li>
+      </ul>
+    </aside>
+    <main class="main-content">
+      <header class="book-cover">
+        <div class="badge">Exam AB-400 / Course AB-400T00 — Pilot Build v3</div>
+        <h1>الإصدار التجريبي (<bdi class="en-term" dir="ltr">Pilot Preview</bdi>) — موسوعة مطوّر <bdi class="en-term" dir="ltr">Microsoft Power Platform</bdi> و <bdi class="en-term" dir="ltr">Dynamics 365</bdi> لشهادة <bdi class="en-term" dir="ltr">AB-400</bdi></h1>
+        <p>عينة معمارية وتطبيقية شاملة (4 وحدات: معمارية المنصة + كود <bdi class="en-term" dir="ltr">C# Plug-ins</bdi> + اختبار تقييمي + معمل تطبيقي كامل مع الكود المرجعي الكامل وشرحه)</p>
+      </header>
+      <section id="unit-1" class="unit-card">
+<div class="unit-header-group">
+<div class="unit-meta-bar"><span><strong>الوحدة:</strong> <bdi class="en-term" dir="ltr">v2-s07-m01-u02</bdi> — <bdi class="en-term" dir="ltr">Map where extension code runs and how it starts</bdi></span><a href="https://learn.microsoft.com/training/modules/get-started-power-platform-development/2-map-extension-runtimes/" target="_blank" rel="noopener">المصدر الرسمي على <bdi class="en-term" dir="ltr">Microsoft Learn / GitHub</bdi> ↗</a></div>
+<h1 id="u1-h-0" class="book-h1">رسم خريطة مواقع تشغيل كود التوسيع وكيفية بدء تنفيذه (<bdi class="en-term" dir="ltr">Extension Runtimes</bdi> &amp; <bdi class="en-term" dir="ltr">Triggers</bdi>)</h1>
+</div>
+<p>تستعرض وحدة المقدمة سيناريو تجهيز المعدات (<bdi class="en-term" dir="ltr">Equipment-provisioning scenario</bdi>) والقائمة الكاملة لخيارات التوسيع البرمجي التي يقارن بينها هذا الموديول. وقبل أن تفاضل بين التقنيات المحددة في مواجهة بعضها البعض، تحتاج أولاً إلى بناء نموذج ذهني واضح للمكان الفعلي الذي يعمل فيه الكود (<bdi class="en-term" dir="ltr">Where code runs</bdi>) وما الذي يطلق شرارة تشغيله (<bdi class="en-term" dir="ltr">What starts it running</bdi>). وتبني الوحدات اللاحقة على هذه الخريطة المعمارية عند إجراء المقارنات التفصيلية بين الخيارات المختلفة.</p>
+<h2 id="u1-h-5" class="book-h2">بيئات التشغيل الخمس للتوسيع: <bdi class="en-term" dir="ltr">Client</bdi> و<bdi class="en-term" dir="ltr">Server</bdi> و<bdi class="en-term" dir="ltr">Cloud</bdi> و<bdi class="en-term" dir="ltr">Connector</bdi> و<bdi class="en-term" dir="ltr">Agent</bdi></h2>
+<p>يعيش كل جزء من منطق التوسيع البرمجي (<bdi class="en-term" dir="ltr">Extension logic</bdi>) داخل واحدة من خمس بيئات تشغيل أساسية (<bdi class="en-term" dir="ltr">Runtimes</bdi>): العميل (<bdi class="en-term" dir="ltr">Client</bdi>)، أو الخادم (<bdi class="en-term" dir="ltr">Server</bdi>)، أو السحابة (<bdi class="en-term" dir="ltr">Cloud</bdi>)، أو الموصل (<bdi class="en-term" dir="ltr">Connector</bdi>)، أو وكيل الذكاء الاصطناعي (<bdi class="en-term" dir="ltr">Agent</bdi>). وتمتلك كل بيئة تشغيل موطنها الفيزيائي الخاص، وقيودها التقنية الخاصة، وسبب وجودها المعماري. إن إدراك البيئة التي ينتمي إليها منطق برمجي معين هو القرار الهندسي الأول الذي تتخذه، وذلك قبل وقت طويل من اختيار تقنية بعينها.</p>
+<figure class="book-figure"><a href="assets/v2/s07-m01/five-extension-runtimes.png" target="_blank"><img src="assets/v2/s07-m01/five-extension-runtimes.png" alt="مخطط يربط بيئات تشغيل التوسيع الخمس (Client وServer وCloud وConnector وAgent) بمشغلاتها (Triggers) ومواقع تنفيذها الفيزيائية." /></a><figcaption>مخطط يربط بيئات تشغيل التوسيع الخمس (<bdi class="en-term" dir="ltr">Client</bdi> و<bdi class="en-term" dir="ltr">Server</bdi> و<bdi class="en-term" dir="ltr">Cloud</bdi> و<bdi class="en-term" dir="ltr">Connector</bdi> و<bdi class="en-term" dir="ltr">Agent</bdi>) بمشغلاتها (<bdi class="en-term" dir="ltr">Triggers</bdi>) ومواقع تنفيذها الفيزيائية.</figcaption></figure>
+<p>تأمل نظام تجهيز المعدات الذيطُرح في المقدمة. يملأ الموظف طلباً داخل تطبيق، لذا يعمل جزء من المنطق البرمجي هناك مباشرة داخل التطبيق. وتقوم قاعدة بيانات <bdi class="en-term" dir="ltr">Dataverse</bdi> بتخزين وفرض القواعد الخاصة بالطلبات، مما يعني أن منطقاً آخر يعمل على الخادم (<bdi class="en-term" dir="ltr">Server</bdi>) كلما تم إنشاء سجل طلب، بغض النظر عن التطبيق أو العملية التي أنشأت ذلك السجل.</p>
+<p class="lead-para">وتقوم خدمة خارجية بتتبع الأجهزة المتاحة فعلياً في المخزون، ولذلك فإن المنطق الذي يستدعي تلك الخدمة يعمل في مكان ما خارج <bdi class="en-term" dir="ltr">Dataverse</bdi> بالكامل. كما يقوم منسق الاعتمادات بمراجعة الطلبات والموافقة عليها، ويمكن أن تُدار محادثة الموافقة تلك نفسها بواسطة وكيل ذكاء اصطناعي (<bdi class="en-term" dir="ltr">AI Agent</bdi>) يحلل الطلب منطقياً. يضع الجدول التالي كل بيئة تشغيل في مكانها الصحيح على الخريطة المعمارية ويربطها بجزء محدد من هذا السيناريو.</p>
+<div class="table-wrapper"><table class="book-table">
+<thead><tr>
+<th>بيئة التشغيل (<bdi class="en-term" dir="ltr">Runtime</bdi>)</th>
+<th>أين يتم التنفيذ الفعلي (<bdi class="en-term" dir="ltr">Where it executes</bdi>)</th>
+<th>ما الذي يبدأ التشغيل (<bdi class="en-term" dir="ltr">What initiates it</bdi>)</th>
+<th>مثال تطبيقي من السيناريو (<bdi class="en-term" dir="ltr">Example from the scenario</bdi>)</th>
+</tr></thead><tbody>
+<tr>
+<td><strong><bdi class="en-term" dir="ltr">Client</bdi></strong></td>
+<td>داخل المتصفح أو بيئة تشغيل التطبيق، على جهاز المستخدم مباشرة</td>
+<td>إجراء من المستخدم: فتح نموذج (<bdi class="en-term" dir="ltr">Form</bdi>)، أو الكتابة داخل حقل، أو النقر على زر</td>
+<td>التحقق من إدخال الموظف لمعرّف الجهاز بالصيغة الصحيحة أثناء تعبئة الطلب</td>
+</tr>
+<tr>
+<td><strong><bdi class="en-term" dir="ltr">Server</bdi></strong></td>
+<td>على خادم <bdi class="en-term" dir="ltr">Dataverse</bdi>، وضمن نفس المعاملة (<bdi class="en-term" dir="ltr">Transaction</bdi>) الخاصة بعملية البيانات</td>
+<td>حدث في <bdi class="en-term" dir="ltr">Dataverse:</bdi> انطلاق رسالة (<bdi class="en-term" dir="ltr">Message</bdi>) مثل <bdi class="en-term" dir="ltr">Create</bdi> أو <bdi class="en-term" dir="ltr">Update</bdi> أو <bdi class="en-term" dir="ltr">Delete</bdi> على صف في جدول (<bdi class="en-term" dir="ltr">Table row</bdi>)</td>
+<td>فرض قواعد الأهلية والاستحقاق في كل مرة ينشئ فيها شخص أو نظام سجل طلب، بغض النظر عما إذا كان الطلب قادماً من تطبيق أو <bdi class="en-term" dir="ltr">Cloud Flow</bdi> أو واجهة <bdi class="en-term" dir="ltr">API</bdi></td>
+</tr>
+<tr>
+<td><strong><bdi class="en-term" dir="ltr">Cloud</bdi></strong></td>
+<td>على موارد حوسبة أو خدمات سحابية خارج <bdi class="en-term" dir="ltr">Dataverse</bdi></td>
+<td>استدعاء <bdi class="en-term" dir="ltr">HTTP</bdi> أو مشغل مجدول زمنياً (<bdi class="en-term" dir="ltr">Scheduled trigger</bdi>)</td>
+<td>فحص التوافر الفوري للأجهزة من خدمة خارجية، سواء وفق جدول زمني أو في لحظة إرسال الطلب</td>
+</tr>
+<tr>
+<td><strong><bdi class="en-term" dir="ltr">Connector</bdi></strong></td>
+<td>عند الجسر الرابط بين <bdi class="en-term" dir="ltr">Power Platform</bdi> والنظام الخارجي</td>
+<td>إجراء (<bdi class="en-term" dir="ltr">Action</bdi>) أو طلب يتم تمريره عبر الموصل بواسطة تطبيق أو <bdi class="en-term" dir="ltr">Cloud Flow</bdi> أو وكيل <bdi class="en-term" dir="ltr">Agent</bdi></td>
+<td>كشف وإتاحة عمليات خدمة التوافر الخارجية بحيث يتمكن <bdi class="en-term" dir="ltr">Cloud Flow</bdi> أو <bdi class="en-term" dir="ltr">Agent</bdi> من استدعائها بأمان</td>
+</tr>
+<tr>
+<td><strong><bdi class="en-term" dir="ltr">Agent</bdi></strong></td>
+<td>داخل بيئة تشغيل مدعومة بالذكاء الاصطناعي تحلل هدفاً أو محادثة أو مجموعة تعليمات</td>
+<td>مطالبة حوارية (<bdi class="en-term" dir="ltr">Prompt</bdi>)، أو هدف محدد، أو حدث يراقبه الوكيل</td>
+<td>قيادة الطلب عبر محادثة اعتماد تفاعلية مع المنسق، أو مراقبة الطلبات المعلقة وتنبيه المنسق تلقائياً</td>
+</tr>
+</tbody></table></div>
+<h2 id="u1-h-23" class="book-h2">المشغلات (<bdi class="en-term" dir="ltr">Triggers</bdi>): ما الذي يبدأ عمل كل بيئة تشغيل</h2>
+<p>إن السؤال عن المكان الذي يعيش فيه الكود والسؤال عما يبدأ تشغيله هما سؤالان منفصلان تماماً، والخلط بينهما يُعد مصدراً شائعاً للارتباك عند مقارنة خيارات التوسيع لأول مرة. فبيئة التشغيل (<bdi class="en-term" dir="ltr">Runtime</bdi>) تخبرك بالمكان الفيزيائي الذي يُنفَّذ فيه المنطق البرمجي، بينما يخبرك المشغل (<bdi class="en-term" dir="ltr">Trigger</bdi>) بالإشارة التي تطلق هذا التنفيذ، وتبدو تلك الإشارة مختلفة كلياً من بيئة تشغيل إلى أخرى.</p>
+<p>فمع منطق العميل (<bdi class="en-term" dir="ltr">Client logic</bdi>)، يوجد دائماً شخص بشري خلف المشغل: نقرة ماوس، أو ضغطة مفتاح، أو فتح نموذج (<bdi class="en-term" dir="ltr">Form</bdi>). أما مع منطق الخادم (<bdi class="en-term" dir="ltr">Server logic</bdi>)، فلا يكون المشغل شخصاً بشكل مباشر أبداً؛ بل هو رسالة (<bdi class="en-term" dir="ltr">Message</bdi>) تطلقها المنصة كلما حدثت عملية بيانات، سواء تسبب فيها مستخدم بشري، أو تدفق سحابي (<bdi class="en-term" dir="ltr">Cloud Flow</bdi>)، أو نظام خارجي آخر.</p>
+<p>وهذا التمييز جوهري جداً في سيناريو العمل؛ فقاعدة التحقق من الأهلية التي تعمل فقط عندما يرسل الموظف طلباً عبر واجهة التطبيق ستفوّت حتماً أي طلبات يتم إنشاؤها بأي طريقة أخرى. أما وضع تلك القاعدة على الخادم (<bdi class="en-term" dir="ltr">Server</bdi>) بحيث تنطلق بواسطة الحدث ذاته بدلاً من واجهة التطبيق، فيضمن اتساق تطبيق القاعدة بصرامة بغض النظر عن الكيفية التي أُنشئ بها الطلب.</p>
+<p>وتقع مشغلات السحابة (<bdi class="en-term" dir="ltr">Cloud</bdi>) والموصلات (<bdi class="en-term" dir="ltr">Connector</bdi>) في منطقة وسطى بينهما؛ فالعملية السحابية تستجيب لاستدعاء <bdi class="en-term" dir="ltr">HTTP</bdi> أو تنطلق وفق جدول زمني، مما يعني أن الفحص الليلي المجدول لتوافر الأجهزة والفحص الفوري عند الطلب الناتج عن إرسال طلب جديد يمكن أن يتواجدا معاً كنفس النوع من المنطق السحابي مع ربط كل منهما بمشغل مختلف.</p>
+<p>أما الموصل (<bdi class="en-term" dir="ltr">Connector</bdi>) فلا يقوم بتشغيل أي شيء من تلقاء نفسه، بل يكتفي بإتاحة العمليات البرمجية لكي يقرر مكون آخر — مثل <bdi class="en-term" dir="ltr">Cloud Flow</bdi> أو تطبيق أو <bdi class="en-term" dir="ltr">Agent</bdi> — استدعاءها عند الحاجة.</p>
+<p>ويقدم منطق الوكيل (<bdi class="en-term" dir="ltr">Agent logic</bdi>) نوعاً مختلفاً تماماً من المشغلات؛ فبدلاً من الاستجابة لحدث منفرد ومحدد، يستجيب الوكيل لهدف (<bdi class="en-term" dir="ltr">Goal</bdi>) أو محادثة، ويمكنه مواصلة التفكير والاستنتاج عبر خطوات متعددة، كما يحدث عندما يوجه المنسق خطوة بخطوة خلال عملية اعتماد الطلب بدلاً من العمل لمرة واحدة والتوقف.</p>
+<h2 id="u1-h-37" class="book-h2">مصطلحات جانب الخادم (<bdi class="en-term" dir="ltr">Server-side vocabulary</bdi>): الرسالة والخدمة وإطار عمل الأحداث</h2>
+<p>يأتي المنطق البرمجي على جانب الخادم في <bdi class="en-term" dir="ltr">Dataverse</bdi> بمصطلحاته المعمارية الخاصة. ويساعدك التعرف على هذه المصطلحات الآن على امتلاك الأساس المتين الذي تحتاجه عندما تتعمق الوحدات اللاحقة في هذا الموديول في بناء التوسيعات الفعلية. أنت لا تبني شيئاً بهذه المصطلحات في هذه اللحظة، بل تضعها في مكانها الصحيح على الخريطة الذهنية.</p>
+<p>تُعرَّف كل عملية بيانات في <bdi class="en-term" dir="ltr">Dataverse</bdi> — سواء كانت عملية إنشاء (<bdi class="en-term" dir="ltr">Create</bdi>)، أو تحديث (<bdi class="en-term" dir="ltr">Update</bdi>)، أو عملية أعمال مخصصة — كرسالة مسماة (<em><bdi class="en-term" dir="ltr">Message</bdi></em>). وتكتمل هذه المنظومة الاصطلاحية بخمسة مصطلحات أساسية أخرى:</p>
+<ul>
+<li><strong><bdi class="en-term" dir="ltr">Organization service</bdi></strong>: تُعرّف هذه الرسائل والعمليات التي تدعمها المنصة برمجياً.</li>
+<li><strong><bdi class="en-term" dir="ltr">Dataverse Web API</bdi></strong>: تكشف وتتيح نفس دليل العمليات هذا عبر بروتوكول <bdi class="en-term" dir="ltr">HTTP</bdi> في صورة دوال وإجراءات <bdi class="en-term" dir="ltr">REST</bdi> قياسية، مما يتيح لك استدعاء نفس العمليات المتطابقة التي تُعرّفها خدمة المؤسسة (<bdi class="en-term" dir="ltr">Organization service</bdi>) من أي لغة برمجة تقريباً.</li>
+<li><strong><bdi class="en-term" dir="ltr">Event framework</bdi></strong>: يكتشف لحظة انطلاق أي رسالة من هذه الرسائل ويتيح لك تسجيل منطق برمجي مخصص للاستجابة لها.</li>
+<li><strong><bdi class="en-term" dir="ltr">Plug-in</bdi></strong>: هو الكود البرمجي على جانب الخادم الذي تقوم بتسجيله للاستجابة لحدث معين من خلال إطار عمل الأحداث (<bdi class="en-term" dir="ltr">Event framework</bdi>).</li>
+<li><strong><bdi class="en-term" dir="ltr">Custom API</bdi></strong>: تتيح لك تعريف عملية مسماة جديدة كلياً تتجاوز العمليات المدمجة التي يأتي بها <bdi class="en-term" dir="ltr">Dataverse</bdi> افتراضياً، بحيث يتمكن أي منطق برمجي آخر من استدعائها بنفس الطريقة التي يستدعي بها أي رسالة مدمجة.</li>
+</ul>
+<p>معاً، تصف هذه المكونات الخمسة كيف يرتبط منطق جانب الخادم بالمنصة معمارياً، وليس التفاصيل الكودية لكيفية كتابة كل مكون منها.</p>
+<blockquote class="book-quote"><strong>سؤال توجيهي للتفكير (<bdi class="en-term" dir="ltr">Guiding question</bdi>):</strong> فكر في عملية أعمال تدعمها في عملك أو في نظام تعرفه جيداً؛ أي جزء من منطقها ينتمي إلى جانب العميل (<bdi class="en-term" dir="ltr">Client</bdi>)، وأي جزء ينتمي إلى جانب الخادم (<bdi class="en-term" dir="ltr">Server</bdi>)، وأي جزء يعتمد على خدمة خارجية أو قرار مدعوم بالذكاء الاصطناعي؟ حاول توزيع كل جزء على خريطة بيئات التشغيل الخمس قبل الانتقال إلى الوحدة التالية.</blockquote>
+<p>ومع اكتمال هذه الخريطة المعمارية، أصبحت مستعداً لفحص الخيارات التقنية المحددة داخل كل بيئة تشغيل. تركز الوحدة التالية في هذا الموديول على بيئة تشغيل العميل والتطبيق، حيث تقارن بين <bdi class="en-term" dir="ltr">Client scripts</bdi>، ومكونات <bdi class="en-term" dir="ltr">PCF</bdi>، وتطبيقات الكود (<bdi class="en-term" dir="ltr">Code Apps</bdi>)، والصفحات التوليدية (<bdi class="en-term" dir="ltr">Generative pages</bdi>) في ضوء النموذج الذهني الذي بنيته للتو.</p>
+</section><section id="unit-2" class="unit-card">
+<div class="unit-header-group">
+<div class="unit-meta-bar"><span><strong>الوحدة:</strong> <bdi class="en-term" dir="ltr">v2-s07-m02-u03</bdi> — <bdi class="en-term" dir="ltr">Develop a plug-in that uses the execution context</bdi></span><a href="https://learn.microsoft.com/training/modules/implement-dataverse-plug-ins/3-develop-plug-in-execution-context/" target="_blank" rel="noopener">المصدر الرسمي على <bdi class="en-term" dir="ltr">Microsoft Learn / GitHub</bdi> ↗</a></div>
+<h1 id="u2-h-0" class="book-h1">تطوير إضافة برمجية (<bdi class="en-term" dir="ltr">Plug-in</bdi>) تستخدم سياق التنفيذ (<bdi class="en-term" dir="ltr">Execution Context</bdi>)</h1>
+</div>
+<p>أثبتت الوحدة رقم 2 أن فحص رصيد الاستحقاق المالي في شركة <bdi class="en-term" dir="ltr">Contoso</bdi> ينتمي معمارياً إلى مرحلة <bdi class="en-term" dir="ltr">PreValidation</bdi>، وشرحت لماذا تتفوق تلك المرحلة على مرحلة <bdi class="en-term" dir="ltr">PreOperation</bdi> في أي فحص تقتصر وظيفته على رفض العملية مبكراً بأقل تكلفة ممكنة. تحوّل هذه الوحدة ذلك القرار المعماري إلى فئة <bdi class="en-term" dir="ltr">Plug-in</bdi> برمجية عاملة بلغة <bdi class="en-term" dir="ltr">C#</bdi>، وتوضح كيف تقرأ هذه الفئة بيانات سجل الطلب (<bdi class="en-term" dir="ltr">Request record</bdi>) من خلال سياق التنفيذ (<bdi class="en-term" dir="ltr">ExecutionContext</bdi> / <bdi class="en-term" dir="ltr">IPluginExecutionContext</bdi>).</p>
+<h2 id="u2-h-5" class="book-h2">تنفيذ الواجهة <bdi class="en-term" dir="ltr">IPlugin</bdi> لتشغيل منطقك داخل خط أنابيب الأحداث (<bdi class="en-term" dir="ltr">Pipeline</bdi>)</h2>
+<p>تقوم كل فئة <bdi class="en-term" dir="ltr">Plug-in</bdi> تسجلها في <bdi class="en-term" dir="ltr">Dataverse</bdi> بتنفيذ الواجهة البرمجية <strong><code class="inline-code" dir="ltr">IPlugin</code></strong>. وتُعرّف هذه الواجهة دالة واحدة فقط هي <code class="inline-code" dir="ltr">Execute(IServiceProvider serviceProvider)</code>، حيث يستدعي <bdi class="en-term" dir="ltr">Dataverse</bdi> هذه الدالة تلقائياً كلما انطلقت خطوة مسجلة (<bdi class="en-term" dir="ltr">Registered step</bdi>) مرتبطة بفئتك البرمجية. وكل ما يقوم به الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> الخاص بك يحدث بالكامل داخل هذه الدالة الواحدة.</p>
+<p class="lead-para">فيما يلي فئة برمجية مبسطة تطابق فحص رصيد الاستحقاق من الوحدة رقم 2، ومسجلة كخطوة في مرحلة <bdi class="en-term" dir="ltr">PreValidation</bdi> على رسالة الإنشاء (<bdi class="en-term" dir="ltr">Create</bdi>) الخاصة بجدول الطلبات (<bdi class="en-term" dir="ltr">Request table</bdi>):</p>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">CSHARP</span></div><pre class="code-pre" dir="ltr"><code class="language-csharp">public class ValidateRequestAllowance : IPlugin
+{
+    public void Execute(IServiceProvider serviceProvider)
+    {
+        IPluginExecutionContext context = (IPluginExecutionContext)
+            serviceProvider.GetService(typeof(IPluginExecutionContext));
+
+        Entity request = (Entity)context.InputParameters[&quot;Target&quot;];
+
+        if (request.Contains(&quot;cont_remainingallowance&quot;) &amp;&amp;
+            request.GetAttributeValue&lt;Money&gt;(&quot;cont_remainingallowance&quot;).Value &lt;= 0)
+        {
+            throw new InvalidPluginExecutionException(
+                &quot;This employee has no remaining allowance for a new request.&quot;);
+        }
+    }
+}</code></pre></div>
+<p>يُعد المعامل <code class="inline-code" dir="ltr">serviceProvider</code> هو البوابة التي تصل من خلالها الدالة <code class="inline-code" dir="ltr">Execute</code> إلى كل ما تحتاجه أثناء التشغيل: سياق التنفيذ (<bdi class="en-term" dir="ltr">IPluginExecutionContext</bdi>)، وخدمة التتبع التشخيصي (<bdi class="en-term" dir="ltr">ITracingService</bdi>)، وخدمة المؤسسة (<bdi class="en-term" dir="ltr">IOrganizationService</bdi>) التي ستستكشفها في الوحدة التالية. ويتيح استخراج كائن الكيان (<bdi class="en-term" dir="ltr">Entity</bdi>) الخاص بالطلب عبر التحويل النوعي من <code class="inline-code" dir="ltr">InputParameters[&quot;Target&quot;]</code> وصولاً مباشراً للـ <bdi class="en-term" dir="ltr">Plug-in</bdi> إلى الصف (<bdi class="en-term" dir="ltr">Row</bdi>) الفعلي الذي يحاول الموظف حفظه، وذلك قبل أن تصل عملية الحفظ إلى قاعدة البيانات.</p>
+<h2 id="u2-h-15" class="book-h2">الحفاظ على فئة الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> عديمة الحالة (<bdi class="en-term" dir="ltr">Stateless</bdi>)</h2>
+<p>يقوم <bdi class="en-term" dir="ltr">Dataverse</bdi> بتخزين نسخة واحدة فقط (<bdi class="en-term" dir="ltr">Single instance</bdi>) من فئة الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> في الذاكرة المؤقتة (<bdi class="en-term" dir="ltr">Cache</bdi>) ويعيد استخدامها عبر العديد من الاستدعاءات المتتالية لمختلف المستخدمين والطلبات، نظراً لأن إنشاء نسخة جديدة في كل مرة يستهلك موارد الأداء. وهذا السلوك في التخزين المؤقت هو السبب الجوهري الذي يفرض أن تظل فئة الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> عديمة الحالة (<bdi class="en-term" dir="ltr">Stateless</bdi>): فأي بيانات تخزنها كحقل (<bdi class="en-term" dir="ltr">Field</bdi>) أو خاصية (<bdi class="en-term" dir="ltr">Property</bdi>) على مستوى الفئة تبقى مخزنة وتنتقل عبر كل استدعاء لاحق يعيد استخدام نفس النسخة المخزنة مؤقتاً.</p>
+<p>ونتيجة لذلك، قد تتسرب بيانات طلب خاصة بموظف معين إلى تنفيذ خاص بموظف آخر، أو قد تتم الكتابة فوقها أثناء التنفيذ بواسطة استدعاء متزامن (<bdi class="en-term" dir="ltr">Concurrent call</bdi>). ومن الناحية العملية، يعني ذلك الالتزام بالقواعد التالية:</p>
+<ul>
+<li><strong>احتفظ بالكائنات الخاصة بالطلب داخل الدالة <code class="inline-code" dir="ltr">Execute</code> فقط.</strong> ينتمي كل من سياق التنفيذ (<bdi class="en-term" dir="ltr">Context</bdi>)، ومرجع خدمة المؤسسة (<bdi class="en-term" dir="ltr">Organization service</bdi>)، وخدمة التتبع (<bdi class="en-term" dir="ltr">Tracing service</bdi>)، وأي بيانات صف خاصة بالطلب إلى النطاق المحلي داخل <bdi class="en-term" dir="ltr">Execute</bdi>، ولا يجوز أبداً تعريفها كحقول على مستوى الفئة.</li>
+<li><strong>الثوابت على مستوى الفئة والدوال المساعدة عديمة الحالة آمنة تماماً.</strong> أي عنصر لا يحتفظ بحالة مرتبطة بطلب معين لا بأس من إبقائه على مستوى الفئة، لأنه لا يتغير بين الاستدعاءات المتتالية.</li>
+<li><strong>لا تقم بتخزين السياق أو الخدمة أو التتبع أو بيانات الصفوف في حقول الفئة.</strong> إن التعامل مع الدالة <code class="inline-code" dir="ltr">Execute</code> بوصفها المكان الوحيد الذي تعيش فيه الحالة المؤقتة يضمن بقاء إضافة <bdi class="en-term" dir="ltr">Contoso</bdi> البرمجية آمنة تماماً عند إعادة الاستخدام تحت ضغط التشغيل الفعلي في بيئة الإنتاج.</li>
+</ul>
+<h2 id="u2-h-25" class="book-h2">الاختيار بين تنفيذ <bdi class="en-term" dir="ltr">IPlugin</bdi> مباشرة أو البناء فوق الفئة <bdi class="en-term" dir="ltr">PluginBase</bdi></h2>
+<p>إن كتابة فئة برمجية تنفذ الواجهة <code class="inline-code" dir="ltr">IPlugin</code> مباشرة، كما يفعل المثال السابق، يعمل بكفاءة مع أي <bdi class="en-term" dir="ltr">Plug-in.</bdi> كما يوفر <bdi class="en-term" dir="ltr">Dataverse</bdi> فئة مجردة (<bdi class="en-term" dir="ltr">Abstract class</bdi>) باسم <strong><code class="inline-code" dir="ltr">PluginBase</code></strong> يتم توليدها تلقائياً لك بواسطة إضافة أدوات <bdi class="en-term" dir="ltr">Power Platform</bdi> لبرنامج <bdi class="en-term" dir="ltr">Visual Studio</bdi> أو عبر أمر <code class="inline-code" dir="ltr">pac plugin init</code> في أداة <bdi class="en-term" dir="ltr">Power Platform CLI.</bdi> وتنفذ الفئة <code class="inline-code" dir="ltr">PluginBase</code> الواجهة <code class="inline-code" dir="ltr">IPlugin</code> وتجهز مسبقاً سياق التنفيذ والخدمات الشائعة، بحيث تبدأ دالة <code class="inline-code" dir="ltr">Execute</code> التي تعيد تعريفها (<bdi class="en-term" dir="ltr">Override</bdi>)، والسياق والخدمات جاهزة للاستخدام المباشر بدلاً من استخراجها يدوياً في كل مرة.</p>
+<p>تُعد الفئة <code class="inline-code" dir="ltr">PluginBase</code> وسيلة راحة وتسهيل للمطور، وليست متطلباً إجبارياً؛ فمن المفيد وضعها في الاعتبار أثناء كتابة أولى إضافاتك البرمجية لأنها تزيل الكود التأسيسي المتكرر، غير أن الفئة التي تنفذ <code class="inline-code" dir="ltr">IPlugin</code> مباشرة تتصرف بشكل متطابق تماماً بمجرد تسجيلها على الخادم. ويمكن لمطوري <bdi class="en-term" dir="ltr">Contoso</bdi> المزج بين الأسلوبين داخل نفس الحل (<bdi class="en-term" dir="ltr">Solution</bdi>) دون أي تعارض.</p>
+<h2 id="u2-h-31" class="book-h2">قراءة البيانات التي يحتاجها الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> من سياق التنفيذ (<bdi class="en-term" dir="ltr">Execution Context</bdi>)</h2>
+<p class="lead-para">يحمل سياق التنفيذ كل المعلومات التي يحتاج الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> إلى معرفتها حول العملية الجارية التي يعمل بداخلها. والخصائص التي ستستخدمها في أغلب الأحيان هي:</p>
+<div class="table-wrapper"><table class="book-table">
+<thead><tr>
+<th>الخاصية (<bdi class="en-term" dir="ltr">Property</bdi>)</th>
+<th>ماذا تحتوي (<bdi class="en-term" dir="ltr">What it holds</bdi>)</th>
+<th>كيف يستخدمها الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> في شركة <bdi class="en-term" dir="ltr">Contoso</bdi></th>
+</tr></thead><tbody>
+<tr>
+<td><code class="inline-code" dir="ltr">InputParameters</code> / <code class="inline-code" dir="ltr">OutputParameters</code></td>
+<td>بيانات الطلب والاستجابة للعملية الجارية في صورة أزواج مفاتيح وقيم (<bdi class="en-term" dir="ltr">Key/value pairs</bdi>)</td>
+<td>قراءة كيان الطلب (<bdi class="en-term" dir="ltr">Entity</bdi>) من <code class="inline-code" dir="ltr">InputParameters[&quot;Target&quot;]</code> قبل اكتمال عملية الحفظ</td>
+</tr>
+<tr>
+<td><code class="inline-code" dir="ltr">SharedVariables</code></td>
+<td>بيانات تمررها خطوة <bdi class="en-term" dir="ltr">Plug-in</bdi> إلى خطوة لاحقة ضمن نفس تنفيذ خط الأنابيب؛ وبالنسبة لقيمة تم ضبطها في مرحلة <bdi class="en-term" dir="ltr">PreValidation</bdi> على رسائل <bdi class="en-term" dir="ltr">Create</bdi> أو <bdi class="en-term" dir="ltr">Update</bdi> أو <bdi class="en-term" dir="ltr">Delete</bdi>، تقرؤها الخطوة اللاحقة من <code class="inline-code" dir="ltr">ParentContext.SharedVariables</code></td>
+<td>تتيح لخطوة في <bdi class="en-term" dir="ltr">PreValidation</bdi> وضع علامة أو قيمة تسترجعها خطوة في <bdi class="en-term" dir="ltr">PostOperation</bdi> على نفس الطلب عبر <code class="inline-code" dir="ltr">ParentContext.SharedVariables</code> وتتصرف بناءً عليها</td>
+</tr>
+<tr>
+<td><code class="inline-code" dir="ltr">PreEntityImages</code> / <code class="inline-code" dir="ltr">PostEntityImages</code></td>
+<td>لقطات (<bdi class="en-term" dir="ltr">Snapshots</bdi>) لحالة الصف قبل تنفيذ العملية وبعدها</td>
+<td>تحمل البيانات التي تستخدمها الوحدة رقم 4 لمقارنة قيم سجل الطلب قبل التحديث وبعده</td>
+</tr>
+<tr>
+<td><code class="inline-code" dir="ltr">Stage</code>, <code class="inline-code" dir="ltr">MessageName</code>, <code class="inline-code" dir="ltr">PrimaryEntityName</code></td>
+<td>المرحلة الجارية حالياً والرسالة والجدول اللذان أطلقا التنفيذ</td>
+<td>تتيح لفئة برمجية واحدة مسجلة على عدة خطوات التمييز بينها أثناء التشغيل</td>
+</tr>
+<tr>
+<td><code class="inline-code" dir="ltr">Depth</code></td>
+<td>عمق التنفيذ الحالي في مكدس الاستدعاءات (<bdi class="en-term" dir="ltr">Call stack</bdi>)</td>
+<td>يساعدك على رصد حالات إعادة الدخول المتكررة (<bdi class="en-term" dir="ltr">Re-entry</bdi>) عندما يؤدي تحديث داخل <bdi class="en-term" dir="ltr">Plug-in</bdi> إلى إطلاق معالجات إضافية</td>
+</tr>
+<tr>
+<td><code class="inline-code" dir="ltr">ParentContext</code></td>
+<td>تفاصيل حول العملية الخارجية الأب، إذا كان <bdi class="en-term" dir="ltr">Plug-in</bdi> آخر أو مسار عمل قد أطلق العملية الحالية</td>
+<td>يوضح ما إذا كان التغيير على سجل الطلب قد تم تشغيله نتيجة إجراء قام به <bdi class="en-term" dir="ltr">Plug-in</bdi> آخر مسبقاً</td>
+</tr>
+</tbody></table></div>
+<p>جميع هذه الخصائص هي خصائص للقراءة فقط (<bdi class="en-term" dir="ltr">Read-only</bdi>) على كائن السياق نفسه، ولكن المجموعات <code class="inline-code" dir="ltr">InputParameters</code> و<code class="inline-code" dir="ltr">OutputParameters</code> و<code class="inline-code" dir="ltr">SharedVariables</code> هي مجموعات قابلة للتعديل (<bdi class="en-term" dir="ltr">Mutable collections</bdi>). إن تعديل العناصر الموجودة بداخل هذه المجموعات — بدلاً من محاولة إعادة تعيين الخاصية نفسها — هو الطريقة التي يغير بها الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> سلوك العملية في المراحل التالية. كما تحمل <code class="inline-code" dir="ltr">PreEntityImages</code> و<code class="inline-code" dir="ltr">PostEntityImages</code> بيانات فعلية بمجرد تسجيلها على الخطوة (<bdi class="en-term" dir="ltr">Pre-image</bdi> و<bdi class="en-term" dir="ltr">Post-image</bdi>)، وتغطي الوحدة التالية بالتفصيل كيفية تسجيل هذه الصور والتعامل معها برمجياً.</p>
+<blockquote class="book-quote"><strong>تأمل ومراجعة (<bdi class="en-term" dir="ltr">Reflect</bdi>):</strong> بناءً على ما قرأته، لماذا لا ينبغي لفئة الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> في شركة <bdi class="en-term" dir="ltr">Contoso</bdi> تخزين مرجع خدمة المؤسسة (<bdi class="en-term" dir="ltr">Organization service</bdi>) في حقل على مستوى الفئة؟ وما هي خاصية السياق التي ستفحصها أولاً للتأكد من قيمة الحالة الحالية لسجل الطلب قبل متابعة التنفيذ؟</blockquote>
+<h2 id="u2-h-49" class="book-h2">الحماية من الحلقات اللانهائية باستخدام خاصية <bdi class="en-term" dir="ltr">Depth</bdi></h2>
+<p>توجد الخاصية <code class="inline-code" dir="ltr">Depth</code> لأن الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> يمكن أن يطلق عملية بيانات أخرى تؤدي — بشكل مباشر أو غير مباشر — إلى تشغيل نفس الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> مرة أخرى. ويقوم <bdi class="en-term" dir="ltr">Dataverse</bdi> بزيادة قيمة <code class="inline-code" dir="ltr">Depth</code> بمقدار واحد في كل مرة يحدث فيها ذلك، ثم يوقف التنفيذ تلقائياً بمجرد تجاوز الحد الأقصى الداخلي المسموح به، مما يمنع أي حلقة تكرارية خارجة عن السيطرة من استهلاك موارد الخادم إلى ما لا نهاية. وينبغي لك التعامل مع <code class="inline-code" dir="ltr">Depth</code> كشبكة أمان تديرها المنصة تلقائياً، وليس كقيمة يعتمد عليها منطق الأعمال الخاص بك، إذ يمكن أن يتغير الرقم الفعلي لأسباب تقع خارج سيطرة الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> مباشرة.</p>
+<h2 id="u2-h-53" class="book-h2">إعادة استخدام المنطق البرمجي عبر الخطوات باستخدام بيانات الإعداد (<bdi class="en-term" dir="ltr">Configuration Data</bdi>)</h2>
+<p>تعالج آلية مستقلة أخرى مشكلة عملية شائعة: كيفية إعادة استخدام نفس فئة الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> المترجمة (<bdi class="en-term" dir="ltr">Compiled class</bdi>) عبر عدة خطوات تحتاج كل منها إلى إعدادات مختلفة قليلاً. يمكن لفئة الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> تعريف معاملات نصية (<bdi class="en-term" dir="ltr">String parameters</bdi>) في دالة البناء (<bdi class="en-term" dir="ltr">Constructor</bdi>) لكل من الإعدادات غير المؤمنة (<code class="inline-code" dir="ltr">unsecure</code>) والإعدادات المؤمنة (<code class="inline-code" dir="ltr">secure</code>)، حيث تقوم بتمرير القيم الخاصة بكل منهما وقت تسجيل الخطوة:</p>
+<ul>
+<li><strong>بيانات الإعداد غير المؤمنة (<bdi class="en-term" dir="ltr">Unsecure configuration data</bdi>):</strong> تكون مرئية لأي مستخدم يمتلك صلاحية عرض تفاصيل تسجيل الخطوة في البيئة.</li>
+<li><strong>بيانات الإعداد المؤمنة (<bdi class="en-term" dir="ltr">Secure configuration data</bdi>):</strong> تُخزن بشكل مستقل وتكون متاحة للمسؤولين (<bdi class="en-term" dir="ltr">Administrators</bdi>) فقط.</li>
+</ul>
+<p>ويمكن لشركة <bdi class="en-term" dir="ltr">Contoso</bdi> توظيف هذه الآلية لتسجيل نفس فئة فحص الاستحقاق على عدة خطوات مختلفة، مع تمرير حد مالي مختلف كبيانات إعداد لكل خطوة، مما يغني عن كتابة فئات برمجية شبه مكررة لكل حد مالي.</p>
+<p>ومع اكتمال كتابة الفئة البرمجية وربط خصائص سياق التنفيذ باحتياجات الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> في <bdi class="en-term" dir="ltr">Contoso</bdi>، تبني الوحدة التالية فوق هذا الأساس؛ حيث توضح كيف تنقل الصور القبلية (<bdi class="en-term" dir="ltr">Pre-image</bdi>) والصور البعدية (<bdi class="en-term" dir="ltr">Post-image</bdi>) قيم الصف قبل التحديث وبعده، وكيف تتيح لك خدمة المؤسسة (<bdi class="en-term" dir="ltr">Organization service</bdi>) تنفيذ عمليات بيانات إضافية كجزء من نفس المعاملة (<bdi class="en-term" dir="ltr">Transaction</bdi>).</p>
+<p>تعرف على المزيد حول <a href="https://learn.microsoft.com/en-us/power-apps/developer/data-platform/write-plug-in" class="book-link" target="_blank" rel="noopener">كتابة إضافة <bdi class="en-term" dir="ltr">Plug-in</bdi> برمجية</a> و<a href="https://learn.microsoft.com/en-us/power-apps/developer/data-platform/understand-the-data-context" class="book-link" target="_blank" rel="noopener">فهم سياق تنفيذ البيانات (<bdi class="en-term" dir="ltr">Execution Context</bdi>)</a>.</p>
+</section><section id="unit-3" class="unit-card">
+<div class="unit-header-group">
+<div class="unit-meta-bar"><span><strong>الوحدة:</strong> <bdi class="en-term" dir="ltr">v2-s07-m02-u06</bdi> — <bdi class="en-term" dir="ltr">Module assessment</bdi></span><a href="https://learn.microsoft.com/training/modules/implement-dataverse-plug-ins/6-knowledge-check/" target="_blank" rel="noopener">المصدر الرسمي على <bdi class="en-term" dir="ltr">Microsoft Learn / GitHub</bdi> ↗</a></div>
+<h1 id="u3-h-0" class="book-h1">تقييم الموديول (<bdi class="en-term" dir="ltr">Module Assessment</bdi>)</h1>
+</div>
+<h2 id="u3-h-3" class="book-h2">اختبر معلوماتك (<bdi class="en-term" dir="ltr">Check your knowledge</bdi>)</h2>
+<div class="quiz-card"><div class="quiz-q-header"><span class="quiz-q-badge">السؤال 1</span><div class="quiz-q-stem">يقوم مطور بتسجيل خطوة (<bdi class="en-term" dir="ltr">Step</bdi>) يجب أن تلغي عملية حفظ سجل الطلب (<bdi class="en-term" dir="ltr">Request</bdi>) كلما لم يتبقَّ للموظف أي رصيد استحقاق، ويحتاج الفحص فقط إلى البيانات المضمنة بالفعل في الطلب الوارد. ما هي مرحلة خط أنابيب الأحداث (<bdi class="en-term" dir="ltr">Event pipeline stage</bdi>) التي ينبغي للمطور تسجيل الخطوة عليها لإلغاء العملية بأقل تكلفة ممكنة؟</div></div><div class="quiz-options"><div class="quiz-opt-row"><span class="quiz-opt-letter">أ</span><div class="quiz-opt-text"><bdi class="en-term" dir="ltr">PreOperation</bdi></div></div><div class="quiz-opt-row"><span class="quiz-opt-letter">ب</span><div class="quiz-opt-text"><bdi class="en-term" dir="ltr">PreValidation</bdi></div></div><div class="quiz-opt-row"><span class="quiz-opt-letter">ج</span><div class="quiz-opt-text"><bdi class="en-term" dir="ltr">PostOperation</bdi></div></div></div></div>
+<div class="quiz-card"><div class="quiz-q-header"><span class="quiz-q-badge">السؤال 2</span><div class="quiz-q-stem">تقوم فئة <bdi class="en-term" dir="ltr">Plug-in</bdi> بتخزين سياق التنفيذ (<bdi class="en-term" dir="ltr">ExecutionContext</bdi>) في حقل خاص (<bdi class="en-term" dir="ltr">Private field</bdi>) على مستوى الفئة لكي تتمكن دالة مساعدة (<bdi class="en-term" dir="ltr">Helper method</bdi>) من قراءته لاحقاً داخل نفس الفئة. لماذا يتسبب هذا التصميم في مشاكل خطيرة في بيئة الإنتاج؟</div></div><div class="quiz-options"><div class="quiz-opt-row"><span class="quiz-opt-letter">أ</span><div class="quiz-opt-text">لا يمكن قراءة سياق التنفيذ إلا مرة واحدة فقط لكل تجميع (<bdi class="en-term" dir="ltr">Assembly</bdi>) خاص بالـ <bdi class="en-term" dir="ltr">Plug-in</bdi>، ولذلك فإن تخزينه في حقل يستنفد تلك القراءة الوحيدة.</div></div><div class="quiz-opt-row"><span class="quiz-opt-letter">ب</span><div class="quiz-opt-text">الحقول المعرفة على فئة الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> تكون مرئية فقط لخدمة المؤسسة (<bdi class="en-term" dir="ltr">Organization service</bdi>)، لذا لن تتمكن الدالة المساعدة في نفس الفئة من قراءتها على أي حال.</div></div><div class="quiz-opt-row"><span class="quiz-opt-letter">ج</span><div class="quiz-opt-text">يقوم <bdi class="en-term" dir="ltr">Dataverse</bdi> بتخزين نسخة واحدة فقط من فئة الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> في الذاكرة المؤقتة (<bdi class="en-term" dir="ltr">Cache</bdi>) وإعادة استخدامها عبر العديد من الاستدعاءات، لذا فإن الحقل المخزن يمكن أن يسرب البيانات بين طلبات غير مرتبطة ببعضها.</div></div></div></div>
+<div class="quiz-card"><div class="quiz-q-header"><span class="quiz-q-badge">السؤال 3</span><div class="quiz-q-stem">يحتاج <bdi class="en-term" dir="ltr">Plug-in</bdi> مسجل في مرحلة <bdi class="en-term" dir="ltr">PostOperation</bdi> على رسالة التحديث (<bdi class="en-term" dir="ltr">Update</bdi>) إلى مقارنة قيمة عمود قبل التحديث بالقيمة التي أنتجتها العملية الرئيسية. ما هو الأسلوب الذي يوفر القيمتين معاً؟</div></div><div class="quiz-options"><div class="quiz-opt-row"><span class="quiz-opt-letter">أ</span><div class="quiz-opt-text">تسجيل صورة قبلية (<bdi class="en-term" dir="ltr">Pre-image</bdi>) وصورة بعدية (<bdi class="en-term" dir="ltr">Post-image</bdi>) على الخطوة، ومقارنة الاسمين المستعارين (<bdi class="en-term" dir="ltr">Aliases</bdi>) داخل الـ <bdi class="en-term" dir="ltr">Plug-in.</bdi></div></div><div class="quiz-opt-row"><span class="quiz-opt-letter">ب</span><div class="quiz-opt-text">قراءة المجموعة <bdi class="en-term" dir="ltr">InputParameters</bdi> مرتين، مرة قبل استدعاء خدمة المؤسسة (<bdi class="en-term" dir="ltr">Organization service</bdi>) ومرة بعد استدعائها.</div></div><div class="quiz-opt-row"><span class="quiz-opt-letter">ج</span><div class="quiz-opt-text">زيادة ترتيب تنفيذ الخطوة (<bdi class="en-term" dir="ltr">Execution order</bdi>) بحيث تعمل بعد جميع الخطوات الأخرى المسجلة على نفس الرسالة.</div></div></div></div>
+<div class="quiz-card"><div class="quiz-q-header"><span class="quiz-q-badge">السؤال 4</span><div class="quiz-q-stem">يحتاج <bdi class="en-term" dir="ltr">Plug-in</bdi> مسجل في مرحلة <bdi class="en-term" dir="ltr">PostOperation</bdi> إلى تحديث صف في جدول آخر كجزء من نفس المعاملة (<bdi class="en-term" dir="ltr">Transaction</bdi>) التي أطلقته. ما هو الأسلوب الصحيح لإنجاز ذلك من داخل الـ <bdi class="en-term" dir="ltr">Plug-in</bdi>؟</div></div><div class="quiz-options"><div class="quiz-opt-row"><span class="quiz-opt-letter">أ</span><div class="quiz-opt-text">استدعاء واجهة <bdi class="en-term" dir="ltr">Dataverse Web API</bdi> باستخدام عميل <bdi class="en-term" dir="ltr">HTTP</bdi>، نظراً لأن الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> يعمل بالفعل ضمن سياق مصادق عليه.</div></div><div class="quiz-opt-row"><span class="quiz-opt-letter">ب</span><div class="quiz-opt-text">إضافة أعمدة الجدول الآخر إلى خصائص التصفية (<bdi class="en-term" dir="ltr">Filtering attributes</bdi>) الخاصة بالخطوة الحالية لكي يقوم <bdi class="en-term" dir="ltr">Dataverse</bdi> بتحديثها تلقائياً.</div></div><div class="quiz-opt-row"><span class="quiz-opt-letter">ج</span><div class="quiz-opt-text">الحصول على نسخة من <bdi class="en-term" dir="ltr">IOrganizationService</bdi> عبر المصنع <bdi class="en-term" dir="ltr">IOrganizationServiceFactory</bdi> واستدعاء دالة <bdi class="en-term" dir="ltr">Update</bdi> الخاصة بها.</div></div></div></div>
+<div class="quiz-card"><div class="quiz-q-header"><span class="quiz-q-badge">السؤال 5</span><div class="quiz-q-stem">أثناء تسجيل تجميع إضافة برمجية (<bdi class="en-term" dir="ltr">Plug-in assembly</bdi>) باستخدام أداة <bdi class="en-term" dir="ltr">Plugin Registration Tool</bdi> لبيئة <bdi class="en-term" dir="ltr">Dataverse</bdi> سحابية (<bdi class="en-term" dir="ltr">Online</bdi>)، ما هو وضع العزل (<bdi class="en-term" dir="ltr">Isolation mode</bdi>)وموقع التخزين (<bdi class="en-term" dir="ltr">Location</bdi>) اللذان يجب على المطور اختيارهما؟</div></div><div class="quiz-options"><div class="quiz-opt-row"><span class="quiz-opt-letter">أ</span><div class="quiz-opt-text">وضع العزل <bdi class="en-term" dir="ltr">None</bdi> مع تخزين التجميع على القرص الصلب للخادم (<bdi class="en-term" dir="ltr">Server</bdi>&#x27;<bdi class="en-term" dir="ltr">s disk</bdi>).</div></div><div class="quiz-opt-row"><span class="quiz-opt-letter">ب</span><div class="quiz-opt-text">وضع العزل <bdi class="en-term" dir="ltr">Sandbox</bdi> مع تخزين التجميع في قاعدة البيانات (<bdi class="en-term" dir="ltr">Database</bdi>).</div></div><div class="quiz-opt-row"><span class="quiz-opt-letter">ج</span><div class="quiz-opt-text">وضع العزل <bdi class="en-term" dir="ltr">Sandbox</bdi> مع تخزين التجميع في ذاكرة التجميعات العمومية (<bdi class="en-term" dir="ltr">Global Assembly Cache</bdi> - <bdi class="en-term" dir="ltr">GAC</bdi>).</div></div></div></div>
+<div class="study-aid-container">
+<div class="callout alert-note"><div class="callout-title">ملاحظة (NOTE)</div><div class="callout-body"><strong>مفتاح الإجابات المرجعي وحالة التحقق (<code class="inline-code" dir="ltr">Answer Key &amp; Verification Status</code>):</strong><br /><em>(ملاحظة منهجية: واجهة <bdi class="en-term" dir="ltr">Markdown</bdi> الثابتة في <bdi class="en-term" dir="ltr">Microsoft Learn</bdi> تعرض نص الأسئلة والاختيارات فقط دون حقل الإجابة الصحيحة؛ وقد تم التحقق من كل إجابة أدناه بمقابلتها نصياً مع الفقرات الرسمية في وحدات نفس الموديول <code class="inline-code" dir="ltr">learn.wwl.implement-dataverse-plug-ins</code>).</em><br />- <strong>السؤال 1 — الإجابة:</strong> <code class="inline-code" dir="ltr">PreValidation</code> | <strong>حالة التحقق:</strong> <code class="inline-code" dir="ltr">SOURCE_VERIFIED</code> (موثق نصياً في الوحدة 2: <em>&quot;<bdi class="en-term" dir="ltr">If that check runs in PreValidation and throws an exception</bdi>, <bdi class="en-term" dir="ltr">Dataverse cancels the Request before any transaction exists</bdi>, <bdi class="en-term" dir="ltr">which is inexpensive and immediate</bdi>&quot;</em>).<br />- <strong>السؤال 2 — الإجابة:</strong> <code class="inline-code" dir="ltr">Dataverse caches and reuses a single instance of the plug-in class across many invocations, so a stored field can leak data between unrelated requests.</code> | <strong>حالة التحقق:</strong> <code class="inline-code" dir="ltr">SOURCE_VERIFIED</code> (موثق نصياً في الوحدة 3، قسم <em><bdi class="en-term" dir="ltr">Keep your plug-in class stateless</bdi></em>: <em>&quot;<bdi class="en-term" dir="ltr">Dataverse caches a single instance of your plug-in class and reuses it across many invocations... one employee</bdi>&#x27;<bdi class="en-term" dir="ltr">s Request data could leak into another employee</bdi>&#x27;<bdi class="en-term" dir="ltr">s execution</bdi>&quot;</em>).<br />- <strong>السؤال 3 — الإجابة:</strong> <code class="inline-code" dir="ltr">Register a pre-image and a post-image on the step, and compare the two aliases inside the plug-in.</code> | <strong>حالة التحقق:</strong> <code class="inline-code" dir="ltr">SOURCE_VERIFIED</code> (موثق نصياً في الوحدة 4، قسم <em><bdi class="en-term" dir="ltr">Compare pre-image and post-image values</bdi></em>).<br />- <strong>السؤال 4 — الإجابة:</strong> <code class="inline-code" dir="ltr">Obtain an IOrganizationService instance from the IOrganizationServiceFactory and call its Update method.</code> | <strong>حالة التحقق:</strong> <code class="inline-code" dir="ltr">SOURCE_VERIFIED</code> (موثق نصياً في الوحدة 4، قسم <em><bdi class="en-term" dir="ltr">Use the Organization service inside a plug-in</bdi></em>).<br />- <strong>السؤال 5 — الإجابة:</strong> <code class="inline-code" dir="ltr">Sandbox isolation mode with the assembly stored in the database.</code> | <strong>حالة التحقق:</strong> <code class="inline-code" dir="ltr">SOURCE_VERIFIED</code> (موثق نصياً في الوحدة 5 وفي خطوة التسجيل رقم 4 في المعمل العملي <code class="inline-code" dir="ltr">Lab 01</code>: <em>&quot;<bdi class="en-term" dir="ltr">Confirm Isolation Mode is Sandbox and Location is Database</bdi>&quot;</em>).</div></div>
+</div>
+</section><section id="unit-4" class="unit-card">
+<div class="unit-header-group">
+<div class="unit-meta-bar"><span><strong>الوحدة:</strong> <bdi class="en-term" dir="ltr">v2-s12-labs-u03</bdi> — <bdi class="en-term" dir="ltr">Build and register an equipment-validation plug-in</bdi></span><a href="https://github.com/MicrosoftLearning/AB-400-microsoft-power-platform-developer/blob/main/Instructions/Labs/01-equipment-validation-plugin.md" target="_blank" rel="noopener">المصدر الرسمي على <bdi class="en-term" dir="ltr">Microsoft Learn / GitHub</bdi> ↗</a></div>
+<h1 id="u4-h-0" class="book-h1">بناء وتسجيل إضافة برمجية (<bdi class="en-term" dir="ltr">Plug-in</bdi>) للتحقق من أهلية المعدات</h1>
+</div>
+<p>يُعد حل تجهيز المعدات (<strong><bdi class="en-term" dir="ltr">Equipment Provisioning</bdi></strong>) حلاً مبنياً على منصة <bdi class="en-term" dir="ltr">Microsoft Dataverse</bdi> يتيح للموظفين طلب معدات بديلة، ويتيح للمنسقين مراجعة تلك الطلبات واعتمادها. ولا يُسمح باستبدال أي جهاز إلا إذا كان قد مضى على إصدار الجهاز المراد استبداله <strong>24</strong> شهراً على الأقل، أو تم تمييزه بأنه تالف وغير قابل للإصلاح — ولكن في الوضع الحالي يتم فرض هذه القاعدة فقط بواسطة سكربت على نموذج الطلب (<bdi class="en-term" dir="ltr">Form script</bdi>)، مما يعني أنه يمكن تجاوزها بسهولة بواسطة أي شخص يقوم بتحديث الطلب مباشرة عبر واجهة <bdi class="en-term" dir="ltr">Dataverse Web API</bdi> بدلاً من واجهة النموذج.</p>
+<p>في هذا التمرين العملي، ستكتب وتسجل إضافة برمجية (<bdi class="en-term" dir="ltr">Dataverse Plug-in</bdi>) تفرض نفس القاعدة على الخادم (<bdi class="en-term" dir="ltr">Server</bdi>) حيث لا يمكن تجاوزها أبداً. ستستخدم حزمة تطوير البرمجيات <bdi class="en-term" dir="ltr">Dataverse SDK for</bdi> .<bdi class="en-term" dir="ltr">NET</bdi>، وصورة قبلية (<bdi class="en-term" dir="ltr">Pre-image</bdi>) لقراءة الحالة السابقة للطلب، وخدمة المؤسسة (<bdi class="en-term" dir="ltr">Organization service</bdi>) للبحث عن الجهاز المراد استبداله. ثم ستقوم بتسجيل الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> باستخدام أداة <bdi class="en-term" dir="ltr">Plugin Registration Tool</bdi>، وتثبت عملياً أنه يغلق الثغرة التي تركها الفحص المقتصر على النموذج مفتوحة. وأخيراً، ستقوم بفهرسة الواجهة البرمجية المخصصة (<bdi class="en-term" dir="ltr">Custom API</bdi>) الخاصة بالقاعدة كحدث أعمال (<bdi class="en-term" dir="ltr">Business event</bdi>) في <bdi class="en-term" dir="ltr">Dataverse</bdi> لكي تتمكن مسارات الأتمتة الأخرى من اكتشافه والتفاعل معه.</p>
+<p>في هذا التمرين، ستقوم بما يلي:</p>
+<ul>
+<li>محاولة اعتماد طلب غير مؤهل مباشرة عبر واجهة <bdi class="en-term" dir="ltr">Dataverse Web API</bdi> متجاوزاً فحص جانب العميل في النموذج</li>
+<li>كتابة <bdi class="en-term" dir="ltr">Plug-in</bdi> يقرأ صورة قبلية (<bdi class="en-term" dir="ltr">Pre-image</bdi>) ويستعلم من <bdi class="en-term" dir="ltr">Dataverse</bdi> عبر <bdi class="en-term" dir="ltr">Organization service</bdi> لفرض قاعدة الأهلية</li>
+<li>تسجيل الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> باستخدام أداة <bdi class="en-term" dir="ltr">Plugin Registration Tool</bdi></li>
+<li>التأكد من أن الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> يمنع نفس محاولة التجاوز التي نجحت سابقاً — مع استمرار السماح بالحالات الاستثنائية المشروعة</li>
+<li>فهرسة الـ <bdi class="en-term" dir="ltr">Custom API</bdi> الخاصة بقاعدة الأهلية كحدث أعمال (<bdi class="en-term" dir="ltr">Dataverse business event</bdi>)</li>
+</ul>
+<p>يستغرق إكمال هذا التمرين حوالي <strong>35</strong> دقيقة تقريباً.</p>
+<h2 id="u4-h-17" class="book-h2">المتطلبات الأساسية (<bdi class="en-term" dir="ltr">Prerequisites</bdi>)</h2>
+<p>لإكمال هذا التمرين، تحتاج إلى:</p>
+<ul>
+<li>جهاز كمبيوتر يعمل بنظام <bdi class="en-term" dir="ltr">Windows</bdi>؛ إذ إن <bdi class="en-term" dir="ltr">Visual Studio</bdi> وأداة <bdi class="en-term" dir="ltr">Plugin Registration Tool</bdi> هما تطبيقا سطح مكتب يعملان على <bdi class="en-term" dir="ltr">Windows</bdi> فقط، ولا يوجد بديل عابر للمنصات لهذا التمرين.</li>
+<li>برنامج <a href="https://visualstudio.microsoft.com/" class="book-link" target="_blank" rel="noopener"><bdi class="en-term" dir="ltr">Visual Studio</bdi></a> على الرابط <code class="inline-code" dir="ltr">https://visualstudio.microsoft.com/</code>، إصدار 2022 أو أحدث، مع توفر قالب المشروع <strong><bdi class="en-term" dir="ltr">Class Library</bdi> (.<bdi class="en-term" dir="ltr">NET Framework</bdi>)</strong> (الذي يُثبَّت ضمن حزمة العمل <strong>.<bdi class="en-term" dir="ltr">NET desktop development</bdi></strong>).</li>
+<li>حزمة الاستهداف .<bdi class="en-term" dir="ltr">NET Framework 4.8 targeting pack</bdi>؛ وإذا لم تكن مثبتة مسبقاً، فسيطالبك <bdi class="en-term" dir="ltr">Visual Studio</bdi> بتثبيتها في أول مرة تبني فيها مشروعاً يستهدف هذا الإصدار.</li>
+<li>أداة سطر الأوامر <a href="https://learn.microsoft.com/power-platform/developer/cli/introduction" class="book-link" target="_blank" rel="noopener"><bdi class="en-term" dir="ltr">Power Platform CLI</bdi></a> على الرابط <code class="inline-code" dir="ltr">https://learn.microsoft.com/power-platform/developer/cli/introduction</code>، وتُستخدم لتشغيل أداة <bdi class="en-term" dir="ltr">Plugin Registration Tool.</bdi></li>
+<li>أداة سطر الأوامر <a href="https://learn.microsoft.com/cli/azure/install-azure-cli" class="book-link" target="_blank" rel="noopener"><bdi class="en-term" dir="ltr">Azure CLI</bdi></a> على الرابط <code class="inline-code" dir="ltr">https://learn.microsoft.com/cli/azure/install-azure-cli</code>، وتُستخدم في هذا التمرين للحصول على رمز وصول (<bdi class="en-term" dir="ltr">Access token</bdi>) لإجراء استدعاء مباشر لواجهة <bdi class="en-term" dir="ltr">Web API.</bdi></li>
+<li>بيئة <bdi class="en-term" dir="ltr">Dataverse</bdi> تمتلك فيها دور الأمان (<bdi class="en-term" dir="ltr">Security Role</bdi>) إما <strong><bdi class="en-term" dir="ltr">System Administrator</bdi></strong> أو <strong><bdi class="en-term" dir="ltr">System Customizer</bdi></strong>؛ ويمتلك مالك البيئة التطويرية هذا الدور افتراضياً.</li>
+</ul>
+<blockquote class="book-quote"><strong><bdi class="en-term" dir="ltr">Note</bdi></strong>: إذا كان مساعد <bdi class="en-term" dir="ltr">GitHub Copilot</bdi> متاحاً لديك داخل <bdi class="en-term" dir="ltr">Visual Studio</bdi>، فلا تتردد في استخدامه للمساعدة في صياغة أو مراجعة كود الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> في هذا التمرين — ولكنه غير إلزامي، فجميع مقاطع الكود التي تحتاجها متوفرة بالكامل هنا.</blockquote>
+<h2 id="u4-h-30" class="book-h2">قبل أن تبدأ (<bdi class="en-term" dir="ltr">Before you start</bdi>)</h2>
+<p>يفترض هذا التمرين أن لديك بالفعل بيئة تطوير <bdi class="en-term" dir="ltr">Dataverse</bdi> مثبتاً عليها الحل الأساسي <strong><bdi class="en-term" dir="ltr">Equipment Provisioning</bdi> (<bdi class="en-term" dir="ltr">base</bdi>)</strong>، كما هو موضح في دليل الإعداد <a href="./00-setup.md" class="book-link" target="_blank" rel="noopener"><bdi class="en-term" dir="ltr">Set up your lab environment</bdi></a>. إذا لم تكن قد أكملت ذلك الإعداد بعد، فقم بإنجازه الآن قبل المتابعة.</p>
+<ol>
+<li>سجّل الدخول إلى <a href="https://make.powerapps.com" class="book-link" target="_blank" rel="noopener">بوابة صانع <bdi class="en-term" dir="ltr">Power Apps</bdi> (<bdi class="en-term" dir="ltr">Power Apps maker portal</bdi>)</a> على الرابط <code class="inline-code" dir="ltr">https://make.powerapps.com</code>، وتأكد من أن محدد البيئة يعرض البيئة التي تستخدمها لهذه التمارين.</li>
+<li>اختر <strong><bdi class="en-term" dir="ltr">Solutions</bdi></strong>، وتأكد من ظهور الحل <strong><bdi class="en-term" dir="ltr">Equipment Provisioning</bdi> (<bdi class="en-term" dir="ltr">base</bdi>)</strong> في القائمة. إذا لم يكن ظاهراً، فاتبع خطوات الاستيراد الواردة في <a href="./00-setup.md" class="book-link" target="_blank" rel="noopener"><bdi class="en-term" dir="ltr">Set up your lab environment</bdi></a>، ثم عد إلى هنا.</li>
+<li>قم بتنزيل ملف الحل المدار <a href="https://raw.githubusercontent.com/MicrosoftLearning/AB-400-microsoft-power-platform-developer/main/Allfiles/01-equipment-validation-plugin/EquipmentProvisioningLab01_managed.zip" class="book-link" target="_blank" rel="noopener"><bdi class="en-term" dir="ltr">EquipmentProvisioningLab01_managed.zip</bdi></a> من الرابط <code class="inline-code" dir="ltr">https://raw.githubusercontent.com/MicrosoftLearning/AB-400-microsoft-power-platform-developer/main/Allfiles/01-equipment-validation-plugin/EquipmentProvisioningLab01_managed.zip</code>. يضيف هذا الحل نموذج <strong><bdi class="en-term" dir="ltr">Request intake</bdi></strong> إلى جدول الطلبات (<bdi class="en-term" dir="ltr">Request table</bdi>) محتوياً على فحص الأهلية في جانب العميل الذي ستقوم بتجاوزه في المهمة التالية.</li>
+<li>في صفحة <strong><bdi class="en-term" dir="ltr">Solutions</bdi></strong>، اختر <strong><bdi class="en-term" dir="ltr">Import solution</bdi></strong>، ثم اختر <strong><bdi class="en-term" dir="ltr">Browse</bdi></strong>، وحدد الملف الذي قمت بتنزيله، واضغط على <strong><bdi class="en-term" dir="ltr">Next</bdi></strong> ثم <strong><bdi class="en-term" dir="ltr">Import</bdi></strong>. انتظر حتى يكتمل الاستيراد.</li>
+<li>افتح تطبيق <strong><bdi class="en-term" dir="ltr">Equipment Provisioning</bdi></strong> واختر <strong><bdi class="en-term" dir="ltr">Requests</bdi></strong> من خريطة الموقع (<bdi class="en-term" dir="ltr">Site map</bdi>).</li>
+<li>في شريط الأوامر (<bdi class="en-term" dir="ltr">Command Bar</bdi>) الخاص بطريقة العرض <strong><bdi class="en-term" dir="ltr">Active Requests</bdi></strong>، اختر الزر <strong><bdi class="en-term" dir="ltr">Reset lab data</bdi></strong>. انتظر حتى ينتهي، وراجع الملخص في نافذة الحوار <strong><bdi class="en-term" dir="ltr">Lab data reset</bdi></strong>، ثم أغلق النافذة واختر <strong><bdi class="en-term" dir="ltr">Refresh</bdi></strong>.</li>
+<p>ينبغي أن ترى الطلبات من <code class="inline-code" dir="ltr">REQ-SEED-001</code> إلى <code class="inline-code" dir="ltr">REQ-SEED-004</code> مدرجة كطلبات مفتوحة، وكل منها يحمل الحالة الموضحة في ملخص البيانات.</p>
+</ol>
+<h2 id="u4-h-48" class="book-h2">محاولة اعتماد طلب غير مؤهل (<bdi class="en-term" dir="ltr">Try to approve an ineligible request</bdi>)</h2>
+<p>قبل أن تكتب أي سطر كود، شاهد بنفسك الثغرة المعمارية التي توشك على إغلاقها. يطلب السجل <code class="inline-code" dir="ltr">REQ-SEED-001</code> استبدال جهاز كمبيوتر محمول تم إصداره منذ 8 أشهر فقط وليس تالفاً — وبالتالي لا ينبغي أن يكون مؤهلاً للاستبدال قبل مرور 16 شهراً أخرى. ويمنع فحص جانب العميل على نموذج الطلب المنسقَ من اعتماده عن طريق الخطأ، ولكن ذلك الفحص يعمل داخل المتصفح فقط.</p>
+<ol>
+<li>في تطبيق <strong><bdi class="en-term" dir="ltr">Equipment Provisioning</bdi></strong>، افتح السجل <code class="inline-code" dir="ltr">REQ-SEED-001</code>.</li>
+<li>اختر محدد النموذج (<bdi class="en-term" dir="ltr">Form selector</bdi>) في أعلى السجل (الذي يعرض اسم النموذج الحالي)، وقم بالتبديل إلى النموذج <strong><bdi class="en-term" dir="ltr">Request intake</bdi></strong>.</li>
+<li>اضبط حقل <strong><bdi class="en-term" dir="ltr">Request status</bdi></strong> على القيمة <strong><bdi class="en-term" dir="ltr">Approved</bdi></strong>، ثم احفظ السجل.</li>
+<p>ينبغي أن يظهر لك إشعار على النموذج مشابه للرسالة: <em><bdi class="en-term" dir="ltr">This device was issued on</bdi> {<bdi class="en-term" dir="ltr">date</bdi>}, <bdi class="en-term" dir="ltr">less than 24 months ago</bdi>, <bdi class="en-term" dir="ltr">and isn</bdi>&#x27;<bdi class="en-term" dir="ltr">t damaged beyond repair. The request can</bdi>&#x27;<bdi class="en-term" dir="ltr">t be approved yet.</bdi></em> يتم منع الحفظ، وتظل قيمة <strong><bdi class="en-term" dir="ltr">Request status</bdi></strong> على الحالة <strong><bdi class="en-term" dir="ltr">Submitted</bdi></strong>.</p>
+<li>اختر أيقونة الترس (<strong><bdi class="en-term" dir="ltr">Settings</bdi></strong>) في الزاوية العلوية اليمنى من بوابة الصانع، ثم اختر <strong><bdi class="en-term" dir="ltr">Developer resources</bdi></strong>. انسخ قيمة <strong><bdi class="en-term" dir="ltr">Web API endpoint</bdi></strong> — حيث ستستخدمها كعنوان <bdi class="en-term" dir="ltr">URL</bdi> للبيئة في بقية خطوات هذا التمرين.</li>
+<li>قم بتنزيل السكربت <a href="https://raw.githubusercontent.com/MicrosoftLearning/AB-400-microsoft-power-platform-developer/main/Allfiles/01-equipment-validation-plugin/Approve-RequestViaWebApi.ps1" class="book-link" target="_blank" rel="noopener"><bdi class="en-term" dir="ltr">Approve-RequestViaWebApi.ps1</bdi></a> من الرابط <code class="inline-code" dir="ltr">https://raw.githubusercontent.com/MicrosoftLearning/AB-400-microsoft-power-platform-developer/main/Allfiles/01-equipment-validation-plugin/Approve-RequestViaWebApi.ps1</code>. يحصل هذا السكربت على رمز وصول لبيئتك باستخدام <bdi class="en-term" dir="ltr">Azure CLI</bdi>، ثم يرسل نفس تغيير الحالة مباشرة إلى واجهة <bdi class="en-term" dir="ltr">Dataverse Web API</bdi> — بدون المرور على أي نموذج أو فحص على جانب العميل.</li>
+<li>في نافذة الطرفية (<bdi class="en-term" dir="ltr">Terminal</bdi>)، سجّل الدخول إلى <bdi class="en-term" dir="ltr">Azure CLI</bdi> باستخدام بيانات اعتمادك. يتيح لك الخيار <code class="inline-code" dir="ltr">--allow-no-subscriptions</code> تسجيل الدخول حتى لو لم يكن لحسابك اشتراك <bdi class="en-term" dir="ltr">Azure</bdi> فعال؛ فهذا السكربت يحتاج فقط إلى صلاحية الوصول إلى بيئة <bdi class="en-term" dir="ltr">Power Platform</bdi> الخاصة بك:</li>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">POWERSHELL</span></div><pre class="code-pre" dir="ltr"><code class="language-powershell">az login --allow-no-subscriptions</code></pre></div>
+<blockquote class="book-quote"><strong><bdi class="en-term" dir="ltr">Note</bdi></strong>: إذا كنت تستخدم <bdi class="en-term" dir="ltr">Azure CLI</bdi> مع أكثر من حساب، فسجّل الدخول بالحساب الذي تستخدمه لبيئة <bdi class="en-term" dir="ltr">Power Platform</bdi> الخاصة بك. وإذا كان ذلك الحساب ينتمي إلى مستأجر (<bdi class="en-term" dir="ltr">Tenant</bdi>) مختلف عن مستأجرك المعتاد، فأضف المعامل <code class="inline-code" dir="ltr">--tenant</code> متبوعاً باسم النطاق الخاص بالمستأجر.</blockquote>
+<li>قم بتشغيل السكربت مع تمرير عنوان <bdi class="en-term" dir="ltr">URL</bdi> للبيئة الذي نسخته ورقم الطلب:</li>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">POWERSHELL</span></div><pre class="code-pre" dir="ltr"><code class="language-powershell">.\Approve-RequestViaWebApi.ps1 -EnvironmentUrl &quot;&lt;your environment URL&gt;&quot; -RequestNumber &quot;REQ-SEED-001&quot;</code></pre></div>
+<li>ارجع إلى تطبيق <strong><bdi class="en-term" dir="ltr">Equipment Provisioning</bdi></strong> وقم بتحديث (<bdi class="en-term" dir="ltr">Refresh</bdi>) السجل <code class="inline-code" dir="ltr">REQ-SEED-001</code>.</li>
+<p>ستلاحظ أن قيمة <strong><bdi class="en-term" dir="ltr">Request status</bdi></strong> أصبحت الآن <strong><bdi class="en-term" dir="ltr">Approved</bdi></strong> — أي إن نفس التغيير الذي منعه النموذج قبل لحظات قد نجح تنفيذه عبر واجهة <bdi class="en-term" dir="ltr">Web API.</bdi> هذه هي الثغرة التي ستغلقها بقية خطوات التمرين.</p>
+</ol>
+<h2 id="u4-h-78" class="book-h2">تنفيذ قاعدة الأهلية داخل الـ <bdi class="en-term" dir="ltr">Plug-in</bdi></h2>
+<p>لا يمكن لأي سكربت على جانب العميل إغلاق هذه الثغرة بمفرده أبداً، لأنه يعمل فقط عند حفظ النموذج داخل المتصفح. أنت بحاجة إلى <bdi class="en-term" dir="ltr">Plug-in:</bdi> أي كود يقوم خادم <bdi class="en-term" dir="ltr">Dataverse</bdi> نفسه بتشغيله كلما تم تحديث سجل طلب، بغض النظر عن العميل أو الأداة التي أجرت التغيير.</p>
+<p>تتضمن ملفات المعمل التي قمت باستنساخها أثناء الإعداد مشروع بداية جاهزاً في المسار <code class="inline-code" dir="ltr">Allfiles/01-equipment-validation-plugin/AB400.Lab01</code>. ويشير هذا المشروع مسبقاً إلى حزمة <code class="inline-code" dir="ltr">Microsoft.CrmSdk.CoreAssemblies</code> ويحتوي على فئة <bdi class="en-term" dir="ltr">Plug-in</bdi> مبدئية بها تعليقات توضح المكان الذي ستضع فيه الكود الخاص بك. وإذا لم تكن قد استنسخت المستودع بالكامل، فقم بتنزيل هذه الملفات بشكل فردي مع الحفاظ على نفس هيكل المجلدات:</p>
+<ul>
+<li>ملف المشروع <a href="https://raw.githubusercontent.com/MicrosoftLearning/AB-400-microsoft-power-platform-developer/main/Allfiles/01-equipment-validation-plugin/AB400.Lab01/AB400.Lab01.csproj" class="book-link" target="_blank" rel="noopener"><bdi class="en-term" dir="ltr">AB400.Lab01.csproj</bdi></a> من <code class="inline-code" dir="ltr">https://raw.githubusercontent.com/MicrosoftLearning/AB-400-microsoft-power-platform-developer/main/Allfiles/01-equipment-validation-plugin/AB400.Lab01/AB400.Lab01.csproj</code>، وضعه داخل مجلد باسم <code class="inline-code" dir="ltr">AB400.Lab01</code></li>
+<li>ملف الفئة <a href="https://raw.githubusercontent.com/MicrosoftLearning/AB-400-microsoft-power-platform-developer/main/Allfiles/01-equipment-validation-plugin/AB400.Lab01/RequestApprovalPlugin.cs" class="book-link" target="_blank" rel="noopener"><bdi class="en-term" dir="ltr">RequestApprovalPlugin.cs</bdi></a> من <code class="inline-code" dir="ltr">https://raw.githubusercontent.com/MicrosoftLearning/AB-400-microsoft-power-platform-developer/main/Allfiles/01-equipment-validation-plugin/AB400.Lab01/RequestApprovalPlugin.cs</code>، وضعه داخل نفس المجلد <code class="inline-code" dir="ltr">AB400.Lab01</code></li>
+<li>سكربت التوقيع <a href="https://raw.githubusercontent.com/MicrosoftLearning/AB-400-microsoft-power-platform-developer/main/Allfiles/01-equipment-validation-plugin/New-StrongNameKey.ps1" class="book-link" target="_blank" rel="noopener"><bdi class="en-term" dir="ltr">New-StrongNameKey.ps1</bdi></a> من <code class="inline-code" dir="ltr">https://raw.githubusercontent.com/MicrosoftLearning/AB-400-microsoft-power-platform-developer/main/Allfiles/01-equipment-validation-plugin/New-StrongNameKey.ps1</code>، وضعه في المجلد الأب الذي يحتوي على المجلد <code class="inline-code" dir="ltr">AB400.Lab01</code></li>
+</ul>
+<ol>
+<li>يقبل <bdi class="en-term" dir="ltr">Dataverse</bdi> فقط تجميعات الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> الموقعة رقمياً (<bdi class="en-term" dir="ltr">Signed assemblies</bdi>)، ولا يتم شحن مفاتيح الأسماء القوية (<bdi class="en-term" dir="ltr">Strong-name keys</bdi>) مع ملفات المعمل، لذا أنشئ مفتاحك الخاص الآن. في نافذة الطرفية، داخل المجلد <code class="inline-code" dir="ltr">Allfiles/01-equipment-validation-plugin</code>، شغّل الأمر التالي:</li>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">POWERSHELL</span></div><pre class="code-pre" dir="ltr"><code class="language-powershell">.\New-StrongNameKey.ps1</code></pre></div>
+<p>ينشئ هذا السكربت الملف <code class="inline-code" dir="ltr">AB400.Lab01\AB400.Lab01.snk</code>، وهو ملف المفتاح الذي تم ضبط المشروع مسبقاً للتوقيع به. وينبغي أن تظهر لك الرسالة <strong><bdi class="en-term" dir="ltr">Created the strong-name key</bdi></strong>.</p>
+<li>في برنامج <bdi class="en-term" dir="ltr">Visual Studio</bdi>، اختر <strong><bdi class="en-term" dir="ltr">File</bdi></strong> &gt; <strong><bdi class="en-term" dir="ltr">Open</bdi></strong> &gt; <strong><bdi class="en-term" dir="ltr">Project/Solution</bdi></strong>، وافتح ملف المشروع <code class="inline-code" dir="ltr">AB400.Lab01.csproj</code>.</li>
+<li>في نافذة <strong><bdi class="en-term" dir="ltr">Solution Explorer</bdi></strong>، افتح الملف <code class="inline-code" dir="ltr">RequestApprovalPlugin.cs</code>. راجع كتلة التعليقات الموجودة أعلى الفئة — فهي توثق بدقة كيف ستقوم بتسجيل هذا الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> في المهمة التالية: الرسالة <code class="inline-code" dir="ltr">Update</code> على الجدول <code class="inline-code" dir="ltr">eqp_request</code>، في مرحلة <code class="inline-code" dir="ltr">PreOperation</code>، بالوضع المتزامن (<bdi class="en-term" dir="ltr">Synchronous</bdi>)، مع التصفية على العمود <code class="inline-code" dir="ltr">eqp_requeststatus</code>، ومع صورة قبلية (<bdi class="en-term" dir="ltr">Pre-image</bdi>) باسم <code class="inline-code" dir="ltr">PreImage</code> تحمل العمودين <code class="inline-code" dir="ltr">eqp_requeststatus</code> و<code class="inline-code" dir="ltr">eqp_currentdevice</code>.</li>
+<li>ابحث عن التعليق <strong><bdi class="en-term" dir="ltr">Confirm the request is being approved</bdi> (<bdi class="en-term" dir="ltr">read the Target and the pre-image</bdi>)</strong> وأضف الكود التالي تحته:</li>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">CSHARP</span></div><pre class="code-pre" dir="ltr"><code class="language-csharp">// Confirm the request is being approved (read the Target and the pre-image)
+var target = (Entity)context.InputParameters[&quot;Target&quot;];
+if (!target.Attributes.Contains(&quot;eqp_requeststatus&quot;))
+{
+    return;
+}
+
+var newStatus = ((OptionSetValue)target[&quot;eqp_requeststatus&quot;]).Value;
+if (newStatus != StatusApproved)
+{
+    return;
+}
+
+var preImage = context.PreEntityImages[&quot;PreImage&quot;];
+var previousStatus = ((OptionSetValue)preImage[&quot;eqp_requeststatus&quot;]).Value;
+if (previousStatus == StatusApproved)
+{
+    return;
+}</code></pre></div>
+<p>يحمل الكائن <code class="inline-code" dir="ltr">Target</code> فقط الأعمدة المضمنة في عملية التحديث الجارية — وهنا يحمل فقط القيمة الجديدة للعمود <code class="inline-code" dir="ltr">eqp_requeststatus</code> لأنه هو عمود التصفية (<bdi class="en-term" dir="ltr">Filtering attribute</bdi>). بينما تحمل الصورة القبلية (<bdi class="en-term" dir="ltr">Pre-image</bdi>) قيم السجل <em>قبل</em> التحديث، ولذلك فإن مقارنة <code class="inline-code" dir="ltr">previousStatus</code> بالقيمة الجديدة هي الطريقة الدقيقة التي يكتشف بها الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> حدوث انتقال فعلي إلى حالة الاعتماد (<bdi class="en-term" dir="ltr">Approved</bdi>)، بدلاً من عملية حفظ عادية تترك طلباً معتمداً مسبقاً دون تغيير في حالته.</p>
+<li>ابحث عن التعليق <strong><bdi class="en-term" dir="ltr">Retrieve the device being replaced</bdi></strong> وأضف الكود التالي:</li>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">CSHARP</span></div><pre class="code-pre" dir="ltr"><code class="language-csharp">// Retrieve the device being replaced
+var deviceRef = preImage.GetAttributeValue&lt;EntityReference&gt;(&quot;eqp_currentdevice&quot;);
+
+Entity device;
+try
+{
+    device = service.Retrieve(&quot;eqp_device&quot;, deviceRef.Id, new ColumnSet(&quot;eqp_issuedon&quot;, &quot;eqp_damagedbeyondrepair&quot;));
+}
+catch (FaultException&lt;OrganizationServiceFault&gt;)
+{
+    throw new InvalidPluginExecutionException(&quot;The device being replaced couldn&#x27;t be found.&quot;);
+}</code></pre></div>
+<p>بما أن العمود <code class="inline-code" dir="ltr">eqp_currentdevice</code> ليس جزءاً من عملية التحديث الحالية، يتم جلبه أيضاً من الصورة القبلية (<bdi class="en-term" dir="ltr">Pre-image</bdi>). ويقرأ استدعاء <code class="inline-code" dir="ltr">IOrganizationService.Retrieve</code> العمودين اللذين تحتاجهما القاعدة فقط عبر <bdi class="en-term" dir="ltr">ColumnSet</bdi> — وهما تاريخ الإصدار وعلامة التلف غير القابل للإصلاح.</p>
+<li>ابحث عن التعليق <strong><bdi class="en-term" dir="ltr">Apply the replacement-eligibility rule</bdi></strong> وأضف الكود التالي:</li>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">CSHARP</span></div><pre class="code-pre" dir="ltr"><code class="language-csharp">// Apply the replacement-eligibility rule
+var issuedOn = device.GetAttributeValue&lt;DateTime?&gt;(&quot;eqp_issuedon&quot;);
+var damagedBeyondRepair = device.GetAttributeValue&lt;bool&gt;(&quot;eqp_damagedbeyondrepair&quot;);
+
+var isEligible = damagedBeyondRepair
+    || !issuedOn.HasValue
+    || issuedOn.Value.Date &lt;= DateTime.UtcNow.Date.AddMonths(-24);</code></pre></div>
+<p>هذه هي قاعدة العمل الأساسية: يكون الجهاز مؤهلاً للاستبدال إذا كان مميزاً بأنه تالف وغير قابل للإصلاح، أو إذا لم يكن له تاريخ إصدار مسجل، أو إذا كان قد تم إصداره في أو قبل تاريخ اليوم (بتوقيت <bdi class="en-term" dir="ltr">UTC</bdi>) مطروحاً منه 24 شهراً تقويمياً.</p>
+<li>ابحث عن التعليق <strong><bdi class="en-term" dir="ltr">Block the approval if the device isn</bdi>&#x27;<bdi class="en-term" dir="ltr">t eligible</bdi></strong> وأضف الكود التالي:</li>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">CSHARP</span></div><pre class="code-pre" dir="ltr"><code class="language-csharp">// Block the approval if the device isn&#x27;t eligible
+if (!isEligible)
+{
+    var eligibleFrom = issuedOn.Value.Date.AddMonths(24);
+    throw new InvalidPluginExecutionException(
+        $&quot;This device was issued on {issuedOn.Value:yyyy-MM-dd}. It can be replaced from {eligibleFrom:yyyy-MM-dd}, or earlier if it&#x27;s flagged as damaged beyond repair.&quot;);
+}</code></pre></div>
+<p>إن رمي الاستثناء <code class="inline-code" dir="ltr">InvalidPluginExecutionException</code> داخل خطوة متزامنة (<bdi class="en-term" dir="ltr">Synchronous</bdi>) في مرحلة <bdi class="en-term" dir="ltr">PreOperation</bdi> يوقف عملية التحديث قبل أن يعتمدها <bdi class="en-term" dir="ltr">Dataverse</bdi> في قاعدة البيانات. ويتلقى المستدعي — سواء كان نموذج المتصفح أو استدعاء <bdi class="en-term" dir="ltr">Web API</bdi> المباشر كما ستجرب بعد قليل — نص هذه الرسالة كرسالة خطأ رسمية.</p>
+<li>اختر <strong><bdi class="en-term" dir="ltr">Build</bdi></strong> &gt; <strong><bdi class="en-term" dir="ltr">Build Solution</bdi></strong> (أو اضغط <strong><bdi class="en-term" dir="ltr">Ctrl+Shift+B</bdi></strong>) وتأكد من نجاح بناء المشروع بدون أي أخطاء.</li>
+</ol>
+<h2 id="u4-h-124" class="book-h2">تسجيل الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> باستخدام أداة <bdi class="en-term" dir="ltr">Plug-in Registration Tool</bdi></h2>
+<p>بعد ترجمة الكود وبناء ملف التجميع، تحتاج الآن إلى إخبار <bdi class="en-term" dir="ltr">Dataverse</bdi> بتشغيله — وتحديد التوقيت الدقيق لتشغيله. ستقوم بتسجيل التجميع (<bdi class="en-term" dir="ltr">Assembly</bdi>)، ثم تسجيل خطوة (<bdi class="en-term" dir="ltr">Step</bdi>) على رسالة <code class="inline-code" dir="ltr">Update</code> الخاصة بالجدول <code class="inline-code" dir="ltr">eqp_request</code>، ثم تسجيل صورة قبلية (<bdi class="en-term" dir="ltr">Pre-image</bdi>) تقرأ منها الخطوة.</p>
+<ol>
+<li>افتح نافذة الطرفية وشغّل أداة <bdi class="en-term" dir="ltr">Plugin Registration Tool:</bdi></li>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">POWERSHELL</span></div><pre class="code-pre" dir="ltr"><code class="language-powershell">pac tool prt</code></pre></div>
+<li>اختر <strong>+ <bdi class="en-term" dir="ltr">Create new connection</bdi></strong>، وحدد الخيار <strong><bdi class="en-term" dir="ltr">Display list of available organizations</bdi></strong>، ثم سجّل الدخول ببيانات اعتمادك واتصل ببيئة <bdi class="en-term" dir="ltr">Dataverse</bdi> التي تستخدمها في هذا التمرين.</li>
+<li>من قائمة <strong><bdi class="en-term" dir="ltr">Register</bdi></strong>، اختر <strong><bdi class="en-term" dir="ltr">New Assembly</bdi></strong>.</li>
+<li>في نافذة <strong><bdi class="en-term" dir="ltr">Register New Assembly</bdi></strong>، اضغط على زر النقاط الثلاث (<strong>…</strong>) واستعرض للوصول إلى الملف <code class="inline-code" dir="ltr">AB400.Lab01.dll</code> داخل مجلد المشروع <code class="inline-code" dir="ltr">bin\Debug\net48</code>. تأكد من ضبط <strong><bdi class="en-term" dir="ltr">Isolation Mode</bdi></strong> على <strong><bdi class="en-term" dir="ltr">Sandbox</bdi></strong> وضبط <strong><bdi class="en-term" dir="ltr">Location</bdi></strong> على <strong><bdi class="en-term" dir="ltr">Database</bdi></strong>، ثم اضغط <strong><bdi class="en-term" dir="ltr">Register Selected Plugins</bdi></strong>.</li>
+<li>قم بتوسيع العقده <strong>(<bdi class="en-term" dir="ltr">Assembly</bdi>) <bdi class="en-term" dir="ltr">AB400.Lab01</bdi></strong>، وانقر بزر الماوس الأيمن على <strong>(<bdi class="en-term" dir="ltr">Plugin</bdi>) <bdi class="en-term" dir="ltr">AB400.Lab01.RequestApprovalPlugin</bdi></strong>، واختر <strong><bdi class="en-term" dir="ltr">Register New Step</bdi></strong>.</li>
+<li>في نافذة <strong><bdi class="en-term" dir="ltr">Register New Step</bdi></strong>، اضبط القيم التالية:</li>
+</ol>
+<div class="table-wrapper"><table class="book-table">
+<thead><tr>
+<th>الإعداد (<bdi class="en-term" dir="ltr">Setting</bdi>)</th>
+<th>القيمة (<bdi class="en-term" dir="ltr">Value</bdi>)</th>
+</tr></thead><tbody>
+<tr>
+<td><bdi class="en-term" dir="ltr">Message</bdi></td>
+<td><code class="inline-code" dir="ltr">Update</code></td>
+</tr>
+<tr>
+<td><bdi class="en-term" dir="ltr">Primary Entity</bdi></td>
+<td><code class="inline-code" dir="ltr">eqp_request</code></td>
+</tr>
+<tr>
+<td><bdi class="en-term" dir="ltr">Filtering Attributes</bdi></td>
+<td><code class="inline-code" dir="ltr">eqp_requeststatus</code> فقط</td>
+</tr>
+<tr>
+<td><bdi class="en-term" dir="ltr">Event Pipeline Stage of Execution</bdi></td>
+<td><strong><bdi class="en-term" dir="ltr">PreOperation</bdi></strong></td>
+</tr>
+<tr>
+<td><bdi class="en-term" dir="ltr">Execution Mode</bdi></td>
+<td><strong><bdi class="en-term" dir="ltr">Synchronous</bdi></strong></td>
+</tr>
+<tr>
+<td><bdi class="en-term" dir="ltr">Description</bdi></td>
+<td><em><bdi class="en-term" dir="ltr">Lab 01</bdi>: <bdi class="en-term" dir="ltr">enforce replacement eligibility on approval</bdi></em></td>
+</tr>
+</tbody></table></div>
+<p>افتح محدد <strong><bdi class="en-term" dir="ltr">Filtering Attributes</bdi></strong> واختر العمود <code class="inline-code" dir="ltr">eqp_requeststatus</code> فقط — لا تقم بتضمين المفتاح الأساسي (<bdi class="en-term" dir="ltr">Primary key</bdi>)، ولا تحدد جميع الأعمدة. ثم اضغط <strong><bdi class="en-term" dir="ltr">Register New Step</bdi></strong>.</p>
+<blockquote class="book-quote"><strong><bdi class="en-term" dir="ltr">Note</bdi></strong>: إذا أظهرت أداة <bdi class="en-term" dir="ltr">Plugin Registration Tool</bdi> الخطأ التالي بعد النقر على <strong><bdi class="en-term" dir="ltr">Register New Step</bdi></strong>، فقد تكون الخطوة قد حُفظت بالفعل قبل أن تفشل الأداة في تحديث واجهة العرض. لا تفترض نجاح التسجيل دون تحقق:</blockquote>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">OUTPUT</span></div><pre class="code-pre" dir="ltr"><code class="language-output">Unhandled Exception: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Microsoft.Crm.Tools.Libraries.OrganizationHelper.GetColumnSet(String entityName, CrmOrganization org)
+   at Microsoft.Crm.Tools.Libraries.OrganizationHelper.RefreshStep(CrmOrganization org, CrmPluginStep step)
+   at Microsoft.Crm.Tools.PluginRegistration.StepRegistrationViewModel.RegisterStep(Object sender, EventArgs e)</code></pre></div>
+<blockquote class="book-quote">تحقق من التسجيل المحفوظ قبل المتابعة:<br />1. اضغط <strong><bdi class="en-term" dir="ltr">Cancel</bdi></strong> لإغلاق نافذة التسجيل.<br />1. قم بتوسيع التجميع وفئة الـ <bdi class="en-term" dir="ltr">Plug-in.</bdi> تأكد من وجود الخطوة، ثم افتح خصائصها وتحقق من تطابق <strong><bdi class="en-term" dir="ltr">Message</bdi></strong> و<strong><bdi class="en-term" dir="ltr">Primary Entity</bdi></strong> و<strong><bdi class="en-term" dir="ltr">Filtering Attributes</bdi></strong> و<strong><bdi class="en-term" dir="ltr">Event Pipeline Stage of Execution</bdi></strong> و<strong><bdi class="en-term" dir="ltr">Execution Mode</bdi></strong> مع الجدول أعلاه.<br />إذا لم تكن الخطوة موجودة أو كانت إعداداتها غير مطابقة، فتوقف وقم بحل مشكلة التسجيل قبل إضافة الصورة أو اختبار الـ <bdi class="en-term" dir="ltr">Plug-in.</bdi> لا تتجاهل الأخطاء الأخرى ولا تنشئ خطوة مكررة.</blockquote>
+<ol>
+<li>انقر بزر الماوس الأيمن على الخطوة التي سجلتها للتو، واختر <strong><bdi class="en-term" dir="ltr">Register New Image</bdi></strong>.</li>
+<li>في نافذة <strong><bdi class="en-term" dir="ltr">Register New Image</bdi></strong>، اضبط الإعدادات التالية:</li>
+</ol>
+<div class="table-wrapper"><table class="book-table">
+<thead><tr>
+<th>الإعداد (<bdi class="en-term" dir="ltr">Setting</bdi>)</th>
+<th>القيمة (<bdi class="en-term" dir="ltr">Value</bdi>)</th>
+</tr></thead><tbody>
+<tr>
+<td><bdi class="en-term" dir="ltr">Image Type</bdi></td>
+<td><strong><bdi class="en-term" dir="ltr">Pre Image</bdi></strong></td>
+</tr>
+<tr>
+<td><bdi class="en-term" dir="ltr">Name</bdi></td>
+<td><code class="inline-code" dir="ltr">PreImage</code></td>
+</tr>
+<tr>
+<td><bdi class="en-term" dir="ltr">Entity Alias</bdi></td>
+<td><code class="inline-code" dir="ltr">PreImage</code></td>
+</tr>
+<tr>
+<td><bdi class="en-term" dir="ltr">Parameters</bdi></td>
+<td><code class="inline-code" dir="ltr">eqp_requeststatus</code>, <code class="inline-code" dir="ltr">eqp_currentdevice</code> فقط</td>
+</tr>
+</tbody></table></div>
+<p>يجب أن يكون الاسم المستعار للكيان (<strong><bdi class="en-term" dir="ltr">Entity Alias</bdi></strong>) مطابقاً تماماً للنص <code class="inline-code" dir="ltr">PreImage</code> — فهو المفتاح النصي الذي يستخدمه الكود لقراءة <code class="inline-code" dir="ltr">context.PreEntityImages[&quot;PreImage&quot;]</code>. حدد فقط العمودين اللذين يقرؤهما الـ <bdi class="en-term" dir="ltr">Plug-in</bdi>؛ فتسجيل جميع الأعمدة في الصورة يُعد خطأً شائعاً ومكلفاً للأداء يمكن تجنبه بسهولة. اضغط <strong><bdi class="en-term" dir="ltr">Register New Image</bdi></strong> (أو <strong><bdi class="en-term" dir="ltr">Save</bdi></strong>) للإنهاء.</p>
+<p>ينبغي أن ترى الخطوة الجديدة ومعها صورتها القبلية مدرجة تحت <strong>(<bdi class="en-term" dir="ltr">Plugin</bdi>) <bdi class="en-term" dir="ltr">AB400.Lab01.RequestApprovalPlugin</bdi></strong> في أداة <bdi class="en-term" dir="ltr">Plugin Registration Tool.</bdi></p>
+<h2 id="u4-h-179" class="book-h2">إعادة ضبط بيانات المعمل والتأكد من منع الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> لمحاولة التجاوز</h2>
+<p>الآن أعد تنفيذ نفس محاولة التجاوز التي قمت بها في بداية التمرين، ولكن مع وجود الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> مسجلاً وفعالاً على الخادم.</p>
+<ol>
+<li>بالعودة إلى تطبيق <strong><bdi class="en-term" dir="ltr">Equipment Provisioning</bdi></strong>، وفي شريط الأوامر الخاص بطريقة العرض <strong><bdi class="en-term" dir="ltr">Active Requests</bdi></strong>، اختر <strong><bdi class="en-term" dir="ltr">Reset lab data</bdi></strong>. يؤدي ذلك إلى استعادة حالة السجل <code class="inline-code" dir="ltr">REQ-SEED-001</code> إلى <strong><bdi class="en-term" dir="ltr">Submitted</bdi></strong>، ملغياً الاعتماد السابق الناتج عن تجاوز <bdi class="en-term" dir="ltr">Web API.</bdi></li>
+<li>في نافذة الطرفية، شغّل سكربت التجاوز مرة أخرى لنفس الطلب:</li>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">POWERSHELL</span></div><pre class="code-pre" dir="ltr"><code class="language-powershell">.\Approve-RequestViaWebApi.ps1 -EnvironmentUrl &quot;&lt;your environment URL&gt;&quot; -RequestNumber &quot;REQ-SEED-001&quot;</code></pre></div>
+<p class="lead-para">في هذه المرة سيفشل السكربت، وينبغي أن تظهر لك رسالة خطأ مشابهة لما يلي:</p>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">OUTPUT</span></div><pre class="code-pre" dir="ltr"><code class="language-output">The Web API rejected the request for REQ-SEED-001. ... This device was issued on 2024-02-01. It can be replaced from 2026-02-01, or earlier if it&#x27;s flagged as damaged beyond repair. ...</code></pre></div>
+<p>قم بتحديث (<bdi class="en-term" dir="ltr">Refresh</bdi>) السجل <code class="inline-code" dir="ltr">REQ-SEED-001</code> داخل التطبيق وتأكد من أن <strong><bdi class="en-term" dir="ltr">Request status</bdi></strong> لا يزال على الحالة <strong><bdi class="en-term" dir="ltr">Submitted</bdi></strong>. إن نفس الاستدعاء الذي نجح في بداية التمرين يتم إيقافه الآن على الخادم (<bdi class="en-term" dir="ltr">Server</bdi>) — حيث لم يكن بإمكان أي فحص على جانب العميل إيقافه أبداً.</p>
+<li>الآن شغّل نفس السكربت للطلب <code class="inline-code" dir="ltr">REQ-SEED-002</code>، وهو طلب خاص بجهاز مميز بأنه تالف وغير قابل للإصلاح:</li>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">POWERSHELL</span></div><pre class="code-pre" dir="ltr"><code class="language-powershell">.\Approve-RequestViaWebApi.ps1 -EnvironmentUrl &quot;&lt;your environment URL&gt;&quot; -RequestNumber &quot;REQ-SEED-002&quot;</code></pre></div>
+<p>في هذه المرة ينجح التنفيذ. قم بتحديث <code class="inline-code" dir="ltr">REQ-SEED-002</code> في التطبيق وتأكد من أن <strong><bdi class="en-term" dir="ltr">Request status</bdi></strong> أصبح الآن <strong><bdi class="en-term" dir="ltr">Approved</bdi></strong>.</p>
+<p>هذا الاختبار الثاني لا يقل أهمية عن الاختبار الأول؛ فلو كان الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> يرفض كل عمليات الاعتماد عشوائياً لاجتاز الاختبار الأول أيضاً! إن نجاح اعتماد <code class="inline-code" dir="ltr">REQ-SEED-002</code> يثبت أن الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> الخاص بك يطبق قاعدة العمل بانتقائية ودقة، وليس كحظر شامل.</p>
+</ol>
+<h2 id="u4-h-203" class="book-h2">فهرسة قاعدة الأهلية كحدث أعمال (<bdi class="en-term" dir="ltr">Catalog the eligibility rule as a business event</bdi>)</h2>
+<p>إن نفس منطق التحقق من أهلية الاستبدال الذي قمت بتنفيذه للتو متاح أيضاً كواجهة برمجية مخصصة (<bdi class="en-term" dir="ltr">Custom API</bdi>) في <bdi class="en-term" dir="ltr">Dataverse</bdi> باسم <code class="inline-code" dir="ltr">eqp_IsEligibleForReplacement</code> مرفقة مع الحل الأساسي. ولكي تجعلها قابلة للاكتشاف بواسطة <bdi class="en-term" dir="ltr">Power Automate</bdi> والمشتركين الآخرين، ستقوم بفهرستها كحدث أعمال (<bdi class="en-term" dir="ltr">Business event</bdi>) في <bdi class="en-term" dir="ltr">Dataverse</bdi> باستخدام جدولي <code class="inline-code" dir="ltr">Catalog</code> و<code class="inline-code" dir="ltr">CatalogAssignment</code>.</p>
+<ol>
+<li>في بوابة الصانع، اختر <strong><bdi class="en-term" dir="ltr">Solutions</bdi></strong>، ثم اختر <strong>+ <bdi class="en-term" dir="ltr">New solution</bdi></strong> (أو افتحه إذا كنت قد أنشأته مسبقاً في هذا التمرين). أطلق عليه الاسم <code class="inline-code" dir="ltr">AB400 Lab 01 catalog</code>، واختر ناشراً (<bdi class="en-term" dir="ltr">Publisher</bdi>)، ثم اضغط <strong><bdi class="en-term" dir="ltr">Create</bdi></strong>.</li>
+<li>داخل الحل الجديد، اختر <strong><bdi class="en-term" dir="ltr">New</bdi></strong>، ثم اختر <strong><bdi class="en-term" dir="ltr">Catalog</bdi></strong>. (إذا لم يكن الخيار <strong><bdi class="en-term" dir="ltr">Catalog</bdi></strong> ظاهراً مباشرة، فاختر <strong><bdi class="en-term" dir="ltr">More</bdi></strong> أولاً).</li>
+<li>أنشئ الدليل الجذر (<bdi class="en-term" dir="ltr">Root catalog</bdi>) لهذا الحل بالقيم التالية:</li>
+</ol>
+<div class="table-wrapper"><table class="book-table">
+<thead><tr>
+<th>الحقل (<bdi class="en-term" dir="ltr">Field</bdi>)</th>
+<th>القيمة (<bdi class="en-term" dir="ltr">Value</bdi>)</th>
+</tr></thead><tbody>
+<tr>
+<td><bdi class="en-term" dir="ltr">Parent Catalog</bdi></td>
+<td><em>اتركه فارغاً</em></td>
+</tr>
+<tr>
+<td><bdi class="en-term" dir="ltr">Name</bdi></td>
+<td><code class="inline-code" dir="ltr">AB400 Lab 01</code></td>
+</tr>
+<tr>
+<td><bdi class="en-term" dir="ltr">Display Name</bdi></td>
+<td><code class="inline-code" dir="ltr">AB400 Lab 01</code></td>
+</tr>
+<tr>
+<td><bdi class="en-term" dir="ltr">Description</bdi></td>
+<td><code class="inline-code" dir="ltr">Business events cataloged for AB-400 Lab 01.</code></td>
+</tr>
+</tbody></table></div>
+<p>أثناء كتابتك في حقل <strong><bdi class="en-term" dir="ltr">Name</bdi></strong>، يتم ملء الحقل <strong><bdi class="en-term" dir="ltr">Unique Name</bdi></strong> تلقائياً باستخدام بادئة الناشر — ويمكنك ترك القيمة المولدة كما هي. احفظ النموذج وأغلقه.</p>
+<ol>
+<li>اختر <strong><bdi class="en-term" dir="ltr">New</bdi></strong> &gt; <strong><bdi class="en-term" dir="ltr">Catalog</bdi></strong> مرة أخرى لإنشاء دليل المستوى الثاني (الفئة التصنيفية <bdi class="en-term" dir="ltr">Category</bdi>):</li>
+</ol>
+<div class="table-wrapper"><table class="book-table">
+<thead><tr>
+<th>الحقل (<bdi class="en-term" dir="ltr">Field</bdi>)</th>
+<th>القيمة (<bdi class="en-term" dir="ltr">Value</bdi>)</th>
+</tr></thead><tbody>
+<tr>
+<td><bdi class="en-term" dir="ltr">Parent Catalog</bdi></td>
+<td><code class="inline-code" dir="ltr">AB400 Lab 01</code> (الدليل الجذر الذي أنشأته للتو)</td>
+</tr>
+<tr>
+<td><bdi class="en-term" dir="ltr">Name</bdi></td>
+<td><code class="inline-code" dir="ltr">Equipment eligibility</code></td>
+</tr>
+<tr>
+<td><bdi class="en-term" dir="ltr">Display Name</bdi></td>
+<td><code class="inline-code" dir="ltr">Equipment eligibility</code></td>
+</tr>
+<tr>
+<td><bdi class="en-term" dir="ltr">Description</bdi></td>
+<td><code class="inline-code" dir="ltr">Business events related to equipment replacement eligibility.</code></td>
+</tr>
+</tbody></table></div>
+<p>احفظ النموذج وأغلقه.</p>
+<ol>
+<li>اختر علامة التبويب <strong><bdi class="en-term" dir="ltr">Catalog Assignment</bdi></strong>، ثم اختر <strong><bdi class="en-term" dir="ltr">New Catalog Assignment</bdi></strong>. أدخل <code class="inline-code" dir="ltr">eqp_IsEligibleForReplacement</code> في حقل <strong><bdi class="en-term" dir="ltr">Name</bdi></strong>، واضبط <strong><bdi class="en-term" dir="ltr">Catalog Assignment Object</bdi></strong> على الـ <bdi class="en-term" dir="ltr">Custom API</bdi> المسماة <code class="inline-code" dir="ltr">eqp_IsEligibleForReplacement</code> (ابحث عنها بالاسم)، واضبط الدليل على فئة <strong><bdi class="en-term" dir="ltr">Equipment eligibility</bdi></strong> التي أنشأتها للتو. احفظ النموذج وأغلقه.</li>
+<li>تحقق الآن من أن حدث الأعمال أصبح قابلاً للاكتشاف: افتح بوابة <a href="https://make.powerautomate.com" class="book-link" target="_blank" rel="noopener"><bdi class="en-term" dir="ltr">Power Automate</bdi></a> على الرابط <code class="inline-code" dir="ltr">https://make.powerautomate.com</code>، وتأكد من أن محدد البيئة (في الأعلى يميناً) يعرض نفس البيئة التي كنت تستخدمها.</li>
+<li>اختر <strong><bdi class="en-term" dir="ltr">Create</bdi></strong>، ثم اختر <strong><bdi class="en-term" dir="ltr">Automated cloud flow</bdi></strong>. امنحه أي اسم — على سبيل المثال، <code class="inline-code" dir="ltr">AB400 Lab 01 flow check - don&#x27;t save</code> — وابحث عن <strong><bdi class="en-term" dir="ltr">Dataverse</bdi></strong>، واختر المشغل (<bdi class="en-term" dir="ltr">Trigger</bdi>) المسمى <strong><bdi class="en-term" dir="ltr">When an action is performed</bdi></strong>، ثم اضغط <strong><bdi class="en-term" dir="ltr">Create</bdi></strong>.</li>
+<li>في إعدادات المشغل، اضبط <strong><bdi class="en-term" dir="ltr">Catalog</bdi></strong> على <code class="inline-code" dir="ltr">AB400 Lab 01</code>، واضبط <strong><bdi class="en-term" dir="ltr">Category</bdi></strong> على <code class="inline-code" dir="ltr">Equipment eligibility</code>، واضبط <strong><bdi class="en-term" dir="ltr">Table name</bdi></strong> على <strong>(<bdi class="en-term" dir="ltr">none</bdi>)</strong>.</li>
+<p>ينبغي أن ترى العملية <code class="inline-code" dir="ltr">eqp_IsEligibleForReplacement</code> مدرجة في قائمة <strong><bdi class="en-term" dir="ltr">Action name</bdi></strong> — مما يثبت أن نفس القاعدة التي نفذتها كـ <bdi class="en-term" dir="ltr">Plug-in</bdi> أصبحت الآن مفهرسة وقابلة للاكتشاف والاستخدام بواسطة أي <bdi class="en-term" dir="ltr">Cloud Flow</bdi> في البيئة.</p>
+<li>أغلق التدفق <strong>دون حفظه</strong>. يهدف هذا التمرين فقط إلى إثبات قابلية اكتشاف الحدث، وليس بناء تدفق يستهلكه.</li>
+</ol>
+<h2 id="u4-h-245" class="book-h2">تنظيف البيئة (<bdi class="en-term" dir="ltr">Clean up</bdi>)</h2>
+<p>إذا انتهيت من الاستكشاف والتجربة، فقم بإزالة ما سجلته وأنشأته في هذا التمرين. إن ترك هذه المكونات لا يعطل أي تمرين آخر، ولكن إزالتها يحافظ على نظافة بيئتك التطويرية.</p>
+<ol>
+<li>افتح أداة <bdi class="en-term" dir="ltr">Plugin Registration Tool</bdi> (<code class="inline-code" dir="ltr">pac tool prt</code>) واتصل ببيئتك.</li>
+<li>قم بتوسيع <strong>(<bdi class="en-term" dir="ltr">Assembly</bdi>) <bdi class="en-term" dir="ltr">AB400.Lab01</bdi></strong> &gt; <strong>(<bdi class="en-term" dir="ltr">Plugin</bdi>) <bdi class="en-term" dir="ltr">AB400.Lab01.RequestApprovalPlugin</bdi></strong>، وانقر بزر الماوس الأيمن على الخطوة المسجلة واختر <strong><bdi class="en-term" dir="ltr">Unregister</bdi></strong>. تأكد من إزالة الصورة القبلية (<bdi class="en-term" dir="ltr">Pre-image</bdi>) معها.</li>
+<li>انقر بزر الماوس الأيمن على <strong>(<bdi class="en-term" dir="ltr">Assembly</bdi>) <bdi class="en-term" dir="ltr">AB400.Lab01</bdi></strong> واختر <strong><bdi class="en-term" dir="ltr">Unregister</bdi></strong> لإزالة ملف التجميع بالكامل.</li>
+<li>في بوابة الصانع، افتح الحل <strong><bdi class="en-term" dir="ltr">AB400 Lab 01 catalog</bdi></strong> واحذف المكونات التي أنشأتها بهذا الترتيب الدقيق: أولاً <strong><bdi class="en-term" dir="ltr">Catalog Assignment</bdi></strong>، ثم فئة <strong><bdi class="en-term" dir="ltr">Equipment eligibility</bdi></strong>، وأخيراً الدليل الجذر <strong><bdi class="en-term" dir="ltr">AB400 Lab 01</bdi></strong>.</li>
+<li>في صفحة <strong><bdi class="en-term" dir="ltr">Solutions</bdi></strong>، حدد الحل <strong><bdi class="en-term" dir="ltr">EquipmentProvisioningLab01</bdi></strong> واختر <strong><bdi class="en-term" dir="ltr">Delete</bdi></strong> لإلغاء تثبيته. يزيل ذلك نموذج <strong><bdi class="en-term" dir="ltr">Request intake</bdi></strong> وفحص جانب العميل الخاص به، ولا يؤثر على الحل الأساسي <strong><bdi class="en-term" dir="ltr">Equipment Provisioning</bdi> (<bdi class="en-term" dir="ltr">base</bdi>)</strong>.</li>
+</ol>
+<h2 id="u4-h-259" class="book-h2">الملخص (<bdi class="en-term" dir="ltr">Summary</bdi>)</h2>
+<p>في هذا التمرين العملي، تحققت بنفسك من أن فحص جانب العميل على نموذج <bdi class="en-term" dir="ltr">Dataverse</bdi> يمكن تجاوزه عبر واجهة <bdi class="en-term" dir="ltr">Web API</bdi>، ثم أغلقت تلك الثغرة نهائياً باستخدام <bdi class="en-term" dir="ltr">Plug-in</bdi> على جانب الخادم. واستخدمت صورة قبلية (<bdi class="en-term" dir="ltr">Pre-image</bdi>) لرصد انتقال حالة الاعتماد، وخدمة المؤسسة (<bdi class="en-term" dir="ltr">Organization service</bdi>) للاستعلام عن بيانات الجهاز المرتبط، وأداة <bdi class="en-term" dir="ltr">Plugin Registration Tool</bdi> لتسجيل خطوة متزامنة في مرحلة <bdi class="en-term" dir="ltr">PreOperation</bdi> مع خصائص التصفية (<bdi class="en-term" dir="ltr">Filtering Attributes</bdi>) وصورة الكيان. كما تحققت من أن الـ <bdi class="en-term" dir="ltr">Plug-in</bdi> يفرض القاعدة بانتقائية — حيث يمنع الاعتماد غير المؤهل بينما يسمح بالاستثناء المشروع — وقمت بفهرسة الـ <bdi class="en-term" dir="ltr">Custom API</bdi> الخاصة بنفس القاعدة كحدث أعمال في <bdi class="en-term" dir="ltr">Dataverse</bdi> لكي تتمكن مسارات الأتمتة الأخرى من اكتشافه.</p>
+<p>لقد أكملت هذا التمرين بنجاح.</p>
+<div class="study-aid-container">
+<h2 id="u4-h-268" class="book-h2">ملحق الكود المرجعي الكامل للمعمل وشرحه التفصيلي (<code class="inline-code" dir="ltr">Build/LabReference/01-equipment-validation-plugin</code>)</h2>
+<p class="lead-para">يوفر المستودع الرسمي للدورة النسخة المرجعية المكتملة للحل في الملف المحلي <code class="inline-code" dir="ltr">book/labs-code/Build/LabReference/01-equipment-validation-plugin/AB400.Lab01/RequestApprovalPlugin.cs</code>. فيما يلي الكود المصدري الكامل للملف المرجعي (84 سطراً كاملاً دون حذف) متبوعاً بالتحليل الهندسي التفصيلي لكل جزء منه:</p>
+<div class="code-container code-container-long" dir="ltr"><div class="code-header"><span class="code-lang">CSHARP</span></div><pre class="code-pre" dir="ltr"><code class="language-csharp">using System;
+using System.ServiceModel;
+using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Query;
+
+namespace AB400.Lab01
+{
+    // Completed reference for Lab 01. Enforces R1 (replacement eligibility, foundation
+    // spec §3) when a request&#x27;s status changes to Approved.
+    //
+    // Registration (Plug-in Registration Tool):
+    //   Message:              Update
+    //   Primary Entity:       eqp_request
+    //   Event Pipeline Stage: PreOperation
+    //   Execution Mode:       Synchronous
+    //   Filtering Attributes: eqp_requeststatus
+    //   Pre-image (&quot;PreImage&quot;): eqp_requeststatus, eqp_currentdevice
+    public class RequestApprovalPlugin : IPlugin
+    {
+        private const int StatusApproved = 100000001;
+
+        public void Execute(IServiceProvider serviceProvider)
+        {
+            // Get the execution context and organization service
+            var context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
+            var factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
+            var service = factory.CreateOrganizationService(context.UserId);
+
+            // Confirm the request is being approved (read the Target and the pre-image)
+            var target = (Entity)context.InputParameters[&quot;Target&quot;];
+            if (!target.Attributes.Contains(&quot;eqp_requeststatus&quot;))
+            {
+                // The filtering attribute guarantees this never happens in practice, but
+                // guard against being invoked for an unrelated update.
+                return;
+            }
+
+            var newStatus = ((OptionSetValue)target[&quot;eqp_requeststatus&quot;]).Value;
+            if (newStatus != StatusApproved)
+            {
+                // Some other status transition (for example, to Rejected). R1 only applies to approval.
+                return;
+            }
+
+            var preImage = context.PreEntityImages[&quot;PreImage&quot;];
+            var previousStatus = ((OptionSetValue)preImage[&quot;eqp_requeststatus&quot;]).Value;
+            if (previousStatus == StatusApproved)
+            {
+                // The request was already Approved; this save didn&#x27;t change the status,
+                // so there&#x27;s no new approval transition to validate.
+                return;
+            }
+
+            // Retrieve the device being replaced
+            var deviceRef = preImage.GetAttributeValue&lt;EntityReference&gt;(&quot;eqp_currentdevice&quot;);
+
+            Entity device;
+            try
+            {
+                device = service.Retrieve(&quot;eqp_device&quot;, deviceRef.Id, new ColumnSet(&quot;eqp_issuedon&quot;, &quot;eqp_damagedbeyondrepair&quot;));
+            }
+            catch (FaultException&lt;OrganizationServiceFault&gt;)
+            {
+                throw new InvalidPluginExecutionException(&quot;The device being replaced couldn&#x27;t be found.&quot;);
+            }
+
+            var issuedOn = device.GetAttributeValue&lt;DateTime?&gt;(&quot;eqp_issuedon&quot;);
+            var damagedBeyondRepair = device.GetAttributeValue&lt;bool&gt;(&quot;eqp_damagedbeyondrepair&quot;);
+
+            // Apply the replacement-eligibility rule
+            var isEligible = damagedBeyondRepair
+                || !issuedOn.HasValue
+                || issuedOn.Value.Date &lt;= DateTime.UtcNow.Date.AddMonths(-24);
+
+            // Block the approval if the device isn&#x27;t eligible
+            if (!isEligible)
+            {
+                var eligibleFrom = issuedOn.Value.Date.AddMonths(24);
+                throw new InvalidPluginExecutionException(
+                    $&quot;This device was issued on {issuedOn.Value:yyyy-MM-dd}. It can be replaced from {eligibleFrom:yyyy-MM-dd}, or earlier if it&#x27;s flagged as damaged beyond repair.&quot;);
+            }
+        }
+    }
+}</code></pre></div>
+<h3 id="u4-h-274" class="book-h3">التحليل الهندسي التفصيلي للكود المرجعي (سطراً بسطر):</h3>
+<ol>
+<li><strong>الأسطر <code class="inline-code" dir="ltr">20–27</code> (التصميم عديم الحالة <code class="inline-code" dir="ltr">Stateless</code> واستخراج الخدمات):</strong></li>
+</ol>
+<ul>
+<li>يُعرَّف <code class="inline-code" dir="ltr">StatusApproved = 100000001</code> كـ <code class="inline-code" dir="ltr">const int</code> ثابت لا يتغير بين الاستدعاءات، بينما يتم استخراج <code class="inline-code" dir="ltr">context</code> و<code class="inline-code" dir="ltr">factory</code> و<code class="inline-code" dir="ltr">service</code> محلياً داخل <code class="inline-code" dir="ltr">Execute(IServiceProvider serviceProvider)</code> لضمان الأمان التام عند تخزين النسخة مؤقتاً (<code class="inline-code" dir="ltr">Caching</code>) بواسطة <code class="inline-code" dir="ltr">Dataverse</code>.</li>
+</ul>
+<ol start="2">
+<li><strong>الأسطر <code class="inline-code" dir="ltr">30–52</code> (التحقق الثلاثي من تحوّل الحالة <code class="inline-code" dir="ltr">State Transition Guard</code>):</strong></li>
+</ol>
+<ul>
+<li><strong>الحارس الأول (<code class="inline-code" dir="ltr">!target.Attributes.Contains(&quot;eqp_requeststatus&quot;)</code>):</strong> دفاع وقائي في حال تم تعديل <code class="inline-code" dir="ltr">Filtering Attributes</code> مستقبلاً بالخطأ.</li>
+<li><strong>الحارس الثاني (<code class="inline-code" dir="ltr">newStatus != StatusApproved</code>):</strong> يتأكد من أن القيمة الجديدة هي الاعتماد (<code class="inline-code" dir="ltr">100000001</code>) وليست حالة أخرى مثل الرفض (<code class="inline-code" dir="ltr">Rejected</code>).</li>
+<li><strong>الحارس الثالث (<code class="inline-code" dir="ltr">previousStatus == StatusApproved</code>):</strong> يقرأ القيمة القديمة من <code class="inline-code" dir="ltr">context.PreEntityImages[&quot;PreImage&quot;]</code> للتأكد من أن السجل لم يكن معتمداً مسبقاً قبل هذا التحديث.</li>
+</ul>
+<ol start="3">
+<li><strong>الأسطر <code class="inline-code" dir="ltr">55–65</code> (قراءة المرجع <code class="inline-code" dir="ltr">EntityReference</code> والاستعلام المقتصد عبر <code class="inline-code" dir="ltr">ColumnSet</code>):</strong></li>
+</ol>
+<ul>
+<li>يستخرج <code class="inline-code" dir="ltr">eqp_currentdevice</code> من <code class="inline-code" dir="ltr">preImage</code> لأن المستخدم عندما يغير حقل الحالة فقط لا يرسل حقل الجهاز ضمن <code class="inline-code" dir="ltr">Target</code>.</li>
+<li>يستدعي <code class="inline-code" dir="ltr">service.Retrieve</code> مع تمرير <code class="inline-code" dir="ltr">new ColumnSet(&quot;eqp_issuedon&quot;, &quot;eqp_damagedbeyondrepair&quot;)</code> لجلب العمودين المطلوبين فقط، ويحوّل أي <code class="inline-code" dir="ltr">FaultException&lt;OrganizationServiceFault&gt;</code> إلى <code class="inline-code" dir="ltr">InvalidPluginExecutionException</code> برسالة واضحة للمستخدم.</li>
+</ul>
+<ol start="4">
+<li><strong>الأسطر <code class="inline-code" dir="ltr">67–81</code> (حساب الأهلية بتوقيت <code class="inline-code" dir="ltr">UTC</code> وإجهاض المعاملة):</strong></li>
+</ol>
+<ul>
+<li>يستخدم <code class="inline-code" dir="ltr">GetAttributeValue&lt;DateTime?&gt;</code> و<code class="inline-code" dir="ltr">GetAttributeValue&lt;bool&gt;</code> اللذين يعيدان القيمة الافتراضية بأمان (<code class="inline-code" dir="ltr">null</code> أو <code class="inline-code" dir="ltr">false</code>) دون رمي <code class="inline-code" dir="ltr">KeyNotFoundException</code> إذا كان العمود فارغاً في قاعدة البيانات.</li>
+<li>عند عدم تحقق الشرط <code class="inline-code" dir="ltr">isEligible</code>، يرمي <code class="inline-code" dir="ltr">InvalidPluginExecutionException</code> في مرحلة <code class="inline-code" dir="ltr">PreOperation</code> فيلغي التحديث فوراً سواء جاء من نموذج المتصفح أو من <code class="inline-code" dir="ltr">Dataverse Web API</code>.</li>
+</ul>
+</div>
+</section>
+    </main>
+  </div>
+</body>
+</html>
