@@ -1,0 +1,192 @@
+{
+  "book_title_ar": "الموسوعة الهندسية لمطوّر Microsoft Power Platform وDynamics 365 (شهادة AB-400 / PL-400)",
+  "book_subtitle_ar": "دليل شامل ومفصّل لمهندسي .NET وC# — الكود، الذكاء الاصطناعي، التكامل السحابي، والمعمارية المؤسسية",
+  "volumes": [
+    {
+      "id": "v1",
+      "number": 1,
+      "title_ar": "المجلد الأول: التأسيس الوظيفي والمعماري لبيئة Power Platform وDynamics 365 (للمبرمجين)",
+      "title_en": "Volume 1: Power Platform & Dataverse Functional Architecture for Developers",
+      "sources": [
+        {
+          "id": "s01",
+          "type": "learning_path",
+          "title_en": "Microsoft Power Platform Fundamentals (PL-900)",
+          "title_ar": "أساسيات ومعمارية منصة Microsoft Power Platform",
+          "url": "https://learn.microsoft.com/en-us/training/paths/pl-900-power-platform-fundamentals/"
+        },
+        {
+          "id": "s02",
+          "type": "learning_path",
+          "title_en": "Build a data model in Microsoft Dataverse",
+          "title_ar": "بناء نموذج البيانات في Microsoft Dataverse",
+          "url": "https://learn.microsoft.com/en-us/training/paths/build-data-model-microsoft-dataverse/"
+        },
+        {
+          "id": "s03",
+          "type": "learning_path",
+          "title_en": "Create app models and business processes in Microsoft Dataverse",
+          "title_ar": "إنشاء نماذج التطبيقات وعمليات الأعمال في Microsoft Dataverse",
+          "url": "https://learn.microsoft.com/en-us/training/paths/create-app-models-business-processes/"
+        },
+        {
+          "id": "s04",
+          "type": "learning_path",
+          "title_en": "Automate a business process using expressions and Dataverse actions",
+          "title_ar": "أتمتة عمليات الأعمال باستخدام التعبيرات وإجراءات Dataverse",
+          "url": "https://learn.microsoft.com/en-us/training/paths/automate-business-process-expressions-dataverse-actions/"
+        },
+        {
+          "id": "s05",
+          "type": "learning_path",
+          "title_en": "Transform business applications with fusion development",
+          "title_ar": "تطوير تطبيقات الأعمال عبر فرق التطوير المدمجة (Fusion Development)",
+          "url": "https://learn.microsoft.com/en-us/training/paths/transform-business-applications-with-fusion-development/"
+        }
+      ]
+    },
+    {
+      "id": "v2",
+      "number": 2,
+      "title_ar": "المجلد الثاني: الدليل الشامل لمطوّر Power Platform وDynamics 365 — الكود والذكاء الاصطناعي (AB-400T00)",
+      "title_en": "Volume 2: Extending Microsoft Power Platform Solutions with Code and AI (Exam AB-400 Core & Labs)",
+      "sources": [
+        {
+          "id": "s06",
+          "type": "single_page",
+          "title_en": "Study guide for Exam AB-400: Extending Microsoft Power Platform Solutions with Code and AI",
+          "title_ar": "دليل الدراسة الرسمي لامتحان AB-400: توسيع حلول Power Platform بالكود والذكاء الاصطناعي",
+          "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ab-400"
+        },
+        {
+          "id": "s07",
+          "type": "learning_path",
+          "title_en": "Extend Microsoft Dataverse with code and Azure",
+          "title_ar": "توسيع Microsoft Dataverse باستخدام الكود (.NET Plug-ins & Web API) وخدمات Azure",
+          "url": "https://learn.microsoft.com/en-us/training/paths/extend-dataverse-code-azure/"
+        },
+        {
+          "id": "s08",
+          "type": "learning_path",
+          "title_en": "Build Power Apps experiences with code",
+          "title_ar": "بناء واجهات وتجارب Power Apps بالكود (Code Apps, Client Script, PCF & Command Bar)",
+          "url": "https://learn.microsoft.com/en-us/training/paths/build-power-apps-experiences/",
+          "extra_modules": [
+            "learn-bizapps.command-bar-customize"
+          ]
+        },
+        {
+          "id": "s09",
+          "type": "learning_path",
+          "title_en": "Build automation and agent integrations in Microsoft Power Platform",
+          "title_ar": "بناء الأتمتة المتقدمة وتكاملات وكلاء الذكاء الاصطناعي (Copilot Studio & Custom Connectors)",
+          "url": "https://learn.microsoft.com/en-us/training/paths/build-automation-agent-integrations/"
+        },
+        {
+          "id": "s10",
+          "type": "learning_path",
+          "title_en": "Integrate Microsoft Dataverse with external services",
+          "title_ar": "تكامل Microsoft Dataverse مع الأنظمة الخارجية والمعمارية المعتمدة على الأحداث وخوادم MCP",
+          "url": "https://learn.microsoft.com/en-us/training/paths/integrate-dataverse-external-services/"
+        },
+        {
+          "id": "s11",
+          "type": "learning_path",
+          "title_en": "Design and deliver Microsoft Power Platform solutions",
+          "title_ar": "تصميم وتسليم حلول Microsoft Power Platform المؤسسية وإدارة دورة حياة التطبيقات (ALM)",
+          "url": "https://learn.microsoft.com/en-us/training/paths/design-deliver-power-platform-solutions/"
+        },
+        {
+          "id": "s12",
+          "type": "github_labs",
+          "title_en": "Official AB-400 Hands-On Labs & Reference Code (MicrosoftLearning/AB-400-microsoft-power-platform-developer)",
+          "title_ar": "المعامل العملية الرسمية الكاملة وشرح الكود المرجعي لدورة AB-400",
+          "zip_url": "https://codeload.github.com/MicrosoftLearning/AB-400-microsoft-power-platform-developer/zip/refs/heads/main"
+        }
+      ]
+    },
+    {
+      "id": "v3",
+      "number": 3,
+      "title_ar": "المجلد الثالث: المرجع المتقدم وتعميق المهارات (Extended Deep-Dive & Legacy PL-400 Reference)",
+      "title_en": "Volume 3: Extended Deep-Dive & Legacy PL-400 Developer Reference",
+      "sources": [
+        {
+          "id": "s13",
+          "type": "learning_path",
+          "title_en": "Introduction to developing with Microsoft Power Platform",
+          "title_ar": "مدخل متعمق للتطوير على منصة Microsoft Power Platform",
+          "url": "https://learn.microsoft.com/en-us/training/paths/introduction-development-power-platform/"
+        },
+        {
+          "id": "s14",
+          "type": "learning_path",
+          "title_en": "Extend Microsoft Power Platform Microsoft Dataverse",
+          "title_ar": "التوسيع المتقدم لقاعدة بيانات Microsoft Dataverse",
+          "url": "https://learn.microsoft.com/en-us/training/paths/extend-power-platform-dataverse/"
+        },
+        {
+          "id": "s15",
+          "type": "learning_path",
+          "title_en": "Basic application lifecycle management with Microsoft Power Platform",
+          "title_ar": "إدارة دورة حياة التطبيقات (ALM) وحزم الحلول في Microsoft Power Platform",
+          "url": "https://learn.microsoft.com/en-us/training/paths/basic-application-lifecycle-management-microsoft-power-platform/"
+        },
+        {
+          "id": "s16",
+          "type": "learning_path",
+          "title_en": "Extend the user experience with client scripting and command bar customization",
+          "title_ar": "توسيع تجربة المستخدم عبر البرمجة النصية للعميل (Client Scripting) وتخصيص شريط الأوامر",
+          "url": "https://learn.microsoft.com/en-us/training/paths/extend-user-experience-client-scripting-command-bar-customization/"
+        },
+        {
+          "id": "s17",
+          "type": "learning_path",
+          "title_en": "Build basic code components with Power Apps component framework",
+          "title_ar": "بناء مكونات الكود المتقدمة باستخدام إطار عمل Power Apps Component Framework (PCF)",
+          "url": "https://learn.microsoft.com/en-us/training/paths/build-basic-code-components-power-apps-component-framework/"
+        },
+        {
+          "id": "s18",
+          "type": "learning_path",
+          "title_en": "Get started with custom connectors in Microsoft Power Platform",
+          "title_ar": "بناء وتأمين الموصلات المخصصة (Custom Connectors) في Microsoft Power Platform",
+          "url": "https://learn.microsoft.com/en-us/training/paths/get-started-custom-connectors-microsoft-power-platform/"
+        },
+        {
+          "id": "s19",
+          "type": "learning_path",
+          "title_en": "Integrate Microsoft Dataverse with Azure",
+          "title_ar": "التكامل المؤسسي الشامل بين Microsoft Dataverse وخدمات Microsoft Azure",
+          "url": "https://learn.microsoft.com/en-us/training/paths/integrate-dataverse-azure/"
+        }
+      ]
+    }
+  ],
+  "pilot_unit_selectors": [
+    {
+      "pilot_id": "pilot_a",
+      "description": "Conceptual architecture unit with tables and diagrams",
+      "module_uid": "learn.wwl.get-started-power-platform-development",
+      "unit_index": 2
+    },
+    {
+      "pilot_id": "pilot_b",
+      "description": "Heavy C# IPlugin code unit with Pre/Post images and Organization service",
+      "module_uid": "learn.wwl.implement-dataverse-plug-ins",
+      "unit_index": 3
+    },
+    {
+      "pilot_id": "pilot_c",
+      "description": "Knowledge check quiz unit with normalized options and study-aid answer key",
+      "module_uid": "learn.wwl.implement-dataverse-plug-ins",
+      "unit_index": 6
+    },
+    {
+      "pilot_id": "pilot_d",
+      "description": "Official GitHub Lab 01 with indented code blocks, alerts, media, and LabReference walkthrough",
+      "lab_file": "01-equipment-validation-plugin.md",
+      "lab_ref_dir": "Build/LabReference/Lab01"
+    }
+  ]
+}

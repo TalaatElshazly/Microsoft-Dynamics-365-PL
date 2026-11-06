@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الإصدار التجريبي (Pilot Preview) — موسوعة مطوّر Microsoft Power Platform وDynamics 365 (AB-400)</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Readex+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --primary: #0f6cbd;
+  --primary-dark: #0c4a6e;
+  --border-color: #e2e8f0;
+  --code-bg: #0f172a;
+  --code-text: #f8fafc;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  text-align: right;
+  font-family: 'Readex Pro', 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--text-main);
+  background: var(--bg-page);
+}
+
+.layout-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar-toc {
+  width: 320px;
+  background: #0f172a;
+  color: #f1f5f9;
+  padding: 24px 18px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  flex-shrink: 0;
+  border-left: 1px solid #1e293b;
+}
+
+.sidebar-toc h2 {
+  font-size: 1.1rem;
+  color: #38bdf8;
+  margin-top: 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #334155;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-list li {
+  margin-bottom: 8px;
+}
+
+.toc-list a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.92rem;
+  display: block;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+
+.toc-list a:hover {
+  background: #1e293b;
+  color: #ffffff;
+}
+
+.main-content {
+  flex: 1;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 36px 44px;
+}
+
+.book-cover {
+  background: linear-gradient(135deg, #0c4a6e 0%, #0f172a 100%);
+  color: #ffffff;
+  padding: 44px 40px;
+  border-radius: 16px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+}
+
+.book-cover .badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.2);
+  color: #7dd3fc;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  margin-bottom: 14px;
+}
+
+.book-cover h1 {
+  margin: 0 0 12px 0;
+  font-size: 2rem;
+  line-height: 1.4;
+}
+
+.book-cover p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 1.05rem;
+}
+
+.unit-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 34px 38px;
+  margin-bottom: 36px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.unit-meta-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: #f1f5f9;
+  padding: 10px 16px;
+  border-radius: 8px;
+  margin-bottom: 22px;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+
+.unit-meta-bar a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.book-h1 {
+  font-size: 1.75rem;
+  color: #0f172a;
+  border-bottom: 3px solid var(--primary);
+  padding-bottom: 12px;
+  margin-top: 0;
+}
+
+.book-h2 {
+  font-size: 1.38rem;
+  color: #0c4a6e;
+  margin-top: 30px;
+  padding-right: 12px;
+  border-right: 4px solid var(--primary);
+}
+
+.book-h3 {
+  font-size: 1.16rem;
+  color: #1e293b;
+  margin-top: 24px;
+}
+
+.en-term {
+  direction: ltr;
+  unicode-bidi: isolate;
+  font-family: 'Segoe UI', -apple-system, sans-serif;
+  font-weight: 600;
+  color: #0369a1;
+  padding: 0 2px;
+}
+
+.inline-code {
+  direction: ltr;
+  unicode-bidi: isolate;
+  font-family: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+  font-size: 0.88em;
+  background: #f1f5f9;
+  color: #be123c;
+  padding: 2px 6px;
+  border-radius: 5px;
+  border: 1px solid #e2e8f0;
+}
+
+.code-container {
+  direction: ltr;
+  text-align: left;
+  margin: 20px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--code-bg);
+  border: 1px solid #1e293b;
+}
+
+.code-header {
+  background: #1e293b;
+  padding: 6px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.code-lang {
+  color: #38bdf8;
+  font-family: 'JetBrains Mono', Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.code-pre {
+  margin: 0;
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--code-text);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin: 22px 0;
+}
+
+.book-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.book-table th, .book-table td {
+  border: 1px solid #cbd5e1;
+  padding: 11px 14px;
+  text-align: right;
+  vertical-align: top;
+}
+
+.book-table th {
+  background: #f1f5f9;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.book-table tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+.callout {
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 20px 0;
+  border-right: 5px solid #0284c7;
+  background: #f0f9ff;
+}
+
+.callout-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #0369a1;
+}
+
+.alert-tip { border-right-color: #16a34a; background: #f0fdf4; }
+.alert-tip .callout-title { color: #15803d; }
+.alert-important { border-right-color: #7c3aed; background: #f5f3ff; }
+.alert-important .callout-title { color: #6d28d9; }
+.alert-warning { border-right-color: #d97706; background: #fffbeb; }
+.alert-warning .callout-title { color: #b45309; }
+.alert-caution { border-right-color: #dc2626; background: #fef2f2; }
+.alert-caution .callout-title { color: #b91c1c; }
+
+.study-aid-container {
+  margin-top: 28px;
+  padding: 22px 26px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 2px solid #22c55e;
+}
+
+.book-figure {
+  margin: 24px auto;
+  text-align: center;
+  background: #f8fafc;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.book-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.book-figure figcaption {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.sub-list {
+  list-style: none;
+  padding-right: 18px;
+  margin: 10px 0 18px 0;
+}
+
+.quiz-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm 12mm;
+  }
+  body {
+    background: #ffffff;
+    font-size: 11.5pt;
+  }
+  .sidebar-toc {
+    display: none !important;
+  }
+  .main-content {
+    max-width: 100%;
+    padding: 0;
+  }
+  .unit-card {
+    box-shadow: none;
+    border: 1px solid #cbd5e1;
+    page-break-inside: auto;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+  .code-container, .callout, .book-figure, .book-table, .study-aid-container {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="layout-shell">
+    <aside class="sidebar-toc">
+      <h2>فهرس المحتويات (4 وحدات)</h2>
+      <ul class="toc-list">
+        <li><a href="#unit-1">1. رسم خريطة مواقع تشغيل كود التوسيع وكيفية بدء تنفيذه (<span class="en-term" dir="ltr">Extension Runtimes</span> <span class="en-term" dir="ltr">ENT0</span> <span class="en-term" dir="ltr">Triggers</span>)</a></li><li><a href="#unit-2">2. تطوير إضافة برمجية (<span class="en-term" dir="ltr">Plug-in</span>) تستخدم سياق التنفيذ (<span class="en-term" dir="ltr">Execution Context</span>)</a></li><li><a href="#unit-3">3. تقييم الموديول (<span class="en-term" dir="ltr">Module Assessment</span>)</a></li><li><a href="#unit-4">4. بناء وتسجيل إضافة برمجية (<span class="en-term" dir="ltr">Plug-in</span>) للتحقق من أهلية المعدات</a></li>
+      </ul>
+    </aside>
+    <main class="main-content">
+      <header class="book-cover">
+        <div class="badge">Exam AB-400 / Course AB-400T00 — Pilot Build</div>
+        <h1>الإصدار التجريبي (<span class="en-term" dir="ltr">Pilot Preview</span>) — موسوعة مطوّر <span class="en-term" dir="ltr">Microsoft Power Platform</span> و<span class="en-term" dir="ltr">Dynamics</span> 365 (<span class="en-term" dir="ltr">AB-400</span>)</h1>
+        <p>عينة معمارية وتطبيقية شاملة (4 وحدات: معمارية المنصة + كود <span class="en-term" dir="ltr">C# Plug-ins</span> + اختبار تقييمي + معمل تطبيقي كامل مع شرح الكود المرجعي)</p>
+      </header>
+      <section id="unit-1" class="unit-card">
+<div class="unit-meta-bar"><span><strong>الوحدة:</strong> <span dir="ltr">v2-s07-m01-u02</span> (Map where extension code runs and how it starts)</span><a href="https://learn.microsoft.com/training/modules/get-started-power-platform-development/2-map-extension-runtimes/" target="_blank" rel="noopener">المصدر الرسمي على Microsoft Learn / GitHub ↗</a></div>
+<h1 id="u1-h-0" class="book-h1">رسم خريطة مواقع تشغيل كود التوسيع وكيفية بدء تنفيذه (<span class="en-term" dir="ltr">Extension Runtimes</span> <span class="en-term" dir="ltr">ENT0</span> <span class="en-term" dir="ltr">Triggers</span>)</h1>
+<p>تستعرض وحدة المقدمة سيناريو تجهيز المعدات (<span class="en-term" dir="ltr">Equipment-provisioning scenario</span>) والقائمة الكاملة لخيارات التوسيع البرمجي التي يقارن بينها هذا الموديول. وقبل أن تفاضل بين التقنيات المحددة في مواجهة بعضها البعض، تحتاج أولاً إلى بناء نموذج ذهني واضح للمكان الفعلي الذي يعمل فيه الكود (<span class="en-term" dir="ltr">Where code runs</span>) وما الذي يطلق شرارة تشغيله (<span class="en-term" dir="ltr">What starts it running</span>). وتبني الوحدات اللاحقة على هذه الخريطة المعمارية عند إجراء المقارنات التفصيلية بين الخيارات المختلفة.</p>
+<h2 id="u1-h-5" class="book-h2">بيئات التشغيل الخمس للتوسيع: <span class="en-term" dir="ltr">Client</span> و<span class="en-term" dir="ltr">Server</span> و<span class="en-term" dir="ltr">Cloud</span> و<span class="en-term" dir="ltr">Connector</span> و<span class="en-term" dir="ltr">Agent</span></h2>
+<p>يعيش كل جزء من منطق التوسيع البرمجي (<span class="en-term" dir="ltr">Extension logic</span>) داخل واحدة من خمس بيئات تشغيل أساسية (<span class="en-term" dir="ltr">Runtimes</span>): العميل ( <span class="en-term" dir="ltr">INLINECODE_0</span> )، أو الخادم ( <span class="en-term" dir="ltr">INLINECODE_1</span> )، أو السحابة ( <span class="en-term" dir="ltr">INLINECODE_2</span> )، أو الموصل ( <span class="en-term" dir="ltr">INLINECODE_3</span> )، أو وكيل الذكاء الاصطناعي ( <span class="en-term" dir="ltr">INLINECODE_4</span> ). وتمتلك كل بيئة تشغيل موطنها الفيزيائي الخاص، وقيودها التقنية الخاصة، وسبب وجودها المعماري. إن إدراك البيئة التي ينتمي إليها منطق برمجي معين هو القرار الهندسي الأول الذي تتخذه، وذلك قبل وقت طويل من اختيار تقنية بعينها.</p>
+<p> <span class="en-term" dir="ltr">MEDIA_0</span> </p>
+<p>تأمل نظام تجهيز المعدات الذيطُرح في المقدمة. يملأ الموظف طلباً داخل تطبيق، لذا يعمل جزء من المنطق البرمجي هناك مباشرة داخل التطبيق. وتقوم قاعدة بيانات  <span class="en-term" dir="ltr">INLINECODE_5</span>  بتخزين وفرض القواعد الخاصة بالطلبات، مما يعني أن منطقاً آخر يعمل على الخادم ( <span class="en-term" dir="ltr">INLINECODE_6</span> ) كلما تم إنشاء سجل طلب، بغض النظر عن التطبيق أو العملية التي أنشأت ذلك السجل.</p>
+<p>وتقوم خدمة خارجية بتتبع الأجهزة المتاحة فعلياً في المخزون، ولذلك فإن المنطق الذي يستدعي تلك الخدمة يعمل في مكان ما خارج  <span class="en-term" dir="ltr">INLINECODE_7</span>  بالكامل. كما يقوم منسق الاعتمادات بمراجعة الطلبات والموافقة عليها، ويمكن أن تُدار محادثة الموافقة تلك نفسها بواسطة وكيل ذكاء اصطناعي ( <span class="en-term" dir="ltr">INLINECODE_8</span> ) يحلل الطلب منطقياً. يضع الجدول التالي كل بيئة تشغيل في مكانها الصحيح على الخريطة المعمارية ويربطها بجزء محدد من هذا السيناريو.</p>
+<div class="table-wrapper"><table class="book-table">
+<thead><tr>
+<th>بيئة التشغيل (<span class="en-term" dir="ltr">Runtime</span>)</th>
+<th>أين يتم التنفيذ الفعلي (<span class="en-term" dir="ltr">Where it executes</span>)</th>
+<th>ما الذي يبدأ التشغيل (<span class="en-term" dir="ltr">What initiates it</span>)</th>
+<th>مثال تطبيقي من السيناريو (<span class="en-term" dir="ltr">Example from the scenario</span>)</th>
+</tr></thead><tbody>
+<tr>
+<td><strong><span class="en-term" dir="ltr">Client</span></strong></td>
+<td>داخل المتصفح أو بيئة تشغيل التطبيق، على جهاز المستخدم مباشرة</td>
+<td>إجراء من المستخدم: فتح نموذج ( <span class="en-term" dir="ltr">INLINECODE_9</span> )، أو الكتابة داخل حقل، أو النقر على زر</td>
+<td>التحقق من إدخال الموظف لمعرّف الجهاز بالصيغة الصحيحة أثناء تعبئة الطلب</td>
+</tr>
+<tr>
+<td><strong><span class="en-term" dir="ltr">Server</span></strong></td>
+<td>على خادم  <span class="en-term" dir="ltr">INLINECODE_10</span> ، وضمن نفس المعاملة ( <span class="en-term" dir="ltr">INLINECODE_11</span> ) الخاصة بعملية البيانات</td>
+<td>حدث في  <span class="en-term" dir="ltr">INLINECODE_12</span> : انطلاق رسالة ( <span class="en-term" dir="ltr">INLINECODE_13</span> ) مثل  <span class="en-term" dir="ltr">INLINECODE_14</span>  أو  <span class="en-term" dir="ltr">INLINECODE_15</span>  أو  <span class="en-term" dir="ltr">INLINECODE_16</span>  على صف في جدول ( <span class="en-term" dir="ltr">INLINECODE_17</span> )</td>
+<td>فرض قواعد الأهلية والاستحقاق في كل مرة ينشئ فيها شخص أو نظام سجل طلب، بغض النظر عما إذا كان الطلب قادماً من تطبيق أو  <span class="en-term" dir="ltr">INLINECODE_18</span>  أو واجهة  <span class="en-term" dir="ltr">INLINECODE_19</span> </td>
+</tr>
+<tr>
+<td><strong><span class="en-term" dir="ltr">Cloud</span></strong></td>
+<td>على موارد حوسبة أو خدمات سحابية خارج  <span class="en-term" dir="ltr">INLINECODE_20</span> </td>
+<td>استدعاء  <span class="en-term" dir="ltr">INLINECODE_21</span>  أو مشغل مجدول زمنياً ( <span class="en-term" dir="ltr">INLINECODE_22</span> )</td>
+<td>فحص التوافر الفوري للأجهزة من خدمة خارجية، سواء وفق جدول زمني أو في لحظة إرسال الطلب</td>
+</tr>
+<tr>
+<td><strong><span class="en-term" dir="ltr">Connector</span></strong></td>
+<td>عند الجسر الرابط بين  <span class="en-term" dir="ltr">INLINECODE_23</span>  والنظام الخارجي</td>
+<td>إجراء ( <span class="en-term" dir="ltr">INLINECODE_24</span> ) أو طلب يتم تمريره عبر الموصل بواسطة تطبيق أو  <span class="en-term" dir="ltr">INLINECODE_25</span>  أو وكيل  <span class="en-term" dir="ltr">INLINECODE_26</span> </td>
+<td>كشف وإتاحة عمليات خدمة التوافر الخارجية بحيث يتمكن  <span class="en-term" dir="ltr">INLINECODE_27</span>  أو  <span class="en-term" dir="ltr">INLINECODE_28</span>  من استدعائها بأمان</td>
+</tr>
+<tr>
+<td><strong><span class="en-term" dir="ltr">Agent</span></strong></td>
+<td>داخل بيئة تشغيل مدعومة بالذكاء الاصطناعي تحلل هدفاً أو محادثة أو مجموعة تعليمات</td>
+<td>مطالبة حوارية ( <span class="en-term" dir="ltr">INLINECODE_29</span> )، أو هدف محدد، أو حدث يراقبه الوكيل</td>
+<td>قيادة الطلب عبر محادثة اعتماد تفاعلية مع المنسق، أو مراقبة الطلبات المعلقة وتنبيه المنسق تلقائياً</td>
+</tr>
+</tbody></table></div>
+<h2 id="u1-h-23" class="book-h2">المشغلات (<span class="en-term" dir="ltr">Triggers</span>): ما الذي يبدأ عمل كل بيئة تشغيل</h2>
+<p>إن السؤال عن المكان الذي يعيش فيه الكود والسؤال عما يبدأ تشغيله هما سؤالان منفصلان تماماً، والخلط بينهما يُعد مصدراً شائعاً للارتباك عند مقارنة خيارات التوسيع لأول مرة. فبيئة التشغيل ( <span class="en-term" dir="ltr">INLINECODE_30</span> ) تخبرك بالمكان الفيزيائي الذي يُنفَّذ فيه المنطق البرمجي، بينما يخبرك المشغل ( <span class="en-term" dir="ltr">INLINECODE_31</span> ) بالإشارة التي تطلق هذا التنفيذ، وتبدو تلك الإشارة مختلفة كلياً من بيئة تشغيل إلى أخرى.</p>
+<p>فمع منطق العميل ( <span class="en-term" dir="ltr">INLINECODE_32</span> )، يوجد دائماً شخص بشري خلف المشغل: نقرة ماوس، أو ضغطة مفتاح، أو فتح نموذج ( <span class="en-term" dir="ltr">INLINECODE_33</span> ). أما مع منطق الخادم ( <span class="en-term" dir="ltr">INLINECODE_34</span> )، فلا يكون المشغل شخصاً بشكل مباشر أبداً؛ بل هو رسالة ( <span class="en-term" dir="ltr">INLINECODE_35</span> ) تطلقها المنصة كلما حدثت عملية بيانات، سواء تسبب فيها مستخدم بشري، أو تدفق سحابي ( <span class="en-term" dir="ltr">INLINECODE_36</span> )، أو نظام خارجي آخر.</p>
+<p>وهذا التمييز جوهري جداً في سيناريو العمل؛ فقاعدة التحقق من الأهلية التي تعمل فقط عندما يرسل الموظف طلباً عبر واجهة التطبيق ستفوّت حتماً أي طلبات يتم إنشاؤها بأي طريقة أخرى. أما وضع تلك القاعدة على الخادم ( <span class="en-term" dir="ltr">INLINECODE_37</span> ) بحيث تنطلق بواسطة الحدث ذاته بدلاً من واجهة التطبيق، فيضمن اتساق تطبيق القاعدة بصرامة بغض النظر عن الكيفية التي أُنشئ بها الطلب.</p>
+<p>وتقع مشغلات السحابة ( <span class="en-term" dir="ltr">INLINECODE_38</span> ) والموصلات ( <span class="en-term" dir="ltr">INLINECODE_39</span> ) في منطقة وسطى بينهما؛ فالعملية السحابية تستجيب لاستدعاء  <span class="en-term" dir="ltr">INLINECODE_40</span>  أو تنطلق وفق جدول زمني، مما يعني أن الفحص الليلي المجدول لتوافر الأجهزة والفحص الفوري عند الطلب الناتج عن إرسال طلب جديد يمكن أن يتواجدا معاً كنفس النوع من المنطق السحابي مع ربط كل منهما بمشغل مختلف.</p>
+<p>أما الموصل ( <span class="en-term" dir="ltr">INLINECODE_41</span> ) فلا يقوم بتشغيل أي شيء من تلقاء نفسه، بل يكتفي بإتاحة العمليات البرمجية لكي يقرر مكون آخر — مثل  <span class="en-term" dir="ltr">INLINECODE_42</span>  أو تطبيق أو  <span class="en-term" dir="ltr">INLINECODE_43</span>  — استدعاءها عند الحاجة.</p>
+<p>ويقدم منطق الوكيل ( <span class="en-term" dir="ltr">INLINECODE_44</span> ) نوعاً مختلفاً تماماً من المشغلات؛ فبدلاً من الاستجابة لحدث منفرد ومحدد، يستجيب الوكيل لهدف ( <span class="en-term" dir="ltr">INLINECODE_45</span> ) أو محادثة، ويمكنه مواصلة التفكير والاستنتاج عبر خطوات متعددة، كما يحدث عندما يوجه المنسق خطوة بخطوة خلال عملية اعتماد الطلب بدلاً من العمل لمرة واحدة والتوقف.</p>
+<h2 id="u1-h-37" class="book-h2">مصطلحات جانب الخادم (<span class="en-term" dir="ltr">Server-side vocabulary</span>): الرسالة والخدمة وإطار عمل الأحداث</h2>
+<p>يأتي المنطق البرمجي على جانب الخادم في  <span class="en-term" dir="ltr">INLINECODE_46</span>  بمصطلحاته المعمارية الخاصة. ويساعدك التعرف على هذه المصطلحات الآن على امتلاك الأساس المتين الذي تحتاجه عندما تتعمق الوحدات اللاحقة في هذا الموديول في بناء التوسيعات الفعلية. أنت لا تبني شيئاً بهذه المصطلحات في هذه اللحظة، بل تضعها في مكانها الصحيح على الخريطة الذهنية.</p>
+<p>تُعرَّف كل عملية بيانات في  <span class="en-term" dir="ltr">INLINECODE_47</span>  — سواء كانت عملية إنشاء ( <span class="en-term" dir="ltr">INLINECODE_48</span> )، أو تحديث ( <span class="en-term" dir="ltr">INLINECODE_49</span> )، أو عملية أعمال مخصصة — كرسالة مسماة (<em><span class="en-term" dir="ltr">Message</span></em>). وتكتمل هذه المنظومة الاصطلاحية بخمسة مصطلحات أساسية أخرى:</p>
+<ul>
+<li><strong><span class="en-term" dir="ltr">Organization service</span></strong>: تُعرّف هذه الرسائل والعمليات التي تدعمها المنصة برمجياً.</li>
+<li><strong><span class="en-term" dir="ltr">Dataverse Web API</span></strong>: تكشف وتتيح نفس دليل العمليات هذا عبر بروتوكول  <span class="en-term" dir="ltr">INLINECODE_50</span>  في صورة دوال وإجراءات  <span class="en-term" dir="ltr">INLINECODE_51</span>  قياسية، مما يتيح لك استدعاء نفس العمليات المتطابقة التي تُعرّفها خدمة المؤسسة ( <span class="en-term" dir="ltr">INLINECODE_52</span> ) من أي لغة برمجة تقريباً.</li>
+<li><strong><span class="en-term" dir="ltr">Event framework</span></strong>: يكتشف لحظة انطلاق أي رسالة من هذه الرسائل ويتيح لك تسجيل منطق برمجي مخصص للاستجابة لها.</li>
+<li><strong><span class="en-term" dir="ltr">Plug-in</span></strong>: هو الكود البرمجي على جانب الخادم الذي تقوم بتسجيله للاستجابة لحدث معين من خلال إطار عمل الأحداث ( <span class="en-term" dir="ltr">INLINECODE_53</span> ).</li>
+<li><strong><span class="en-term" dir="ltr">Custom API</span></strong>: تتيح لك تعريف عملية مسماة جديدة كلياً تتجاوز العمليات المدمجة التي يأتي بها  <span class="en-term" dir="ltr">INLINECODE_54</span>  افتراضياً، بحيث يتمكن أي منطق برمجي آخر من استدعائها بنفس الطريقة التي يستدعي بها أي رسالة مدمجة.</li>
+</ul>
+<p>معاً، تصف هذه المكونات الخمسة كيف يرتبط منطق جانب الخادم بالمنصة معمارياً، وليس التفاصيل الكودية لكيفية كتابة كل مكون منها.</p>
+<blockquote class="book-quote"><strong>سؤال توجيهي للتفكير (<span class="en-term" dir="ltr">Guiding question</span>):</strong> فكر في عملية أعمال تدعمها في عملك أو في نظام تعرفه جيداً؛ أي جزء من منطقها ينتمي إلى جانب العميل ( <span class="en-term" dir="ltr">INLINECODE_55</span> )، وأي جزء ينتمي إلى جانب الخادم ( <span class="en-term" dir="ltr">INLINECODE_56</span> )، وأي جزء يعتمد على خدمة خارجية أو قرار مدعوم بالذكاء الاصطناعي؟ حاول توزيع كل جزء على خريطة بيئات التشغيل الخمس قبل الانتقال إلى الوحدة التالية.</blockquote>
+<p>ومع اكتمال هذه الخريطة المعمارية، أصبحت مستعداً لفحص الخيارات التقنية المحددة داخل كل بيئة تشغيل. تركز الوحدة التالية في هذا الموديول على بيئة تشغيل العميل والتطبيق، حيث تقارن بين  <span class="en-term" dir="ltr">INLINECODE_57</span> ، ومكونات  <span class="en-term" dir="ltr">INLINECODE_58</span> ، وتطبيقات الكود ( <span class="en-term" dir="ltr">INLINECODE_59</span> )، والصفحات التوليدية ( <span class="en-term" dir="ltr">INLINECODE_60</span> ) في ضوء النموذج الذهني الذي بنيته للتو.</p>
+</section><section id="unit-2" class="unit-card">
+<div class="unit-meta-bar"><span><strong>الوحدة:</strong> <span dir="ltr">v2-s07-m02-u03</span> (Develop a plug-in that uses the execution context)</span><a href="https://learn.microsoft.com/training/modules/implement-dataverse-plug-ins/3-develop-plug-in-execution-context/" target="_blank" rel="noopener">المصدر الرسمي على Microsoft Learn / GitHub ↗</a></div>
+<h1 id="u2-h-0" class="book-h1">تطوير إضافة برمجية (<span class="en-term" dir="ltr">Plug-in</span>) تستخدم سياق التنفيذ (<span class="en-term" dir="ltr">Execution Context</span>)</h1>
+<p>أثبتت الوحدة رقم 2 أن فحص رصيد الاستحقاق المالي في شركة <span class="en-term" dir="ltr">Contoso</span> ينتمي معمارياً إلى مرحلة  <span class="en-term" dir="ltr">INLINECODE_0</span> ، وشرحت لماذا تتفوق تلك المرحلة على مرحلة  <span class="en-term" dir="ltr">INLINECODE_1</span>  في أي فحص تقتصر وظيفته على رفض العملية مبكراً بأقل تكلفة ممكنة. تحوّل هذه الوحدة ذلك القرار المعماري إلى فئة  <span class="en-term" dir="ltr">INLINECODE_2</span>  برمجية عاملة بلغة <span class="en-term" dir="ltr">C#</span>، وتوضح كيف تقرأ هذه الفئة بيانات سجل الطلب ( <span class="en-term" dir="ltr">INLINECODE_3</span> ) من خلال سياق التنفيذ ( <span class="en-term" dir="ltr">INLINECODE_4</span>  /  <span class="en-term" dir="ltr">INLINECODE_5</span> ).</p>
+<h2 id="u2-h-5" class="book-h2">تنفيذ الواجهة <span class="en-term" dir="ltr">IPlugin</span> لتشغيل منطقك داخل خط أنابيب الأحداث (<span class="en-term" dir="ltr">Pipeline</span>)</h2>
+<p>تقوم كل فئة  <span class="en-term" dir="ltr">INLINECODE_6</span>  تسجلها في  <span class="en-term" dir="ltr">INLINECODE_7</span>  بتنفيذ الواجهة البرمجية <strong> <span class="en-term" dir="ltr">INLINECODE_8</span> </strong>. وتُعرّف هذه الواجهة دالة واحدة فقط هي  <span class="en-term" dir="ltr">INLINECODE_9</span> ، حيث يستدعي  <span class="en-term" dir="ltr">INLINECODE_10</span>  هذه الدالة تلقائياً كلما انطلقت خطوة مسجلة ( <span class="en-term" dir="ltr">INLINECODE_11</span> ) مرتبطة بفئتك البرمجية. وكل ما يقوم به الـ  <span class="en-term" dir="ltr">INLINECODE_12</span>  الخاص بك يحدث بالكامل داخل هذه الدالة الواحدة.</p>
+<p>فيما يلي فئة برمجية مبسطة تطابق فحص رصيد الاستحقاق من الوحدة رقم 2، ومسجلة كخطوة في مرحلة  <span class="en-term" dir="ltr">INLINECODE_13</span>  على رسالة الإنشاء ( <span class="en-term" dir="ltr">INLINECODE_14</span> ) الخاصة بجدول الطلبات ( <span class="en-term" dir="ltr">INLINECODE_15</span> ):</p>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">CSHARP</span></div><pre class="code-pre" dir="ltr"><code class="language-csharp">public class ValidateRequestAllowance : IPlugin
+{
+    public void Execute(IServiceProvider serviceProvider)
+    {
+        IPluginExecutionContext context = (IPluginExecutionContext)
+            serviceProvider.GetService(typeof(IPluginExecutionContext));
+
+        Entity request = (Entity)context.InputParameters[&quot;Target&quot;];
+
+        if (request.Contains(&quot;cont_remainingallowance&quot;) &amp;&amp;
+            request.GetAttributeValue&lt;Money&gt;(&quot;cont_remainingallowance&quot;).Value &lt;= 0)
+        {
+            throw new InvalidPluginExecutionException(
+                &quot;This employee has no remaining allowance for a new request.&quot;);
+        }
+    }
+}</code></pre></div>
+<p>يُعد المعامل  <span class="en-term" dir="ltr">INLINECODE_16</span>  هو البوابة التي تصل من خلالها الدالة  <span class="en-term" dir="ltr">INLINECODE_17</span>  إلى كل ما تحتاجه أثناء التشغيل: سياق التنفيذ ( <span class="en-term" dir="ltr">INLINECODE_18</span> )، وخدمة التتبع التشخيصي ( <span class="en-term" dir="ltr">INLINECODE_19</span> )، وخدمة المؤسسة ( <span class="en-term" dir="ltr">INLINECODE_20</span> ) التي ستستكشفها في الوحدة التالية. ويتيح استخراج كائن الكيان ( <span class="en-term" dir="ltr">INLINECODE_21</span> ) الخاص بالطلب عبر التحويل النوعي من  <span class="en-term" dir="ltr">INLINECODE_22</span>  وصولاً مباشراً للـ  <span class="en-term" dir="ltr">INLINECODE_23</span>  إلى الصف ( <span class="en-term" dir="ltr">INLINECODE_24</span> ) الفعلي الذي يحاول الموظف حفظه، وذلك قبل أن تصل عملية الحفظ إلى قاعدة البيانات.</p>
+<h2 id="u2-h-15" class="book-h2">الحفاظ على فئة الـ <span class="en-term" dir="ltr">Plug-in</span> عديمة الحالة (<span class="en-term" dir="ltr">Stateless</span>)</h2>
+<p>يقوم  <span class="en-term" dir="ltr">INLINECODE_25</span>  بتخزين نسخة واحدة فقط ( <span class="en-term" dir="ltr">INLINECODE_26</span> ) من فئة الـ  <span class="en-term" dir="ltr">INLINECODE_27</span>  في الذاكرة المؤقتة ( <span class="en-term" dir="ltr">INLINECODE_28</span> ) ويعيد استخدامها عبر العديد من الاستدعاءات المتتالية لمختلف المستخدمين والطلبات، نظراً لأن إنشاء نسخة جديدة في كل مرة يستهلك موارد الأداء. وهذا السلوك في التخزين المؤقت هو السبب الجوهري الذي يفرض أن تظل فئة الـ  <span class="en-term" dir="ltr">INLINECODE_29</span>  عديمة الحالة ( <span class="en-term" dir="ltr">INLINECODE_30</span> ): فأي بيانات تخزنها كحقل ( <span class="en-term" dir="ltr">INLINECODE_31</span> ) أو خاصية ( <span class="en-term" dir="ltr">INLINECODE_32</span> ) على مستوى الفئة تبقى مخزنة وتنتقل عبر كل استدعاء لاحق يعيد استخدام نفس النسخة المخزنة مؤقتاً.</p>
+<p>ونتيجة لذلك، قد تتسرب بيانات طلب خاصة بموظف معين إلى تنفيذ خاص بموظف آخر، أو قد تتم الكتابة فوقها أثناء التنفيذ بواسطة استدعاء متزامن ( <span class="en-term" dir="ltr">INLINECODE_33</span> ). ومن الناحية العملية، يعني ذلك الالتزام بالقواعد التالية:</p>
+<ul>
+<li><strong>احتفظ بالكائنات الخاصة بالطلب داخل الدالة  <span class="en-term" dir="ltr">INLINECODE_34</span>  فقط.</strong> ينتمي كل من سياق التنفيذ ( <span class="en-term" dir="ltr">INLINECODE_35</span> )، ومرجع خدمة المؤسسة ( <span class="en-term" dir="ltr">INLINECODE_36</span> )، وخدمة التتبع ( <span class="en-term" dir="ltr">INLINECODE_37</span> )، وأي بيانات صف خاصة بالطلب إلى النطاق المحلي داخل  <span class="en-term" dir="ltr">INLINECODE_38</span> ، ولا يجوز أبداً تعريفها كحقول على مستوى الفئة.</li>
+<li><strong>الثوابت على مستوى الفئة والدوال المساعدة عديمة الحالة آمنة تماماً.</strong> أي عنصر لا يحتفظ بحالة مرتبطة بطلب معين لا بأس من إبقائه على مستوى الفئة، لأنه لا يتغير بين الاستدعاءات المتتالية.</li>
+<li><strong>لا تقم بتخزين السياق أو الخدمة أو التتبع أو بيانات الصفوف في حقول الفئة.</strong> إن التعامل مع الدالة  <span class="en-term" dir="ltr">INLINECODE_39</span>  بوصفها المكان الوحيد الذي تعيش فيه الحالة المؤقتة يضمن بقاء إضافة <span class="en-term" dir="ltr">Contoso</span> البرمجية آمنة تماماً عند إعادة الاستخدام تحت ضغط التشغيل الفعلي في بيئة الإنتاج.</li>
+</ul>
+<h2 id="u2-h-25" class="book-h2">الاختيار بين تنفيذ <span class="en-term" dir="ltr">IPlugin</span> مباشرة أو البناء فوق الفئة <span class="en-term" dir="ltr">PluginBase</span></h2>
+<p>إن كتابة فئة برمجية تنفذ الواجهة  <span class="en-term" dir="ltr">INLINECODE_40</span>  مباشرة، كما يفعل المثال السابق، يعمل بكفاءة مع أي  <span class="en-term" dir="ltr">INLINECODE_41</span> . كما يوفر  <span class="en-term" dir="ltr">INLINECODE_42</span>  فئة مجردة ( <span class="en-term" dir="ltr">INLINECODE_43</span> ) باسم <strong> <span class="en-term" dir="ltr">INLINECODE_44</span> </strong> يتم توليدها تلقائياً لك بواسطة إضافة أدوات <span class="en-term" dir="ltr">Power Platform</span> لبرنامج  <span class="en-term" dir="ltr">INLINECODE_45</span>  أو عبر أمر  <span class="en-term" dir="ltr">INLINECODE_46</span>  في أداة  <span class="en-term" dir="ltr">INLINECODE_47</span> . وتنفذ الفئة  <span class="en-term" dir="ltr">INLINECODE_48</span>  الواجهة  <span class="en-term" dir="ltr">INLINECODE_49</span>  وتجهز مسبقاً سياق التنفيذ والخدمات الشائعة، بحيث تبدأ دالة  <span class="en-term" dir="ltr">INLINECODE_50</span>  التي تعيد تعريفها ( <span class="en-term" dir="ltr">INLINECODE_51</span> )، والسياق والخدمات جاهزة للاستخدام المباشر بدلاً من استخراجها يدوياً في كل مرة.</p>
+<p>تُعد الفئة  <span class="en-term" dir="ltr">INLINECODE_52</span>  وسيلة راحة وتسهيل للمطور، وليست متطلباً إجبارياً؛ فمن المفيد وضعها في الاعتبار أثناء كتابة أولى إضافاتك البرمجية لأنها تزيل الكود التأسيسي المتكرر، غير أن الفئة التي تنفذ  <span class="en-term" dir="ltr">INLINECODE_53</span>  مباشرة تتصرف بشكل متطابق تماماً بمجرد تسجيلها على الخادم. ويمكن لمطوري <span class="en-term" dir="ltr">Contoso</span> المزج بين الأسلوبين داخل نفس الحل ( <span class="en-term" dir="ltr">INLINECODE_54</span> ) دون أي تعارض.</p>
+<h2 id="u2-h-31" class="book-h2">قراءة البيانات التي يحتاجها الـ <span class="en-term" dir="ltr">Plug-in</span> من سياق التنفيذ (<span class="en-term" dir="ltr">Execution Context</span>)</h2>
+<p>يحمل سياق التنفيذ كل المعلومات التي يحتاج الـ  <span class="en-term" dir="ltr">INLINECODE_55</span>  إلى معرفتها حول العملية الجارية التي يعمل بداخلها. والخصائص التي ستستخدمها في أغلب الأحيان هي:</p>
+<div class="table-wrapper"><table class="book-table">
+<thead><tr>
+<th>الخاصية (<span class="en-term" dir="ltr">Property</span>)</th>
+<th>ماذا تحتوي (<span class="en-term" dir="ltr">What it holds</span>)</th>
+<th>كيف يستخدمها الـ <span class="en-term" dir="ltr">Plug-in</span> في شركة <span class="en-term" dir="ltr">Contoso</span></th>
+</tr></thead><tbody>
+<tr>
+<td> <span class="en-term" dir="ltr">INLINECODE_56</span>  /  <span class="en-term" dir="ltr">INLINECODE_57</span> </td>
+<td>بيانات الطلب والاستجابة للعملية الجارية في صورة أزواج مفاتيح وقيم ( <span class="en-term" dir="ltr">INLINECODE_58</span> )</td>
+<td>قراءة كيان الطلب ( <span class="en-term" dir="ltr">INLINECODE_59</span> ) من  <span class="en-term" dir="ltr">INLINECODE_60</span>  قبل اكتمال عملية الحفظ</td>
+</tr>
+<tr>
+<td> <span class="en-term" dir="ltr">INLINECODE_61</span> </td>
+<td>بيانات تمررها خطوة  <span class="en-term" dir="ltr">INLINECODE_62</span>  إلى خطوة لاحقة ضمن نفس تنفيذ خط الأنابيب؛ وبالنسبة لقيمة تم ضبطها في مرحلة  <span class="en-term" dir="ltr">INLINECODE_63</span>  على رسائل  <span class="en-term" dir="ltr">INLINECODE_64</span>  أو  <span class="en-term" dir="ltr">INLINECODE_65</span>  أو  <span class="en-term" dir="ltr">INLINECODE_66</span> ، تقرؤها الخطوة اللاحقة من  <span class="en-term" dir="ltr">INLINECODE_67</span> </td>
+<td>تتيح لخطوة في  <span class="en-term" dir="ltr">INLINECODE_68</span>  وضع علامة أو قيمة تسترجعها خطوة في  <span class="en-term" dir="ltr">INLINECODE_69</span>  على نفس الطلب عبر  <span class="en-term" dir="ltr">INLINECODE_70</span>  وتتصرف بناءً عليها</td>
+</tr>
+<tr>
+<td> <span class="en-term" dir="ltr">INLINECODE_71</span>  /  <span class="en-term" dir="ltr">INLINECODE_72</span> </td>
+<td>لقطات ( <span class="en-term" dir="ltr">INLINECODE_73</span> ) لحالة الصف قبل تنفيذ العملية وبعدها</td>
+<td>تحمل البيانات التي تستخدمها الوحدة رقم 4 لمقارنة قيم سجل الطلب قبل التحديث وبعده</td>
+</tr>
+<tr>
+<td> <span class="en-term" dir="ltr">INLINECODE_74</span> ,  <span class="en-term" dir="ltr">INLINECODE_75</span> ,  <span class="en-term" dir="ltr">INLINECODE_76</span> </td>
+<td>المرحلة الجارية حالياً والرسالة والجدول اللذان أطلقا التنفيذ</td>
+<td>تتيح لفئة برمجية واحدة مسجلة على عدة خطوات التمييز بينها أثناء التشغيل</td>
+</tr>
+<tr>
+<td> <span class="en-term" dir="ltr">INLINECODE_77</span> </td>
+<td>عمق التنفيذ الحالي في مكدس الاستدعاءات ( <span class="en-term" dir="ltr">INLINECODE_78</span> )</td>
+<td>يساعدك على رصد حالات إعادة الدخول المتكررة ( <span class="en-term" dir="ltr">INLINECODE_79</span> ) عندما يؤدي تحديث داخل  <span class="en-term" dir="ltr">INLINECODE_80</span>  إلى إطلاق معالجات إضافية</td>
+</tr>
+<tr>
+<td> <span class="en-term" dir="ltr">INLINECODE_81</span> </td>
+<td>تفاصيل حول العملية الخارجية الأب، إذا كان  <span class="en-term" dir="ltr">INLINECODE_82</span>  آخر أو مسار عمل قد أطلق العملية الحالية</td>
+<td>يوضح ما إذا كان التغيير على سجل الطلب قد تم تشغيله نتيجة إجراء قام به  <span class="en-term" dir="ltr">INLINECODE_83</span>  آخر مسبقاً</td>
+</tr>
+</tbody></table></div>
+<p>جميع هذه الخصائص هي خصائص للقراءة فقط ( <span class="en-term" dir="ltr">INLINECODE_84</span> ) على كائن السياق نفسه، ولكن المجموعات  <span class="en-term" dir="ltr">INLINECODE_85</span>  و <span class="en-term" dir="ltr">INLINECODE_86</span>  و <span class="en-term" dir="ltr">INLINECODE_87</span>  هي مجموعات قابلة للتعديل ( <span class="en-term" dir="ltr">INLINECODE_88</span> ). إن تعديل العناصر الموجودة بداخل هذه المجموعات — بدلاً من محاولة إعادة تعيين الخاصية نفسها — هو الطريقة التي يغير بها الـ  <span class="en-term" dir="ltr">INLINECODE_89</span>  سلوك العملية في المراحل التالية. كما تحمل  <span class="en-term" dir="ltr">INLINECODE_90</span>  و <span class="en-term" dir="ltr">INLINECODE_91</span>  بيانات فعلية بمجرد تسجيلها على الخطوة ( <span class="en-term" dir="ltr">INLINECODE_92</span>  و <span class="en-term" dir="ltr">INLINECODE_93</span> )، وتغطي الوحدة التالية بالتفصيل كيفية تسجيل هذه الصور والتعامل معها برمجياً.</p>
+<blockquote class="book-quote"><strong>تأمل ومراجعة (<span class="en-term" dir="ltr">Reflect</span>):</strong> بناءً على ما قرأته، لماذا لا ينبغي لفئة الـ  <span class="en-term" dir="ltr">INLINECODE_94</span>  في شركة <span class="en-term" dir="ltr">Contoso</span> تخزين مرجع خدمة المؤسسة ( <span class="en-term" dir="ltr">INLINECODE_95</span> ) في حقل على مستوى الفئة؟ وما هي خاصية السياق التي ستفحصها أولاً للتأكد من قيمة الحالة الحالية لسجل الطلب قبل متابعة التنفيذ؟</blockquote>
+<h2 id="u2-h-49" class="book-h2">الحماية من الحلقات اللانهائية باستخدام خاصية <span class="en-term" dir="ltr">Depth</span></h2>
+<p>توجد الخاصية  <span class="en-term" dir="ltr">INLINECODE_96</span>  لأن الـ  <span class="en-term" dir="ltr">INLINECODE_97</span>  يمكن أن يطلق عملية بيانات أخرى تؤدي — بشكل مباشر أو غير مباشر — إلى تشغيل نفس الـ  <span class="en-term" dir="ltr">INLINECODE_98</span>  مرة أخرى. ويقوم  <span class="en-term" dir="ltr">INLINECODE_99</span>  بزيادة قيمة  <span class="en-term" dir="ltr">INLINECODE_100</span>  بمقدار واحد في كل مرة يحدث فيها ذلك، ثم يوقف التنفيذ تلقائياً بمجرد تجاوز الحد الأقصى الداخلي المسموح به، مما يمنع أي حلقة تكرارية خارجة عن السيطرة من استهلاك موارد الخادم إلى ما لا نهاية. وينبغي لك التعامل مع  <span class="en-term" dir="ltr">INLINECODE_101</span>  كشبكة أمان تديرها المنصة تلقائياً، وليس كقيمة يعتمد عليها منطق الأعمال الخاص بك، إذ يمكن أن يتغير الرقم الفعلي لأسباب تقع خارج سيطرة الـ  <span class="en-term" dir="ltr">INLINECODE_102</span>  مباشرة.</p>
+<h2 id="u2-h-53" class="book-h2">إعادة استخدام المنطق البرمجي عبر الخطوات باستخدام بيانات الإعداد (<span class="en-term" dir="ltr">Configuration Data</span>)</h2>
+<p>تعالج آلية مستقلة أخرى مشكلة عملية شائعة: كيفية إعادة استخدام نفس فئة الـ  <span class="en-term" dir="ltr">INLINECODE_103</span>  المترجمة ( <span class="en-term" dir="ltr">INLINECODE_104</span> ) عبر عدة خطوات تحتاج كل منها إلى إعدادات مختلفة قليلاً. يمكن لفئة الـ  <span class="en-term" dir="ltr">INLINECODE_105</span>  تعريف معاملات نصية ( <span class="en-term" dir="ltr">INLINECODE_106</span> ) في دالة البناء ( <span class="en-term" dir="ltr">INLINECODE_107</span> ) لكل من الإعدادات غير المؤمنة ( <span class="en-term" dir="ltr">INLINECODE_108</span> ) والإعدادات المؤمنة ( <span class="en-term" dir="ltr">INLINECODE_109</span> )، حيث تقوم بتمرير القيم الخاصة بكل منهما وقت تسجيل الخطوة:</p>
+<ul>
+<li><strong>بيانات الإعداد غير المؤمنة (<span class="en-term" dir="ltr">Unsecure configuration data</span>):</strong> تكون مرئية لأي مستخدم يمتلك صلاحية عرض تفاصيل تسجيل الخطوة في البيئة.</li>
+<li><strong>بيانات الإعداد المؤمنة (<span class="en-term" dir="ltr">Secure configuration data</span>):</strong> تُخزن بشكل مستقل وتكون متاحة للمسؤولين ( <span class="en-term" dir="ltr">INLINECODE_110</span> ) فقط.</li>
+</ul>
+<p>ويمكن لشركة <span class="en-term" dir="ltr">Contoso</span> توظيف هذه الآلية لتسجيل نفس فئة فحص الاستحقاق على عدة خطوات مختلفة، مع تمرير حد مالي مختلف كبيانات إعداد لكل خطوة، مما يغني عن كتابة فئات برمجية شبه مكررة لكل حد مالي.</p>
+<p>ومع اكتمال كتابة الفئة البرمجية وربط خصائص سياق التنفيذ باحتياجات الـ  <span class="en-term" dir="ltr">INLINECODE_111</span>  في <span class="en-term" dir="ltr">Contoso</span>، تبني الوحدة التالية فوق هذا الأساس؛ حيث توضح كيف تنقل الصور القبلية ( <span class="en-term" dir="ltr">INLINECODE_112</span> ) والصور البعدية ( <span class="en-term" dir="ltr">INLINECODE_113</span> ) قيم الصف قبل التحديث وبعده، وكيف تتيح لك خدمة المؤسسة ( <span class="en-term" dir="ltr">INLINECODE_114</span> ) تنفيذ عمليات بيانات إضافية كجزء من نفس المعاملة ( <span class="en-term" dir="ltr">INLINECODE_115</span> ).</p>
+<p>تعرف على المزيد حول  <span class="en-term" dir="ltr">MEDIA_0</span>  و <span class="en-term" dir="ltr">MEDIA_1</span> .</p>
+</section><section id="unit-3" class="unit-card">
+<div class="unit-meta-bar"><span><strong>الوحدة:</strong> <span dir="ltr">v2-s07-m02-u06</span> (Module assessment)</span><a href="https://learn.microsoft.com/training/modules/implement-dataverse-plug-ins/6-knowledge-check/" target="_blank" rel="noopener">المصدر الرسمي على Microsoft Learn / GitHub ↗</a></div>
+<h1 id="u3-h-0" class="book-h1">تقييم الموديول (<span class="en-term" dir="ltr">Module Assessment</span>)</h1>
+<h2 id="u3-h-3" class="book-h2">اختبر معلوماتك (<span class="en-term" dir="ltr">Check your knowledge</span>)</h2>
+<ol>
+<li>يقوم مطور بتسجيل خطوة ( <span class="en-term" dir="ltr">INLINECODE_0</span> ) يجب أن تلغي عملية حفظ سجل الطلب ( <span class="en-term" dir="ltr">INLINECODE_1</span> ) كلما لم يتبقَّ للموظف أي رصيد استحقاق، ويحتاج الفحص فقط إلى البيانات المضمنة بالفعل في الطلب الوارد. ما هي مرحلة خط أنابيب الأحداث ( <span class="en-term" dir="ltr">INLINECODE_2</span> ) التي ينبغي للمطور تسجيل الخطوة عليها لإلغاء العملية بأقل تكلفة ممكنة؟</li>
+<ul class="sub-list">
+<li><label class="quiz-option"><input type="checkbox" disabled /> <span class="en-term" dir="ltr">PreOperation</span></label></li>
+<li><label class="quiz-option"><input type="checkbox" disabled /> <span class="en-term" dir="ltr">PreValidation</span></label></li>
+<li><label class="quiz-option"><input type="checkbox" disabled /> <span class="en-term" dir="ltr">PostOperation</span></label></li>
+</ul>
+<li>تقوم فئة  <span class="en-term" dir="ltr">INLINECODE_3</span>  بتخزين سياق التنفيذ ( <span class="en-term" dir="ltr">INLINECODE_4</span> ) في حقل خاص ( <span class="en-term" dir="ltr">INLINECODE_5</span> ) على مستوى الفئة لكي تتمكن دالة مساعدة ( <span class="en-term" dir="ltr">INLINECODE_6</span> ) من قراءته لاحقاً داخل نفس الفئة. لماذا يتسبب هذا التصميم في مشاكل خطيرة في بيئة الإنتاج؟</li>
+<ul class="sub-list">
+<li><label class="quiz-option"><input type="checkbox" disabled /> لا يمكن قراءة سياق التنفيذ إلا مرة واحدة فقط لكل تجميع ( <span class="en-term" dir="ltr">INLINECODE_7</span> ) خاص بالـ  <span class="en-term" dir="ltr">INLINECODE_8</span> ، ولذلك فإن تخزينه في حقل يستنفد تلك القراءة الوحيدة.</label></li>
+<li><label class="quiz-option"><input type="checkbox" disabled /> الحقول المعرفة على فئة الـ  <span class="en-term" dir="ltr">INLINECODE_9</span>  تكون مرئية فقط لخدمة المؤسسة ( <span class="en-term" dir="ltr">INLINECODE_10</span> )، لذا لن تتمكن الدالة المساعدة في نفس الفئة من قراءتها على أي حال.</label></li>
+<li><label class="quiz-option"><input type="checkbox" disabled /> يقوم  <span class="en-term" dir="ltr">INLINECODE_11</span>  بتخزين نسخة واحدة فقط من فئة الـ  <span class="en-term" dir="ltr">INLINECODE_12</span>  في الذاكرة المؤقتة ( <span class="en-term" dir="ltr">INLINECODE_13</span> ) وإعادة استخدامها عبر العديد من الاستدعاءات، لذا فإن الحقل المخزن يمكن أن يسرب البيانات بين طلبات غير مرتبطة ببعضها.</label></li>
+</ul>
+<li>يحتاج  <span class="en-term" dir="ltr">INLINECODE_14</span>  مسجل في مرحلة  <span class="en-term" dir="ltr">INLINECODE_15</span>  على رسالة التحديث ( <span class="en-term" dir="ltr">INLINECODE_16</span> ) إلى مقارنة قيمة عمود قبل التحديث بالقيمة التي أنتجتها العملية الرئيسية. ما هو الأسلوب الذي يوفر القيمتين معاً؟</li>
+<ul class="sub-list">
+<li><label class="quiz-option"><input type="checkbox" disabled /> تسجيل صورة قبلية ( <span class="en-term" dir="ltr">INLINECODE_17</span> ) وصورة بعدية ( <span class="en-term" dir="ltr">INLINECODE_18</span> ) على الخطوة، ومقارنة الاسمين المستعارين ( <span class="en-term" dir="ltr">INLINECODE_19</span> ) داخل الـ  <span class="en-term" dir="ltr">INLINECODE_20</span> .</label></li>
+<li><label class="quiz-option"><input type="checkbox" disabled /> قراءة المجموعة  <span class="en-term" dir="ltr">INLINECODE_21</span>  مرتين، مرة قبل استدعاء خدمة المؤسسة ( <span class="en-term" dir="ltr">INLINECODE_22</span> ) ومرة بعد استدعائها.</label></li>
+<li><label class="quiz-option"><input type="checkbox" disabled /> زيادة ترتيب تنفيذ الخطوة ( <span class="en-term" dir="ltr">INLINECODE_23</span> ) بحيث تعمل بعد جميع الخطوات الأخرى المسجلة على نفس الرسالة.</label></li>
+</ul>
+<li>يحتاج  <span class="en-term" dir="ltr">INLINECODE_24</span>  مسجل في مرحلة  <span class="en-term" dir="ltr">INLINECODE_25</span>  إلى تحديث صف في جدول آخر كجزء من نفس المعاملة ( <span class="en-term" dir="ltr">INLINECODE_26</span> ) التي أطلقته. ما هو الأسلوب الصحيح لإنجاز ذلك من داخل الـ  <span class="en-term" dir="ltr">INLINECODE_27</span> ؟</li>
+<ul class="sub-list">
+<li><label class="quiz-option"><input type="checkbox" disabled /> استدعاء واجهة  <span class="en-term" dir="ltr">INLINECODE_28</span>  باستخدام عميل  <span class="en-term" dir="ltr">INLINECODE_29</span> ، نظراً لأن الـ  <span class="en-term" dir="ltr">INLINECODE_30</span>  يعمل بالفعل ضمن سياق مصادق عليه.</label></li>
+<li><label class="quiz-option"><input type="checkbox" disabled /> إضافة أعمدة الجدول الآخر إلى خصائص التصفية ( <span class="en-term" dir="ltr">INLINECODE_31</span> ) الخاصة بالخطوة الحالية لكي يقوم  <span class="en-term" dir="ltr">INLINECODE_32</span>  بتحديثها تلقائياً.</label></li>
+<li><label class="quiz-option"><input type="checkbox" disabled /> الحصول على نسخة من  <span class="en-term" dir="ltr">INLINECODE_33</span>  عبر المصنع  <span class="en-term" dir="ltr">INLINECODE_34</span>  واستدعاء دالة  <span class="en-term" dir="ltr">INLINECODE_35</span>  الخاصة بها.</label></li>
+</ul>
+<li>أثناء تسجيل تجميع إضافة برمجية ( <span class="en-term" dir="ltr">INLINECODE_36</span> ) باستخدام أداة  <span class="en-term" dir="ltr">INLINECODE_37</span>  لبيئة  <span class="en-term" dir="ltr">INLINECODE_38</span>  سحابية ( <span class="en-term" dir="ltr">INLINECODE_39</span> )، ما هو وضع العزل ( <span class="en-term" dir="ltr">INLINECODE_40</span> )وموقع التخزين ( <span class="en-term" dir="ltr">INLINECODE_41</span> ) اللذان يجب على المطور اختيارهما؟</li>
+<ul class="sub-list">
+<li><label class="quiz-option"><input type="checkbox" disabled /> وضع العزل  <span class="en-term" dir="ltr">INLINECODE_42</span>  مع تخزين التجميع على القرص الصلب للخادم ( <span class="en-term" dir="ltr">INLINECODE_43</span> ).</label></li>
+<li><label class="quiz-option"><input type="checkbox" disabled /> وضع العزل  <span class="en-term" dir="ltr">INLINECODE_44</span>  مع تخزين التجميع في قاعدة البيانات ( <span class="en-term" dir="ltr">INLINECODE_45</span> ).</label></li>
+<li><label class="quiz-option"><input type="checkbox" disabled /> وضع العزل  <span class="en-term" dir="ltr">INLINECODE_46</span>  مع تخزين التجميع في ذاكرة التجميعات العمومية ( <span class="en-term" dir="ltr">INLINECODE_47</span> ).</label></li>
+</ul>
+</ol>
+<div class="study-aid-container">
+<div class="callout alert-tip"><div class="callout-title">نصيحة تقنية (TIP)</div><div class="callout-body"><strong>مفتاح الإجابات الاسترشادي (مستنبط من شرح الموديول للمراجعة الهندسية):</strong><br />1. <strong>الإجابة الصحيحة:</strong>  <span class="en-term" dir="ltr">INLINECODE_48</span>  — <strong>التعليل:</strong> مرحلة  <span class="en-term" dir="ltr">INLINECODE_49</span>  (المرحلة 10) تعمل قبل بدء معاملة قاعدة البيانات ( <span class="en-term" dir="ltr">INLINECODE_50</span> )، مما يجعل إلغاء الطلب عبر رمي  <span class="en-term" dir="ltr">INLINECODE_51</span>  فورياً وبأقل تكلفة دون الحاجة إلى التراجع ( <span class="en-term" dir="ltr">INLINECODE_52</span> ) عن معاملة نشطة.<br />2. <strong>الإجابة الصحيحة:</strong>  <span class="en-term" dir="ltr">INLINECODE_53</span>  — <strong>التعليل:</strong> يحتفظ  <span class="en-term" dir="ltr">INLINECODE_54</span>  بنسخة واحدة مخزنة مؤقتاً ( <span class="en-term" dir="ltr">INLINECODE_55</span> ) من فئة الـ  <span class="en-term" dir="ltr">INLINECODE_56</span>  ويعيد استخدامها عبر استدعاءات متزامنة لمستخدمين مختلفين، لذا يجب أن تكون الفئة  <span class="en-term" dir="ltr">INLINECODE_57</span>  بالكامل.<br />3. <strong>الإجابة الصحيحة:</strong>  <span class="en-term" dir="ltr">INLINECODE_58</span>  — <strong>التعليل:</strong> في مرحلة  <span class="en-term" dir="ltr">INLINECODE_59</span> ، توفر  <span class="en-term" dir="ltr">INLINECODE_60</span>  حالة الصف قبل التحديث وتوفر  <span class="en-term" dir="ltr">INLINECODE_61</span>  الحالة النهائية بعد التحديث.<br />4. <strong>الإجابة الصحيحة:</strong>  <span class="en-term" dir="ltr">INLINECODE_62</span>  — <strong>التعليل:</strong> خدمة  <span class="en-term" dir="ltr">INLINECODE_63</span>  المستخرجة من  <span class="en-term" dir="ltr">INLINECODE_64</span>  عبر  <span class="en-term" dir="ltr">INLINECODE_65</span>  تشترك في نفس معاملة قاعدة البيانات ( <span class="en-term" dir="ltr">INLINECODE_66</span> )، فإذا فشلت أي خطوة يتم التراجع عن العمليتين معاً.<br />5. <strong>الإجابة الصحيحة:</strong>  <span class="en-term" dir="ltr">INLINECODE_67</span>  — <strong>التعليل:</strong> في بيئات  <span class="en-term" dir="ltr">INLINECODE_68</span>  السحابية، يُشترط دائماً تشغيل جميع إضافات  <span class="en-term" dir="ltr">INLINECODE_69</span>  في وضع العزل الآمن ( <span class="en-term" dir="ltr">INLINECODE_70</span> ) وتخزين ملف التجميع في قاعدة البيانات ( <span class="en-term" dir="ltr">INLINECODE_71</span> ) ليتم توزيعه تلقائياً عبر خوادم السحابة.</div></div>
+</div>
+</section><section id="unit-4" class="unit-card">
+<div class="unit-meta-bar"><span><strong>الوحدة:</strong> <span dir="ltr">v2-s12-labs-u03</span> (Build and register an equipment-validation plug-in)</span><a href="https://github.com/MicrosoftLearning/AB-400-microsoft-power-platform-developer/blob/main/Instructions/Labs/01-equipment-validation-plugin.md" target="_blank" rel="noopener">المصدر الرسمي على Microsoft Learn / GitHub ↗</a></div>
+<h1 id="u4-h-0" class="book-h1">بناء وتسجيل إضافة برمجية (<span class="en-term" dir="ltr">Plug-in</span>) للتحقق من أهلية المعدات</h1>
+<p>يُعد حل تجهيز المعدات (<strong><span class="en-term" dir="ltr">Equipment Provisioning</span></strong>) حلاً مبنياً على منصة  <span class="en-term" dir="ltr">INLINECODE_0</span>  يتيح للموظفين طلب معدات بديلة، ويتيح للمنسقين مراجعة تلك الطلبات واعتمادها. ولا يُسمح باستبدال أي جهاز إلا إذا كان قد مضى على إصدار الجهاز المراد استبداله <strong>24</strong> شهراً على الأقل، أو تم تمييزه بأنه تالف وغير قابل للإصلاح — ولكن في الوضع الحالي يتم فرض هذه القاعدة فقط بواسطة سكربت على نموذج الطلب ( <span class="en-term" dir="ltr">INLINECODE_1</span> )، مما يعني أنه يمكن تجاوزها بسهولة بواسطة أي شخص يقوم بتحديث الطلب مباشرة عبر واجهة  <span class="en-term" dir="ltr">INLINECODE_2</span>  بدلاً من واجهة النموذج.</p>
+<p>في هذا التمرين العملي، ستكتب وتسجل إضافة برمجية ( <span class="en-term" dir="ltr">INLINECODE_3</span> ) تفرض نفس القاعدة على الخادم ( <span class="en-term" dir="ltr">INLINECODE_4</span> ) حيث لا يمكن تجاوزها أبداً. ستستخدم حزمة تطوير البرمجيات  <span class="en-term" dir="ltr">INLINECODE_5</span> ، وصورة قبلية ( <span class="en-term" dir="ltr">INLINECODE_6</span> ) لقراءة الحالة السابقة للطلب، وخدمة المؤسسة ( <span class="en-term" dir="ltr">INLINECODE_7</span> ) للبحث عن الجهاز المراد استبداله. ثم ستقوم بتسجيل الـ  <span class="en-term" dir="ltr">INLINECODE_8</span>  باستخدام أداة  <span class="en-term" dir="ltr">INLINECODE_9</span> ، وتثبت عملياً أنه يغلق الثغرة التي تركها الفحص المقتصر على النموذج مفتوحة. وأخيراً، ستقوم بفهرسة الواجهة البرمجية المخصصة ( <span class="en-term" dir="ltr">INLINECODE_10</span> ) الخاصة بالقاعدة كحدث أعمال ( <span class="en-term" dir="ltr">INLINECODE_11</span> ) في  <span class="en-term" dir="ltr">INLINECODE_12</span>  لكي تتمكن مسارات الأتمتة الأخرى من اكتشافه والتفاعل معه.</p>
+<p>في هذا التمرين، ستقوم بما يلي:</p>
+<ul>
+<li>محاولة اعتماد طلب غير مؤهل مباشرة عبر واجهة  <span class="en-term" dir="ltr">INLINECODE_13</span>  متجاوزاً فحص جانب العميل في النموذج</li>
+<li>كتابة  <span class="en-term" dir="ltr">INLINECODE_14</span>  يقرأ صورة قبلية ( <span class="en-term" dir="ltr">INLINECODE_15</span> ) ويستعلم من  <span class="en-term" dir="ltr">INLINECODE_16</span>  عبر  <span class="en-term" dir="ltr">INLINECODE_17</span>  لفرض قاعدة الأهلية</li>
+<li>تسجيل الـ  <span class="en-term" dir="ltr">INLINECODE_18</span>  باستخدام أداة  <span class="en-term" dir="ltr">INLINECODE_19</span> </li>
+<li>التأكد من أن الـ  <span class="en-term" dir="ltr">INLINECODE_20</span>  يمنع نفس محاولة التجاوز التي نجحت سابقاً — مع استمرار السماح بالحالات الاستثنائية المشروعة</li>
+<li>فهرسة الـ  <span class="en-term" dir="ltr">INLINECODE_21</span>  الخاصة بقاعدة الأهلية كحدث أعمال ( <span class="en-term" dir="ltr">INLINECODE_22</span> )</li>
+</ul>
+<p>يستغرق إكمال هذا التمرين حوالي <strong>35</strong> دقيقة تقريباً.</p>
+<h2 id="u4-h-17" class="book-h2">المتطلبات الأساسية (<span class="en-term" dir="ltr">Prerequisites</span>)</h2>
+<p>لإكمال هذا التمرين، تحتاج إلى:</p>
+<ul>
+<li>جهاز كمبيوتر يعمل بنظام <span class="en-term" dir="ltr">Windows</span>؛ إذ إن  <span class="en-term" dir="ltr">INLINECODE_23</span>  وأداة  <span class="en-term" dir="ltr">INLINECODE_24</span>  هما تطبيقا سطح مكتب يعملان على <span class="en-term" dir="ltr">Windows</span> فقط، ولا يوجد بديل عابر للمنصات لهذا التمرين.</li>
+<li>برنامج  <span class="en-term" dir="ltr">MEDIA_0</span>  على الرابط  <span class="en-term" dir="ltr">INLINECODE_25</span> ، إصدار 2022 أو أحدث، مع توفر قالب المشروع <strong><span class="en-term" dir="ltr">Class Library</span> (.<span class="en-term" dir="ltr">NET Framework</span>)</strong> (الذي يُثبَّت ضمن حزمة العمل <strong>.<span class="en-term" dir="ltr">NET desktop development</span></strong>).</li>
+<li>حزمة الاستهداف  <span class="en-term" dir="ltr">INLINECODE_26</span> ؛ وإذا لم تكن مثبتة مسبقاً، فسيطالبك  <span class="en-term" dir="ltr">INLINECODE_27</span>  بتثبيتها في أول مرة تبني فيها مشروعاً يستهدف هذا الإصدار.</li>
+<li>أداة سطر الأوامر  <span class="en-term" dir="ltr">MEDIA_0</span>  على الرابط  <span class="en-term" dir="ltr">INLINECODE_28</span> ، وتُستخدم لتشغيل أداة  <span class="en-term" dir="ltr">INLINECODE_29</span> .</li>
+<li>أداة سطر الأوامر  <span class="en-term" dir="ltr">MEDIA_0</span>  على الرابط  <span class="en-term" dir="ltr">INLINECODE_30</span> ، وتُستخدم في هذا التمرين للحصول على رمز وصول ( <span class="en-term" dir="ltr">INLINECODE_31</span> ) لإجراء استدعاء مباشر لواجهة  <span class="en-term" dir="ltr">INLINECODE_32</span> .</li>
+<li>بيئة  <span class="en-term" dir="ltr">INLINECODE_33</span>  تمتلك فيها دور الأمان ( <span class="en-term" dir="ltr">INLINECODE_34</span> ) إما <strong><span class="en-term" dir="ltr">System Administrator</span></strong> أو <strong><span class="en-term" dir="ltr">System Customizer</span></strong>؛ ويمتلك مالك البيئة التطويرية هذا الدور افتراضياً.</li>
+</ul>
+<blockquote class="book-quote"><strong><span class="en-term" dir="ltr">Note</span></strong>: إذا كان مساعد  <span class="en-term" dir="ltr">INLINECODE_35</span>  متاحاً لديك داخل  <span class="en-term" dir="ltr">INLINECODE_36</span> ، فلا تتردد في استخدامه للمساعدة في صياغة أو مراجعة كود الـ  <span class="en-term" dir="ltr">INLINECODE_37</span>  في هذا التمرين — ولكنه غير إلزامي، فجميع مقاطع الكود التي تحتاجها متوفرة بالكامل هنا.</blockquote>
+<h2 id="u4-h-30" class="book-h2">قبل أن تبدأ (<span class="en-term" dir="ltr">Before you start</span>)</h2>
+<p>يفترض هذا التمرين أن لديك بالفعل بيئة تطوير  <span class="en-term" dir="ltr">INLINECODE_38</span>  مثبتاً عليها الحل الأساسي <strong><span class="en-term" dir="ltr">Equipment Provisioning</span> (<span class="en-term" dir="ltr">base</span>)</strong>، كما هو موضح في دليل الإعداد  <span class="en-term" dir="ltr">MEDIA_0</span> . إذا لم تكن قد أكملت ذلك الإعداد بعد، فقم بإنجازه الآن قبل المتابعة.</p>
+<ol>
+<li>سجّل الدخول إلى  <span class="en-term" dir="ltr">MEDIA_0</span>  على الرابط  <span class="en-term" dir="ltr">INLINECODE_39</span> ، وتأكد من أن محدد البيئة يعرض البيئة التي تستخدمها لهذه التمارين.</li>
+<li>اختر <strong><span class="en-term" dir="ltr">Solutions</span></strong>، وتأكد من ظهور الحل <strong><span class="en-term" dir="ltr">Equipment Provisioning</span> (<span class="en-term" dir="ltr">base</span>)</strong> في القائمة. إذا لم يكن ظاهراً، فاتبع خطوات الاستيراد الواردة في  <span class="en-term" dir="ltr">MEDIA_0</span> ، ثم عد إلى هنا.</li>
+<li>قم بتنزيل ملف الحل المدار  <span class="en-term" dir="ltr">MEDIA_0</span>  من الرابط  <span class="en-term" dir="ltr">INLINECODE_40</span> . يضيف هذا الحل نموذج <strong><span class="en-term" dir="ltr">Request intake</span></strong> إلى جدول الطلبات ( <span class="en-term" dir="ltr">INLINECODE_41</span> ) محتوياً على فحص الأهلية في جانب العميل الذي ستقوم بتجاوزه في المهمة التالية.</li>
+<li>في صفحة <strong><span class="en-term" dir="ltr">Solutions</span></strong>، اختر <strong><span class="en-term" dir="ltr">Import solution</span></strong>، ثم اختر <strong><span class="en-term" dir="ltr">Browse</span></strong>، وحدد الملف الذي قمت بتنزيله، واضغط على <strong><span class="en-term" dir="ltr">Next</span></strong> ثم <strong><span class="en-term" dir="ltr">Import</span></strong>. انتظر حتى يكتمل الاستيراد.</li>
+<li>افتح تطبيق <strong><span class="en-term" dir="ltr">Equipment Provisioning</span></strong> واختر <strong><span class="en-term" dir="ltr">Requests</span></strong> من خريطة الموقع ( <span class="en-term" dir="ltr">INLINECODE_42</span> ).</li>
+<li>في شريط الأوامر ( <span class="en-term" dir="ltr">INLINECODE_43</span> ) الخاص بطريقة العرض <strong><span class="en-term" dir="ltr">Active Requests</span></strong>، اختر الزر <strong><span class="en-term" dir="ltr">Reset lab data</span></strong>. انتظر حتى ينتهي، وراجع الملخص في نافذة الحوار <strong><span class="en-term" dir="ltr">Lab data reset</span></strong>، ثم أغلق النافذة واختر <strong><span class="en-term" dir="ltr">Refresh</span></strong>.</li>
+<p>ينبغي أن ترى الطلبات من  <span class="en-term" dir="ltr">INLINECODE_44</span>  إلى  <span class="en-term" dir="ltr">INLINECODE_45</span>  مدرجة كطلبات مفتوحة، وكل منها يحمل الحالة الموضحة في ملخص البيانات.</p>
+</ol>
+<h2 id="u4-h-48" class="book-h2">محاولة اعتماد طلب غير مؤهل (<span class="en-term" dir="ltr">Try to approve an ineligible request</span>)</h2>
+<p>قبل أن تكتب أي سطر كود، شاهد بنفسك الثغرة المعمارية التي توشك على إغلاقها. يطلب السجل  <span class="en-term" dir="ltr">INLINECODE_46</span>  استبدال جهاز كمبيوتر محمول تم إصداره منذ 8 أشهر فقط وليس تالفاً — وبالتالي لا ينبغي أن يكون مؤهلاً للاستبدال قبل مرور 16 شهراً أخرى. ويمنع فحص جانب العميل على نموذج الطلب المنسقَ من اعتماده عن طريق الخطأ، ولكن ذلك الفحص يعمل داخل المتصفح فقط.</p>
+<ol>
+<li>في تطبيق <strong><span class="en-term" dir="ltr">Equipment Provisioning</span></strong>، افتح السجل  <span class="en-term" dir="ltr">INLINECODE_47</span> .</li>
+<li>اختر محدد النموذج ( <span class="en-term" dir="ltr">INLINECODE_48</span> ) في أعلى السجل (الذي يعرض اسم النموذج الحالي)، وقم بالتبديل إلى النموذج <strong><span class="en-term" dir="ltr">Request intake</span></strong>.</li>
+<li>اضبط حقل <strong><span class="en-term" dir="ltr">Request status</span></strong> على القيمة <strong><span class="en-term" dir="ltr">Approved</span></strong>، ثم احفظ السجل.</li>
+<p>ينبغي أن يظهر لك إشعار على النموذج مشابه للرسالة: <em><span class="en-term" dir="ltr">This device was issued on</span> {<span class="en-term" dir="ltr">date</span>}, <span class="en-term" dir="ltr">less than</span> 24 <span class="en-term" dir="ltr">months ago</span>, <span class="en-term" dir="ltr">and isn</span><span class="en-term" dir="ltr">ENT0</span><span class="en-term" dir="ltr">t damaged beyond repair. The request can</span><span class="en-term" dir="ltr">ENT1</span><span class="en-term" dir="ltr">t be approved yet.</span></em> يتم منع الحفظ، وتظل قيمة <strong><span class="en-term" dir="ltr">Request status</span></strong> على الحالة <strong><span class="en-term" dir="ltr">Submitted</span></strong>.</p>
+<li>اختر أيقونة الترس (<strong><span class="en-term" dir="ltr">Settings</span></strong>) في الزاوية العلوية اليمنى من بوابة الصانع، ثم اختر <strong><span class="en-term" dir="ltr">Developer resources</span></strong>. انسخ قيمة <strong><span class="en-term" dir="ltr">Web API endpoint</span></strong> — حيث ستستخدمها كعنوان <span class="en-term" dir="ltr">URL</span> للبيئة في بقية خطوات هذا التمرين.</li>
+<li>قم بتنزيل السكربت  <span class="en-term" dir="ltr">MEDIA_0</span>  من الرابط  <span class="en-term" dir="ltr">INLINECODE_49</span> . يحصل هذا السكربت على رمز وصول لبيئتك باستخدام  <span class="en-term" dir="ltr">INLINECODE_50</span> ، ثم يرسل نفس تغيير الحالة مباشرة إلى واجهة  <span class="en-term" dir="ltr">INLINECODE_51</span>  — بدون المرور على أي نموذج أو فحص على جانب العميل.</li>
+<li>في نافذة الطرفية ( <span class="en-term" dir="ltr">INLINECODE_52</span> )، سجّل الدخول إلى  <span class="en-term" dir="ltr">INLINECODE_53</span>  باستخدام بيانات اعتمادك. يتيح لك الخيار  <span class="en-term" dir="ltr">INLINECODE_54</span>  تسجيل الدخول حتى لو لم يكن لحسابك اشتراك <span class="en-term" dir="ltr">Azure</span> فعال؛ فهذا السكربت يحتاج فقط إلى صلاحية الوصول إلى بيئة  <span class="en-term" dir="ltr">INLINECODE_55</span>  الخاصة بك:</li>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">POWERSHELL</span></div><pre class="code-pre" dir="ltr"><code class="language-powershell">az login --allow-no-subscriptions</code></pre></div>
+<blockquote class="book-quote"><strong><span class="en-term" dir="ltr">Note</span></strong>: إذا كنت تستخدم  <span class="en-term" dir="ltr">INLINECODE_56</span>  مع أكثر من حساب، فسجّل الدخول بالحساب الذي تستخدمه لبيئة  <span class="en-term" dir="ltr">INLINECODE_57</span>  الخاصة بك. وإذا كان ذلك الحساب ينتمي إلى مستأجر ( <span class="en-term" dir="ltr">INLINECODE_58</span> ) مختلف عن مستأجرك المعتاد، فأضف المعامل  <span class="en-term" dir="ltr">INLINECODE_59</span>  متبوعاً باسم النطاق الخاص بالمستأجر.</blockquote>
+<li>قم بتشغيل السكربت مع تمرير عنوان <span class="en-term" dir="ltr">URL</span> للبيئة الذي نسخته ورقم الطلب:</li>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">POWERSHELL</span></div><pre class="code-pre" dir="ltr"><code class="language-powershell">.\Approve-RequestViaWebApi.ps1 -EnvironmentUrl &quot;&lt;your environment URL&gt;&quot; -RequestNumber &quot;REQ-SEED-001&quot;</code></pre></div>
+<li>ارجع إلى تطبيق <strong><span class="en-term" dir="ltr">Equipment Provisioning</span></strong> وقم بتحديث ( <span class="en-term" dir="ltr">INLINECODE_60</span> ) السجل  <span class="en-term" dir="ltr">INLINECODE_61</span> .</li>
+<p>ستلاحظ أن قيمة <strong><span class="en-term" dir="ltr">Request status</span></strong> أصبحت الآن <strong><span class="en-term" dir="ltr">Approved</span></strong> — أي إن نفس التغيير الذي منعه النموذج قبل لحظات قد نجح تنفيذه عبر واجهة  <span class="en-term" dir="ltr">INLINECODE_62</span> . هذه هي الثغرة التي ستغلقها بقية خطوات التمرين.</p>
+</ol>
+<h2 id="u4-h-78" class="book-h2">تنفيذ قاعدة الأهلية داخل الـ <span class="en-term" dir="ltr">Plug-in</span></h2>
+<p>لا يمكن لأي سكربت على جانب العميل إغلاق هذه الثغرة بمفرده أبداً، لأنه يعمل فقط عند حفظ النموذج داخل المتصفح. أنت بحاجة إلى  <span class="en-term" dir="ltr">INLINECODE_63</span> : أي كود يقوم خادم  <span class="en-term" dir="ltr">INLINECODE_64</span>  نفسه بتشغيله كلما تم تحديث سجل طلب، بغض النظر عن العميل أو الأداة التي أجرت التغيير.</p>
+<p>تتضمن ملفات المعمل التي قمت باستنساخها أثناء الإعداد مشروع بداية جاهزاً في المسار  <span class="en-term" dir="ltr">INLINECODE_65</span> . ويشير هذا المشروع مسبقاً إلى حزمة  <span class="en-term" dir="ltr">INLINECODE_66</span>  ويحتوي على فئة  <span class="en-term" dir="ltr">INLINECODE_67</span>  مبدئية بها تعليقات توضح المكان الذي ستضع فيه الكود الخاص بك. وإذا لم تكن قد استنسخت المستودع بالكامل، فقم بتنزيل هذه الملفات بشكل فردي مع الحفاظ على نفس هيكل المجلدات:</p>
+<ul>
+<li>ملف المشروع  <span class="en-term" dir="ltr">MEDIA_0</span>  من  <span class="en-term" dir="ltr">INLINECODE_68</span> ، وضعه داخل مجلد باسم  <span class="en-term" dir="ltr">INLINECODE_69</span> </li>
+<li>ملف الفئة  <span class="en-term" dir="ltr">MEDIA_0</span>  من  <span class="en-term" dir="ltr">INLINECODE_70</span> ، وضعه داخل نفس المجلد  <span class="en-term" dir="ltr">INLINECODE_71</span> </li>
+<li>سكربت التوقيع  <span class="en-term" dir="ltr">MEDIA_0</span>  من  <span class="en-term" dir="ltr">INLINECODE_72</span> ، وضعه في المجلد الأب الذي يحتوي على المجلد  <span class="en-term" dir="ltr">INLINECODE_73</span> </li>
+</ul>
+<ol>
+<li>يقبل  <span class="en-term" dir="ltr">INLINECODE_74</span>  فقط تجميعات الـ  <span class="en-term" dir="ltr">INLINECODE_75</span>  الموقعة رقمياً ( <span class="en-term" dir="ltr">INLINECODE_76</span> )، ولا يتم شحن مفاتيح الأسماء القوية ( <span class="en-term" dir="ltr">INLINECODE_77</span> ) مع ملفات المعمل، لذا أنشئ مفتاحك الخاص الآن. في نافذة الطرفية، داخل المجلد  <span class="en-term" dir="ltr">INLINECODE_78</span> ، شغّل الأمر التالي:</li>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">POWERSHELL</span></div><pre class="code-pre" dir="ltr"><code class="language-powershell">.\New-StrongNameKey.ps1</code></pre></div>
+<p>ينشئ هذا السكربت الملف  <span class="en-term" dir="ltr">INLINECODE_79</span> ، وهو ملف المفتاح الذي تم ضبط المشروع مسبقاً للتوقيع به. وينبغي أن تظهر لك الرسالة <strong><span class="en-term" dir="ltr">Created the strong-name key</span></strong>.</p>
+<li>في برنامج  <span class="en-term" dir="ltr">INLINECODE_80</span> ، اختر <strong><span class="en-term" dir="ltr">File</span></strong> <span class="en-term" dir="ltr">ENT0</span> <strong><span class="en-term" dir="ltr">Open</span></strong> <span class="en-term" dir="ltr">ENT0</span> <strong><span class="en-term" dir="ltr">Project/Solution</span></strong>، وافتح ملف المشروع  <span class="en-term" dir="ltr">INLINECODE_81</span> .</li>
+<li>في نافذة <strong><span class="en-term" dir="ltr">Solution Explorer</span></strong>، افتح الملف  <span class="en-term" dir="ltr">INLINECODE_82</span> . راجع كتلة التعليقات الموجودة أعلى الفئة — فهي توثق بدقة كيف ستقوم بتسجيل هذا الـ  <span class="en-term" dir="ltr">INLINECODE_83</span>  في المهمة التالية: الرسالة  <span class="en-term" dir="ltr">INLINECODE_84</span>  على الجدول  <span class="en-term" dir="ltr">INLINECODE_85</span> ، في مرحلة  <span class="en-term" dir="ltr">INLINECODE_86</span> ، بالوضع المتزامن ( <span class="en-term" dir="ltr">INLINECODE_87</span> )، مع التصفية على العمود  <span class="en-term" dir="ltr">INLINECODE_88</span> ، ومع صورة قبلية ( <span class="en-term" dir="ltr">INLINECODE_89</span> ) باسم  <span class="en-term" dir="ltr">INLINECODE_90</span>  تحمل العمودين  <span class="en-term" dir="ltr">INLINECODE_91</span>  و <span class="en-term" dir="ltr">INLINECODE_92</span> .</li>
+<li>ابحث عن التعليق <strong><span class="en-term" dir="ltr">Confirm the request is being approved</span> (<span class="en-term" dir="ltr">read the Target and the pre-image</span>)</strong> وأضف الكود التالي تحته:</li>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">CSHARP</span></div><pre class="code-pre" dir="ltr"><code class="language-csharp">// Confirm the request is being approved (read the Target and the pre-image)
+var target = (Entity)context.InputParameters[&quot;Target&quot;];
+if (!target.Attributes.Contains(&quot;eqp_requeststatus&quot;))
+{
+    return;
+}
+
+var newStatus = ((OptionSetValue)target[&quot;eqp_requeststatus&quot;]).Value;
+if (newStatus != StatusApproved)
+{
+    return;
+}
+
+var preImage = context.PreEntityImages[&quot;PreImage&quot;];
+var previousStatus = ((OptionSetValue)preImage[&quot;eqp_requeststatus&quot;]).Value;
+if (previousStatus == StatusApproved)
+{
+    return;
+}</code></pre></div>
+<p>يحمل الكائن  <span class="en-term" dir="ltr">INLINECODE_93</span>  فقط الأعمدة المضمنة في عملية التحديث الجارية — وهنا يحمل فقط القيمة الجديدة للعمود  <span class="en-term" dir="ltr">INLINECODE_94</span>  لأنه هو عمود التصفية ( <span class="en-term" dir="ltr">INLINECODE_95</span> ). بينما تحمل الصورة القبلية ( <span class="en-term" dir="ltr">INLINECODE_96</span> ) قيم السجل <em>قبل</em> التحديث، ولذلك فإن مقارنة  <span class="en-term" dir="ltr">INLINECODE_97</span>  بالقيمة الجديدة هي الطريقة الدقيقة التي يكتشف بها الـ  <span class="en-term" dir="ltr">INLINECODE_98</span>  حدوث انتقال فعلي إلى حالة الاعتماد ( <span class="en-term" dir="ltr">INLINECODE_99</span> )، بدلاً من عملية حفظ عادية تترك طلباً معتمداً مسبقاً دون تغيير في حالته.</p>
+<li>ابحث عن التعليق <strong><span class="en-term" dir="ltr">Retrieve the device being replaced</span></strong> وأضف الكود التالي:</li>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">CSHARP</span></div><pre class="code-pre" dir="ltr"><code class="language-csharp">// Retrieve the device being replaced
+var deviceRef = preImage.GetAttributeValue&lt;EntityReference&gt;(&quot;eqp_currentdevice&quot;);
+
+Entity device;
+try
+{
+    device = service.Retrieve(&quot;eqp_device&quot;, deviceRef.Id, new ColumnSet(&quot;eqp_issuedon&quot;, &quot;eqp_damagedbeyondrepair&quot;));
+}
+catch (FaultException&lt;OrganizationServiceFault&gt;)
+{
+    throw new InvalidPluginExecutionException(&quot;The device being replaced couldn&#x27;t be found.&quot;);
+}</code></pre></div>
+<p>بما أن العمود  <span class="en-term" dir="ltr">INLINECODE_100</span>  ليس جزءاً من عملية التحديث الحالية، يتم جلبه أيضاً من الصورة القبلية ( <span class="en-term" dir="ltr">INLINECODE_101</span> ). ويقرأ استدعاء  <span class="en-term" dir="ltr">INLINECODE_102</span>  العمودين اللذين تحتاجهما القاعدة فقط عبر  <span class="en-term" dir="ltr">INLINECODE_103</span>  — وهما تاريخ الإصدار وعلامة التلف غير القابل للإصلاح.</p>
+<li>ابحث عن التعليق <strong><span class="en-term" dir="ltr">Apply the replacement-eligibility rule</span></strong> وأضف الكود التالي:</li>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">CSHARP</span></div><pre class="code-pre" dir="ltr"><code class="language-csharp">// Apply the replacement-eligibility rule
+var issuedOn = device.GetAttributeValue&lt;DateTime?&gt;(&quot;eqp_issuedon&quot;);
+var damagedBeyondRepair = device.GetAttributeValue&lt;bool&gt;(&quot;eqp_damagedbeyondrepair&quot;);
+
+var isEligible = damagedBeyondRepair
+    || !issuedOn.HasValue
+    || issuedOn.Value.Date &lt;= DateTime.UtcNow.Date.AddMonths(-24);</code></pre></div>
+<p>هذه هي قاعدة العمل الأساسية: يكون الجهاز مؤهلاً للاستبدال إذا كان مميزاً بأنه تالف وغير قابل للإصلاح، أو إذا لم يكن له تاريخ إصدار مسجل، أو إذا كان قد تم إصداره في أو قبل تاريخ اليوم (بتوقيت <span class="en-term" dir="ltr">UTC</span>) مطروحاً منه 24 شهراً تقويمياً.</p>
+<li>ابحث عن التعليق <strong><span class="en-term" dir="ltr">Block the approval if the device isn</span><span class="en-term" dir="ltr">ENT0</span><span class="en-term" dir="ltr">t eligible</span></strong> وأضف الكود التالي:</li>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">CSHARP</span></div><pre class="code-pre" dir="ltr"><code class="language-csharp">// Block the approval if the device isn&#x27;t eligible
+if (!isEligible)
+{
+    var eligibleFrom = issuedOn.Value.Date.AddMonths(24);
+    throw new InvalidPluginExecutionException(
+        $&quot;This device was issued on {issuedOn.Value:yyyy-MM-dd}. It can be replaced from {eligibleFrom:yyyy-MM-dd}, or earlier if it&#x27;s flagged as damaged beyond repair.&quot;);
+}</code></pre></div>
+<p>إن رمي الاستثناء  <span class="en-term" dir="ltr">INLINECODE_104</span>  داخل خطوة متزامنة ( <span class="en-term" dir="ltr">INLINECODE_105</span> ) في مرحلة  <span class="en-term" dir="ltr">INLINECODE_106</span>  يوقف عملية التحديث قبل أن يعتمدها  <span class="en-term" dir="ltr">INLINECODE_107</span>  في قاعدة البيانات. ويتلقى المستدعي — سواء كان نموذج المتصفح أو استدعاء  <span class="en-term" dir="ltr">INLINECODE_108</span>  المباشر كما ستجرب بعد قليل — نص هذه الرسالة كرسالة خطأ رسمية.</p>
+<li>اختر <strong><span class="en-term" dir="ltr">Build</span></strong> <span class="en-term" dir="ltr">ENT0</span> <strong><span class="en-term" dir="ltr">Build Solution</span></strong> (أو اضغط <strong><span class="en-term" dir="ltr">Ctrl+Shift+B</span></strong>) وتأكد من نجاح بناء المشروع بدون أي أخطاء.</li>
+</ol>
+<h2 id="u4-h-124" class="book-h2">تسجيل الـ <span class="en-term" dir="ltr">Plug-in</span> باستخدام أداة <span class="en-term" dir="ltr">Plug-in Registration Tool</span></h2>
+<p>بعد ترجمة الكود وبناء ملف التجميع، تحتاج الآن إلى إخبار  <span class="en-term" dir="ltr">INLINECODE_109</span>  بتشغيله — وتحديد التوقيت الدقيق لتشغيله. ستقوم بتسجيل التجميع ( <span class="en-term" dir="ltr">INLINECODE_110</span> )، ثم تسجيل خطوة ( <span class="en-term" dir="ltr">INLINECODE_111</span> ) على رسالة  <span class="en-term" dir="ltr">INLINECODE_112</span>  الخاصة بالجدول  <span class="en-term" dir="ltr">INLINECODE_113</span> ، ثم تسجيل صورة قبلية ( <span class="en-term" dir="ltr">INLINECODE_114</span> ) تقرأ منها الخطوة.</p>
+<ol>
+<li>افتح نافذة الطرفية وشغّل أداة  <span class="en-term" dir="ltr">INLINECODE_115</span> :</li>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">POWERSHELL</span></div><pre class="code-pre" dir="ltr"><code class="language-powershell">pac tool prt</code></pre></div>
+<li>اختر <strong>+ <span class="en-term" dir="ltr">Create new connection</span></strong>، وحدد الخيار <strong><span class="en-term" dir="ltr">Display list of available organizations</span></strong>، ثم سجّل الدخول ببيانات اعتمادك واتصل ببيئة  <span class="en-term" dir="ltr">INLINECODE_116</span>  التي تستخدمها في هذا التمرين.</li>
+<li>من قائمة <strong><span class="en-term" dir="ltr">Register</span></strong>، اختر <strong><span class="en-term" dir="ltr">New Assembly</span></strong>.</li>
+<li>في نافذة <strong><span class="en-term" dir="ltr">Register New Assembly</span></strong>، اضغط على زر النقاط الثلاث (<strong>…</strong>) واستعرض للوصول إلى الملف  <span class="en-term" dir="ltr">INLINECODE_117</span>  داخل مجلد المشروع  <span class="en-term" dir="ltr">INLINECODE_118</span> . تأكد من ضبط <strong><span class="en-term" dir="ltr">Isolation Mode</span></strong> على <strong><span class="en-term" dir="ltr">Sandbox</span></strong> وضبط <strong><span class="en-term" dir="ltr">Location</span></strong> على <strong><span class="en-term" dir="ltr">Database</span></strong>، ثم اضغط <strong><span class="en-term" dir="ltr">Register Selected Plugins</span></strong>.</li>
+<li>قم بتوسيع العقده <strong>(<span class="en-term" dir="ltr">Assembly</span>) <span class="en-term" dir="ltr">AB400.Lab01</span></strong>، وانقر بزر الماوس الأيمن على <strong>(<span class="en-term" dir="ltr">Plugin</span>) <span class="en-term" dir="ltr">AB400.Lab01.RequestApprovalPlugin</span></strong>، واختر <strong><span class="en-term" dir="ltr">Register New Step</span></strong>.</li>
+<li>في نافذة <strong><span class="en-term" dir="ltr">Register New Step</span></strong>، اضبط القيم التالية:</li>
+</ol>
+<div class="table-wrapper"><table class="book-table">
+<thead><tr>
+<th>الإعداد (<span class="en-term" dir="ltr">Setting</span>)</th>
+<th>القيمة (<span class="en-term" dir="ltr">Value</span>)</th>
+</tr></thead><tbody>
+<tr>
+<td><span class="en-term" dir="ltr">Message</span></td>
+<td> <span class="en-term" dir="ltr">INLINECODE_119</span> </td>
+</tr>
+<tr>
+<td><span class="en-term" dir="ltr">Primary Entity</span></td>
+<td> <span class="en-term" dir="ltr">INLINECODE_120</span> </td>
+</tr>
+<tr>
+<td><span class="en-term" dir="ltr">Filtering Attributes</span></td>
+<td> <span class="en-term" dir="ltr">INLINECODE_121</span>  فقط</td>
+</tr>
+<tr>
+<td><span class="en-term" dir="ltr">Event Pipeline Stage of Execution</span></td>
+<td><strong><span class="en-term" dir="ltr">PreOperation</span></strong></td>
+</tr>
+<tr>
+<td><span class="en-term" dir="ltr">Execution Mode</span></td>
+<td><strong><span class="en-term" dir="ltr">Synchronous</span></strong></td>
+</tr>
+<tr>
+<td><span class="en-term" dir="ltr">Description</span></td>
+<td><em><span class="en-term" dir="ltr">Lab</span> 01: <span class="en-term" dir="ltr">enforce replacement eligibility on approval</span></em></td>
+</tr>
+</tbody></table></div>
+<p>افتح محدد <strong><span class="en-term" dir="ltr">Filtering Attributes</span></strong> واختر العمود  <span class="en-term" dir="ltr">INLINECODE_122</span>  فقط — لا تقم بتضمين المفتاح الأساسي ( <span class="en-term" dir="ltr">INLINECODE_123</span> )، ولا تحدد جميع الأعمدة. ثم اضغط <strong><span class="en-term" dir="ltr">Register New Step</span></strong>.</p>
+<blockquote class="book-quote"><strong><span class="en-term" dir="ltr">Note</span></strong>: إذا أظهرت أداة  <span class="en-term" dir="ltr">INLINECODE_124</span>  الخطأ التالي بعد النقر على <strong><span class="en-term" dir="ltr">Register New Step</span></strong>، فقد تكون الخطوة قد حُفظت بالفعل قبل أن تفشل الأداة في تحديث واجهة العرض. لا تفترض نجاح التسجيل دون تحقق:</blockquote>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">OUTPUT</span></div><pre class="code-pre" dir="ltr"><code class="language-output">Unhandled Exception: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Microsoft.Crm.Tools.Libraries.OrganizationHelper.GetColumnSet(String entityName, CrmOrganization org)
+   at Microsoft.Crm.Tools.Libraries.OrganizationHelper.RefreshStep(CrmOrganization org, CrmPluginStep step)
+   at Microsoft.Crm.Tools.PluginRegistration.StepRegistrationViewModel.RegisterStep(Object sender, EventArgs e)</code></pre></div>
+<blockquote class="book-quote">تحقق من التسجيل المحفوظ قبل المتابعة:<br />1. اضغط <strong><span class="en-term" dir="ltr">Cancel</span></strong> لإغلاق نافذة التسجيل.<br />1. قم بتوسيع التجميع وفئة الـ  <span class="en-term" dir="ltr">INLINECODE_125</span> . تأكد من وجود الخطوة، ثم افتح خصائصها وتحقق من تطابق <strong><span class="en-term" dir="ltr">Message</span></strong> و<strong><span class="en-term" dir="ltr">Primary Entity</span></strong> و<strong><span class="en-term" dir="ltr">Filtering Attributes</span></strong> و<strong><span class="en-term" dir="ltr">Event Pipeline Stage of Execution</span></strong> و<strong><span class="en-term" dir="ltr">Execution Mode</span></strong> مع الجدول أعلاه.<br />إذا لم تكن الخطوة موجودة أو كانت إعداداتها غير مطابقة، فتوقف وقم بحل مشكلة التسجيل قبل إضافة الصورة أو اختبار الـ  <span class="en-term" dir="ltr">INLINECODE_126</span> . لا تتجاهل الأخطاء الأخرى ولا تنشئ خطوة مكررة.</blockquote>
+<ol>
+<li>انقر بزر الماوس الأيمن على الخطوة التي سجلتها للتو، واختر <strong><span class="en-term" dir="ltr">Register New Image</span></strong>.</li>
+<li>في نافذة <strong><span class="en-term" dir="ltr">Register New Image</span></strong>، اضبط الإعدادات التالية:</li>
+</ol>
+<div class="table-wrapper"><table class="book-table">
+<thead><tr>
+<th>الإعداد (<span class="en-term" dir="ltr">Setting</span>)</th>
+<th>القيمة (<span class="en-term" dir="ltr">Value</span>)</th>
+</tr></thead><tbody>
+<tr>
+<td><span class="en-term" dir="ltr">Image Type</span></td>
+<td><strong><span class="en-term" dir="ltr">Pre Image</span></strong></td>
+</tr>
+<tr>
+<td><span class="en-term" dir="ltr">Name</span></td>
+<td> <span class="en-term" dir="ltr">INLINECODE_127</span> </td>
+</tr>
+<tr>
+<td><span class="en-term" dir="ltr">Entity Alias</span></td>
+<td> <span class="en-term" dir="ltr">INLINECODE_128</span> </td>
+</tr>
+<tr>
+<td><span class="en-term" dir="ltr">Parameters</span></td>
+<td> <span class="en-term" dir="ltr">INLINECODE_129</span> ,  <span class="en-term" dir="ltr">INLINECODE_130</span>  فقط</td>
+</tr>
+</tbody></table></div>
+<p>يجب أن يكون الاسم المستعار للكيان (<strong><span class="en-term" dir="ltr">Entity Alias</span></strong>) مطابقاً تماماً للنص  <span class="en-term" dir="ltr">INLINECODE_131</span>  — فهو المفتاح النصي الذي يستخدمه الكود لقراءة  <span class="en-term" dir="ltr">INLINECODE_132</span> . حدد فقط العمودين اللذين يقرؤهما الـ  <span class="en-term" dir="ltr">INLINECODE_133</span> ؛ فتسجيل جميع الأعمدة في الصورة يُعد خطأً شائعاً ومكلفاً للأداء يمكن تجنبه بسهولة. اضغط <strong><span class="en-term" dir="ltr">Register New Image</span></strong> (أو <strong><span class="en-term" dir="ltr">Save</span></strong>) للإنهاء.</p>
+<p>ينبغي أن ترى الخطوة الجديدة ومعها صورتها القبلية مدرجة تحت <strong>(<span class="en-term" dir="ltr">Plugin</span>) <span class="en-term" dir="ltr">AB400.Lab01.RequestApprovalPlugin</span></strong> في أداة  <span class="en-term" dir="ltr">INLINECODE_134</span> .</p>
+<h2 id="u4-h-179" class="book-h2">إعادة ضبط بيانات المعمل والتأكد من منع الـ <span class="en-term" dir="ltr">Plug-in</span> لمحاولة التجاوز</h2>
+<p>الآن أعد تنفيذ نفس محاولة التجاوز التي قمت بها في بداية التمرين، ولكن مع وجود الـ  <span class="en-term" dir="ltr">INLINECODE_135</span>  مسجلاً وفعالاً على الخادم.</p>
+<ol>
+<li>بالعودة إلى تطبيق <strong><span class="en-term" dir="ltr">Equipment Provisioning</span></strong>، وفي شريط الأوامر الخاص بطريقة العرض <strong><span class="en-term" dir="ltr">Active Requests</span></strong>، اختر <strong><span class="en-term" dir="ltr">Reset lab data</span></strong>. يؤدي ذلك إلى استعادة حالة السجل  <span class="en-term" dir="ltr">INLINECODE_136</span>  إلى <strong><span class="en-term" dir="ltr">Submitted</span></strong>، ملغياً الاعتماد السابق الناتج عن تجاوز  <span class="en-term" dir="ltr">INLINECODE_137</span> .</li>
+<li>في نافذة الطرفية، شغّل سكربت التجاوز مرة أخرى لنفس الطلب:</li>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">POWERSHELL</span></div><pre class="code-pre" dir="ltr"><code class="language-powershell">.\Approve-RequestViaWebApi.ps1 -EnvironmentUrl &quot;&lt;your environment URL&gt;&quot; -RequestNumber &quot;REQ-SEED-001&quot;</code></pre></div>
+<p>في هذه المرة سيفشل السكربت، وينبغي أن تظهر لك رسالة خطأ مشابهة لما يلي:</p>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">OUTPUT</span></div><pre class="code-pre" dir="ltr"><code class="language-output">The Web API rejected the request for REQ-SEED-001. ... This device was issued on 2024-02-01. It can be replaced from 2026-02-01, or earlier if it&#x27;s flagged as damaged beyond repair. ...</code></pre></div>
+<p>قم بتحديث ( <span class="en-term" dir="ltr">INLINECODE_138</span> ) السجل  <span class="en-term" dir="ltr">INLINECODE_139</span>  داخل التطبيق وتأكد من أن <strong><span class="en-term" dir="ltr">Request status</span></strong> لا يزال على الحالة <strong><span class="en-term" dir="ltr">Submitted</span></strong>. إن نفس الاستدعاء الذي نجح في بداية التمرين يتم إيقافه الآن على الخادم ( <span class="en-term" dir="ltr">INLINECODE_140</span> ) — حيث لم يكن بإمكان أي فحص على جانب العميل إيقافه أبداً.</p>
+<li>الآن شغّل نفس السكربت للطلب  <span class="en-term" dir="ltr">INLINECODE_141</span> ، وهو طلب خاص بجهاز مميز بأنه تالف وغير قابل للإصلاح:</li>
+<div class="code-container" dir="ltr"><div class="code-header"><span class="code-lang">POWERSHELL</span></div><pre class="code-pre" dir="ltr"><code class="language-powershell">.\Approve-RequestViaWebApi.ps1 -EnvironmentUrl &quot;&lt;your environment URL&gt;&quot; -RequestNumber &quot;REQ-SEED-002&quot;</code></pre></div>
+<p>في هذه المرة ينجح التنفيذ. قم بتحديث  <span class="en-term" dir="ltr">INLINECODE_142</span>  في التطبيق وتأكد من أن <strong><span class="en-term" dir="ltr">Request status</span></strong> أصبح الآن <strong><span class="en-term" dir="ltr">Approved</span></strong>.</p>
+<p>هذا الاختبار الثاني لا يقل أهمية عن الاختبار الأول؛ فلو كان الـ  <span class="en-term" dir="ltr">INLINECODE_143</span>  يرفض كل عمليات الاعتماد عشوائياً لاجتاز الاختبار الأول أيضاً! إن نجاح اعتماد  <span class="en-term" dir="ltr">INLINECODE_144</span>  يثبت أن الـ  <span class="en-term" dir="ltr">INLINECODE_145</span>  الخاص بك يطبق قاعدة العمل بانتقائية ودقة، وليس كحظر شامل.</p>
+</ol>
+<h2 id="u4-h-203" class="book-h2">فهرسة قاعدة الأهلية كحدث أعمال (<span class="en-term" dir="ltr">Catalog the eligibility rule as a business event</span>)</h2>
+<p>إن نفس منطق التحقق من أهلية الاستبدال الذي قمت بتنفيذه للتو متاح أيضاً كواجهة برمجية مخصصة ( <span class="en-term" dir="ltr">INLINECODE_146</span> ) في  <span class="en-term" dir="ltr">INLINECODE_147</span>  باسم  <span class="en-term" dir="ltr">INLINECODE_148</span>  مرفقة مع الحل الأساسي. ولكي تجعلها قابلة للاكتشاف بواسطة  <span class="en-term" dir="ltr">INLINECODE_149</span>  والمشتركين الآخرين، ستقوم بفهرستها كحدث أعمال ( <span class="en-term" dir="ltr">INLINECODE_150</span> ) في  <span class="en-term" dir="ltr">INLINECODE_151</span>  باستخدام جدولي  <span class="en-term" dir="ltr">INLINECODE_152</span>  و <span class="en-term" dir="ltr">INLINECODE_153</span> .</p>
+<ol>
+<li>في بوابة الصانع، اختر <strong><span class="en-term" dir="ltr">Solutions</span></strong>، ثم اختر <strong>+ <span class="en-term" dir="ltr">New solution</span></strong> (أو افتحه إذا كنت قد أنشأته مسبقاً في هذا التمرين). أطلق عليه الاسم  <span class="en-term" dir="ltr">INLINECODE_154</span> ، واختر ناشراً ( <span class="en-term" dir="ltr">INLINECODE_155</span> )، ثم اضغط <strong><span class="en-term" dir="ltr">Create</span></strong>.</li>
+<li>داخل الحل الجديد، اختر <strong><span class="en-term" dir="ltr">New</span></strong>، ثم اختر <strong><span class="en-term" dir="ltr">Catalog</span></strong>. (إذا لم يكن الخيار <strong><span class="en-term" dir="ltr">Catalog</span></strong> ظاهراً مباشرة، فاختر <strong><span class="en-term" dir="ltr">More</span></strong> أولاً).</li>
+<li>أنشئ الدليل الجذر ( <span class="en-term" dir="ltr">INLINECODE_156</span> ) لهذا الحل بالقيم التالية:</li>
+</ol>
+<div class="table-wrapper"><table class="book-table">
+<thead><tr>
+<th>الحقل (<span class="en-term" dir="ltr">Field</span>)</th>
+<th>القيمة (<span class="en-term" dir="ltr">Value</span>)</th>
+</tr></thead><tbody>
+<tr>
+<td><span class="en-term" dir="ltr">Parent Catalog</span></td>
+<td><em>اتركه فارغاً</em></td>
+</tr>
+<tr>
+<td><span class="en-term" dir="ltr">Name</span></td>
+<td> <span class="en-term" dir="ltr">INLINECODE_157</span> </td>
+</tr>
+<tr>
+<td><span class="en-term" dir="ltr">Display Name</span></td>
+<td> <span class="en-term" dir="ltr">INLINECODE_158</span> </td>
+</tr>
+<tr>
+<td><span class="en-term" dir="ltr">Description</span></td>
+<td> <span class="en-term" dir="ltr">INLINECODE_159</span> </td>
+</tr>
+</tbody></table></div>
+<p>أثناء كتابتك في حقل <strong><span class="en-term" dir="ltr">Name</span></strong>، يتم ملء الحقل <strong><span class="en-term" dir="ltr">Unique Name</span></strong> تلقائياً باستخدام بادئة الناشر — ويمكنك ترك القيمة المولدة كما هي. احفظ النموذج وأغلقه.</p>
+<ol>
+<li>اختر <strong><span class="en-term" dir="ltr">New</span></strong> <span class="en-term" dir="ltr">ENT0</span> <strong><span class="en-term" dir="ltr">Catalog</span></strong> مرة أخرى لإنشاء دليل المستوى الثاني (الفئة التصنيفية  <span class="en-term" dir="ltr">INLINECODE_160</span> ):</li>
+</ol>
+<div class="table-wrapper"><table class="book-table">
+<thead><tr>
+<th>الحقل (<span class="en-term" dir="ltr">Field</span>)</th>
+<th>القيمة (<span class="en-term" dir="ltr">Value</span>)</th>
+</tr></thead><tbody>
+<tr>
+<td><span class="en-term" dir="ltr">Parent Catalog</span></td>
+<td> <span class="en-term" dir="ltr">INLINECODE_161</span>  (الدليل الجذر الذي أنشأته للتو)</td>
+</tr>
+<tr>
+<td><span class="en-term" dir="ltr">Name</span></td>
+<td> <span class="en-term" dir="ltr">INLINECODE_162</span> </td>
+</tr>
+<tr>
+<td><span class="en-term" dir="ltr">Display Name</span></td>
+<td> <span class="en-term" dir="ltr">INLINECODE_163</span> </td>
+</tr>
+<tr>
+<td><span class="en-term" dir="ltr">Description</span></td>
+<td> <span class="en-term" dir="ltr">INLINECODE_164</span> </td>
+</tr>
+</tbody></table></div>
+<p>احفظ النموذج وأغلقه.</p>
+<ol>
+<li>اختر علامة التبويب <strong><span class="en-term" dir="ltr">Catalog Assignment</span></strong>، ثم اختر <strong><span class="en-term" dir="ltr">New Catalog Assignment</span></strong>. أدخل  <span class="en-term" dir="ltr">INLINECODE_165</span>  في حقل <strong><span class="en-term" dir="ltr">Name</span></strong>، واضبط <strong><span class="en-term" dir="ltr">Catalog Assignment Object</span></strong> على الـ  <span class="en-term" dir="ltr">INLINECODE_166</span>  المسماة  <span class="en-term" dir="ltr">INLINECODE_167</span>  (ابحث عنها بالاسم)، واضبط الدليل على فئة <strong><span class="en-term" dir="ltr">Equipment eligibility</span></strong> التي أنشأتها للتو. احفظ النموذج وأغلقه.</li>
+<li>تحقق الآن من أن حدث الأعمال أصبح قابلاً للاكتشاف: افتح بوابة  <span class="en-term" dir="ltr">MEDIA_0</span>  على الرابط  <span class="en-term" dir="ltr">INLINECODE_168</span> ، وتأكد من أن محدد البيئة (في الأعلى يميناً) يعرض نفس البيئة التي كنت تستخدمها.</li>
+<li>اختر <strong><span class="en-term" dir="ltr">Create</span></strong>، ثم اختر <strong><span class="en-term" dir="ltr">Automated cloud flow</span></strong>. امنحه أي اسم — على سبيل المثال،  <span class="en-term" dir="ltr">INLINECODE_169</span>  — وابحث عن <strong><span class="en-term" dir="ltr">Dataverse</span></strong>، واختر المشغل ( <span class="en-term" dir="ltr">INLINECODE_170</span> ) المسمى <strong><span class="en-term" dir="ltr">When an action is performed</span></strong>، ثم اضغط <strong><span class="en-term" dir="ltr">Create</span></strong>.</li>
+<li>في إعدادات المشغل، اضبط <strong><span class="en-term" dir="ltr">Catalog</span></strong> على  <span class="en-term" dir="ltr">INLINECODE_171</span> ، واضبط <strong><span class="en-term" dir="ltr">Category</span></strong> على  <span class="en-term" dir="ltr">INLINECODE_172</span> ، واضبط <strong><span class="en-term" dir="ltr">Table name</span></strong> على <strong>(<span class="en-term" dir="ltr">none</span>)</strong>.</li>
+<p>ينبغي أن ترى العملية  <span class="en-term" dir="ltr">INLINECODE_173</span>  مدرجة في قائمة <strong><span class="en-term" dir="ltr">Action name</span></strong> — مما يثبت أن نفس القاعدة التي نفذتها كـ  <span class="en-term" dir="ltr">INLINECODE_174</span>  أصبحت الآن مفهرسة وقابلة للاكتشاف والاستخدام بواسطة أي  <span class="en-term" dir="ltr">INLINECODE_175</span>  في البيئة.</p>
+<li>أغلق التدفق <strong>دون حفظه</strong>. يهدف هذا التمرين فقط إلى إثبات قابلية اكتشاف الحدث، وليس بناء تدفق يستهلكه.</li>
+</ol>
+<h2 id="u4-h-245" class="book-h2">تنظيف البيئة (<span class="en-term" dir="ltr">Clean up</span>)</h2>
+<p>إذا انتهيت من الاستكشاف والتجربة، فقم بإزالة ما سجلته وأنشأته في هذا التمرين. إن ترك هذه المكونات لا يعطل أي تمرين آخر، ولكن إزالتها يحافظ على نظافة بيئتك التطويرية.</p>
+<ol>
+<li>افتح أداة  <span class="en-term" dir="ltr">INLINECODE_176</span>  ( <span class="en-term" dir="ltr">INLINECODE_177</span> ) واتصل ببيئتك.</li>
+<li>قم بتوسيع <strong>(<span class="en-term" dir="ltr">Assembly</span>) <span class="en-term" dir="ltr">AB400.Lab01</span></strong> <span class="en-term" dir="ltr">ENT0</span> <strong>(<span class="en-term" dir="ltr">Plugin</span>) <span class="en-term" dir="ltr">AB400.Lab01.RequestApprovalPlugin</span></strong>، وانقر بزر الماوس الأيمن على الخطوة المسجلة واختر <strong><span class="en-term" dir="ltr">Unregister</span></strong>. تأكد من إزالة الصورة القبلية ( <span class="en-term" dir="ltr">INLINECODE_178</span> ) معها.</li>
+<li>انقر بزر الماوس الأيمن على <strong>(<span class="en-term" dir="ltr">Assembly</span>) <span class="en-term" dir="ltr">AB400.Lab01</span></strong> واختر <strong><span class="en-term" dir="ltr">Unregister</span></strong> لإزالة ملف التجميع بالكامل.</li>
+<li>في بوابة الصانع، افتح الحل <strong><span class="en-term" dir="ltr">AB400 Lab</span> 01 <span class="en-term" dir="ltr">catalog</span></strong> واحذف المكونات التي أنشأتها بهذا الترتيب الدقيق: أولاً <strong><span class="en-term" dir="ltr">Catalog Assignment</span></strong>، ثم فئة <strong><span class="en-term" dir="ltr">Equipment eligibility</span></strong>، وأخيراً الدليل الجذر <strong><span class="en-term" dir="ltr">AB400 Lab</span> 01</strong>.</li>
+<li>في صفحة <strong><span class="en-term" dir="ltr">Solutions</span></strong>، حدد الحل <strong><span class="en-term" dir="ltr">EquipmentProvisioningLab01</span></strong> واختر <strong><span class="en-term" dir="ltr">Delete</span></strong> لإلغاء تثبيته. يزيل ذلك نموذج <strong><span class="en-term" dir="ltr">Request intake</span></strong> وفحص جانب العميل الخاص به، ولا يؤثر على الحل الأساسي <strong><span class="en-term" dir="ltr">Equipment Provisioning</span> (<span class="en-term" dir="ltr">base</span>)</strong>.</li>
+</ol>
+<h2 id="u4-h-259" class="book-h2">الملخص (<span class="en-term" dir="ltr">Summary</span>)</h2>
+<p>في هذا التمرين العملي، تحققت بنفسك من أن فحص جانب العميل على نموذج  <span class="en-term" dir="ltr">INLINECODE_179</span>  يمكن تجاوزه عبر واجهة  <span class="en-term" dir="ltr">INLINECODE_180</span> ، ثم أغلقت تلك الثغرة نهائياً باستخدام  <span class="en-term" dir="ltr">INLINECODE_181</span>  على جانب الخادم. واستخدمت صورة قبلية ( <span class="en-term" dir="ltr">INLINECODE_182</span> ) لرصد انتقال حالة الاعتماد، وخدمة المؤسسة ( <span class="en-term" dir="ltr">INLINECODE_183</span> ) للاستعلام عن بيانات الجهاز المرتبط، وأداة  <span class="en-term" dir="ltr">INLINECODE_184</span>  لتسجيل خطوة متزامنة في مرحلة  <span class="en-term" dir="ltr">INLINECODE_185</span>  مع خصائص التصفية ( <span class="en-term" dir="ltr">INLINECODE_186</span> ) وصورة الكيان. كما تحققت من أن الـ  <span class="en-term" dir="ltr">INLINECODE_187</span>  يفرض القاعدة بانتقائية — حيث يمنع الاعتماد غير المؤهل بينما يسمح بالاستثناء المشروع — وقمت بفهرسة الـ  <span class="en-term" dir="ltr">INLINECODE_188</span>  الخاصة بنفس القاعدة كحدث أعمال في  <span class="en-term" dir="ltr">INLINECODE_189</span>  لكي تتمكن مسارات الأتمتة الأخرى من اكتشافه.</p>
+<p>لقد أكملت هذا التمرين بنجاح.</p>
+<div class="study-aid-container">
+<h2 id="u4-h-268" class="book-h2">ملحق شرح الكود المرجعي للمعمل ( <span class="en-term" dir="ltr">INLINECODE_190</span> )</h2>
+<p>يوفر المستودع الرسمي للدورة النسخة المرجعية الكاملة للحل داخل المسار  <span class="en-term" dir="ltr">INLINECODE_191</span> . فيما يلي التحليل الهندسي المعمق لأهم القرارات التصميمية في الكود المرجعي لمطوري  <span class="en-term" dir="ltr">INLINECODE_192</span> :</p>
+<ol>
+<li><strong>ثابت حالة الاعتماد ( <span class="en-term" dir="ltr">INLINECODE_193</span> ):</strong></li>
+<ul class="sub-list">
+<li>تُخزن أعمدة  <span class="en-term" dir="ltr">INLINECODE_194</span>  ( <span class="en-term" dir="ltr">INLINECODE_195</span> ) في  <span class="en-term" dir="ltr">INLINECODE_196</span>  كأعداد صحيحة ( <span class="en-term" dir="ltr">INLINECODE_197</span> ) تبدأ ببادئة الناشر. التحقق المبكر  <span class="en-term" dir="ltr">INLINECODE_198</span>  يضمن الخروج السريع ( <span class="en-term" dir="ltr">INLINECODE_199</span> ) دون إجراء أي استعلام قاعدة بيانات إذا كان التحديث يغير الحالة إلى  <span class="en-term" dir="ltr">INLINECODE_200</span>  أو  <span class="en-term" dir="ltr">INLINECODE_201</span> .</li>
+</ul>
+<li><strong>منع التنفيذ المكرر عبر مقارنة  <span class="en-term" dir="ltr">INLINECODE_202</span>  بالصورة القبلية ( <span class="en-term" dir="ltr">INLINECODE_203</span> ):</strong></li>
+<ul class="sub-list">
+<li>يجمع الكود بين فحص  <span class="en-term" dir="ltr">INLINECODE_204</span>  وفحص  <span class="en-term" dir="ltr">INLINECODE_205</span>  للتأكد من أن التحديث يمثل <strong>تحولاً حقيقياً في الحالة (<span class="en-term" dir="ltr">State Transition</span>)</strong> إلى  <span class="en-term" dir="ltr">INLINECODE_206</span>  وليس مجرد حفظ متكرر لسجل معتمد مسبقاً.</li>
+</ul>
+<li><strong>الاستعلام الانتقائي المحدود ( <span class="en-term" dir="ltr">INLINECODE_207</span> ):</strong></li>
+<ul class="sub-list">
+<li>عند استدعاء  <span class="en-term" dir="ltr">INLINECODE_208</span> ، يطلب الكود عمودين فقط بدلاً من  <span class="en-term" dir="ltr">INLINECODE_209</span> ، وهي ممارسة حاسمة في امتحان  <span class="en-term" dir="ltr">INLINECODE_210</span>  وفي بيئات الإنتاج لتقليل حمل الذاكرة والشبكة داخل معاملة  <span class="en-term" dir="ltr">INLINECODE_211</span> .</li>
+</ul>
+<li><strong>التعامل الآمن مع التوقيت العالمي ( <span class="en-term" dir="ltr">INLINECODE_212</span> ):</strong></li>
+<ul class="sub-list">
+<li>يخزن  <span class="en-term" dir="ltr">INLINECODE_213</span>  قيم التاريخ والوقت في قاعدة البيانات بصيغة  <span class="en-term" dir="ltr">INLINECODE_214</span> ، لذا يقارن الكود المرجعي  <span class="en-term" dir="ltr">INLINECODE_215</span>  مع  <span class="en-term" dir="ltr">INLINECODE_216</span>  لتجنب أخطاء فروق المناطق الزمنية بين خادم السحابة والمتصفح.</li>
+</ul>
+</ol>
+</div>
+</section>
+    </main>
+  </div>
+</body>
+</html>

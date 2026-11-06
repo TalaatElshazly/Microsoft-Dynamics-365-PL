@@ -1,0 +1,134 @@
+{
+  "suite": "TestBookPipelineV3",
+  "total_tests": 18,
+  "passed": 18,
+  "failed": 0,
+  "results": [
+    {
+      "acceptance_criterion_id": "AC-01",
+      "test_method": "test_AC01_zero_inlinecode_placeholder_leaks",
+      "criterion_description": "Zero INLINECODE_ or @@TOK_INLINECODE_ placeholder leaks in HTML and PDF",
+      "status": "PASS",
+      "evidence": "0 INLINECODE_ leaks and 0 @@TOK_INLINECODE_@@ leaks in pilot-preview.html; fail-fast guard verified."
+    },
+    {
+      "acceptance_criterion_id": "AC-02",
+      "test_method": "test_AC02_full_inline_code_comparison_count_order_content",
+      "criterion_description": "Full comparison of all Inline Code items between source, translation, and HTML (count, order, content)",
+      "status": "PASS",
+      "evidence": "100% ordered list equality across all 4 units (body: 114==114==114, full with appendices: 169==169 -> pilot_a: body=0/0/0, full=0/0, pilot_b: body=38/38/38, full=38/38, pilot_c: body=0/0/0, full=13/13, pilot_d: body=76/76/76, full=118/118)."
+    },
+    {
+      "acceptance_criterion_id": "AC-03",
+      "test_method": "test_AC03_zero_media_placeholder_leaks_and_links_restored",
+      "criterion_description": "Zero MEDIA_ placeholder leaks, zero {:target='_blank'} leaks, and 100% hyperlink parity",
+      "status": "PASS",
+      "evidence": "0 MEDIA_ leaks, 0 {:target=} leaks, and all 14/14 body hyperlinks + 1 image (15 total media items) restored."
+    },
+    {
+      "acceptance_criterion_id": "AC-04",
+      "test_method": "test_AC04_image_existence_relocation_portability_html_and_pdf_embedding",
+      "criterion_description": "Image file existence, PNG dimensions, path validity after relocating book folder, HTML <img>, and PDF XObject embedding",
+      "status": "PASS",
+      "evidence": "Asset exists (573,451 bytes, PNG 1536x1024, SHA256=2a014cb14d5a...), portable in relocated temp dir, and embedded in PDF XObject with dimensions (1536, 1024)."
+    },
+    {
+      "acceptance_criterion_id": "AC-05",
+      "test_method": "test_AC05_html_entities_and_angle_brackets_preserved_not_stripped",
+      "criterion_description": "Explicit assertions for <EntityReference>, <OptionSetValue>, <DateTime?>, <your environment URL> escaped and never stripped",
+      "status": "PASS",
+      "evidence": "<EntityReference>, <OptionSetValue>, <DateTime?>, and <your environment URL> are escaped as &lt;...&gt;, never parsed as HTML tags or stripped, with 0 ENT leaks."
+    },
+    {
+      "acceptance_criterion_id": "AC-06",
+      "test_method": "test_AC06_control_characters_scope_and_zero_leaks",
+      "criterion_description": "Expanded control character detection (C0, DEL, C1, PUA, U+FFFD) and zero control chars in outputs",
+      "status": "PASS",
+      "evidence": "Expanded CONTROL_CHARS_RE verified against 10 illegal char classes (NUL, SOH, BEL, VT, US, DEL, C1, PUA, U+FFFD); 0 control chars in pilot-preview.html."
+    },
+    {
+      "acceptance_criterion_id": "AC-07",
+      "test_method": "test_AC07_markdown_code_fence_fixtures_and_byte_identity",
+      "criterion_description": "Support for ```, ````, ~~~, indented fences, and blockquote > ``` fences, plus 100% code block byte-identity",
+      "status": "PASS",
+      "evidence": "All 4 Markdown fence styles (```, ````, ~~~, and blockquote > ```) parsed and rendered; 13/13 source code blocks 100% byte-identical."
+    },
+    {
+      "acceptance_criterion_id": "AC-08",
+      "test_method": "test_AC08_en_seq_re_single_line_no_newline_spanning",
+      "criterion_description": "EN_SEQ_RE uses [ \\t]+ so English term matching never spans across newlines (\\n), plus OData $ operators",
+      "status": "PASS",
+      "evidence": "EN_SEQ_RE ([ \\t]+) never spans across \\n; OData $select/$filter and 'Dynamics 365' wrapped cleanly."
+    },
+    {
+      "acceptance_criterion_id": "AC-09",
+      "test_method": "test_AC09_token_and_tag_re_gt_inside_html_attributes",
+      "criterion_description": "TOKEN_AND_TAG_RE handles '>' inside double-quoted and single-quoted HTML attributes without premature splitting",
+      "status": "PASS",
+      "evidence": "TOKEN_AND_TAG_RE preserves HTML tags containing '>' inside double-quoted and single-quoted attributes."
+    },
+    {
+      "acceptance_criterion_id": "AC-10",
+      "test_method": "test_AC10_standalone_figure_not_wrapped_in_paragraph",
+      "criterion_description": "Standalone images emitted as top-level <figure class='book-figure'> with zero <p><figure> nesting",
+      "status": "PASS",
+      "evidence": "0 <p><figure> nesting occurrences; 1 standalone <figure class='book-figure'> element verified."
+    },
+    {
+      "acceptance_criterion_id": "AC-11",
+      "test_method": "test_AC11_pdf_cover_ab400_bidi_isolation_and_mixed_rtl_ltr",
+      "criterion_description": "Cover AB-400, mixed RTL/LTR terms, and parentheses properly isolated with <bdi class='en-term' dir='ltr'>",
+      "status": "PASS",
+      "evidence": "Cover header isolates AB-400, Microsoft Power Platform, Dynamics 365, and C# Plug-ins in <bdi dir='ltr'>."
+    },
+    {
+      "acceptance_criterion_id": "AC-12",
+      "test_method": "test_AC12_unit_header_group_prevents_orphaned_meta_bar",
+      "criterion_description": "Unit metadata bar and H1 grouped in .unit-header-group (break-inside: avoid; break-after: avoid) with page breaks between units",
+      "status": "PASS",
+      "evidence": "All 4 units wrap .unit-meta-bar + <h1> inside .unit-header-group with break-inside/after: avoid and unit page breaks."
+    },
+    {
+      "acceptance_criterion_id": "AC-13",
+      "test_method": "test_AC13_quiz_cards_vertical_layout_and_compact_print_spacing",
+      "criterion_description": "Quiz questions rendered in isolated .quiz-card containers with block-level option text and compact print spacing",
+      "status": "PASS",
+      "evidence": "5 quiz cards and 15 option rows (3 options per question) rendered with block-level .quiz-opt-text and compact @media print spacing."
+    },
+    {
+      "acceptance_criterion_id": "AC-14",
+      "test_method": "test_AC14_lab_appendix_heading_lead_para_and_code_grouped",
+      "criterion_description": "Lab 01 full 84-line C# reference code present, preceded by .lead-para (break-after: avoid) and .code-container-long",
+      "status": "PASS",
+      "evidence": "Full 84-line RequestApprovalPlugin.cs present; 5 .lead-para elements (break-after: avoid) and 1 .code-container-long blocks keep appendix heading, intro, and code together."
+    },
+    {
+      "acceptance_criterion_id": "AC-15",
+      "test_method": "test_AC15_answer_key_verification_status_source_verified_no_fake_human_verified",
+      "criterion_description": "Answer key uses SOURCE_VERIFIED (backed by verbatim module quotes) or AI_DRAFT; unverified HUMAN_VERIFIED rejected",
+      "status": "PASS",
+      "evidence": "0 occurrences of unverified HUMAN_VERIFIED; all 5 quiz answers documented with SOURCE_VERIFIED and verbatim quotes."
+    },
+    {
+      "acceptance_criterion_id": "AC-16",
+      "test_method": "test_AC16_offline_self_contained_css_no_external_fonts",
+      "criterion_description": "Zero external fonts.googleapis.com dependencies; 100% offline CSS",
+      "status": "PASS",
+      "evidence": "0 external font or stylesheet links; 100% offline CSS."
+    },
+    {
+      "acceptance_criterion_id": "AC-17",
+      "test_method": "test_AC17_manifest_contract_and_historical_supplemental_classification",
+      "criterion_description": "Manifest tracks all 447 units with SHA-256 hashes, audit counts, and CURRENT / HISTORICAL / SUPPLEMENTAL classification",
+      "status": "PASS",
+      "evidence": "Manifest tracks 447 total units; all 4 pilot units pass 13/13 unit checks with complete contract metadata."
+    },
+    {
+      "acceptance_criterion_id": "AC-18",
+      "test_method": "test_AC18_pdf_decompressed_streams_zero_leaks_and_page_count",
+      "criterion_description": "Decompressed PDF FlateDecode streams contain zero placeholder leaks across all 27 pages",
+      "status": "PASS",
+      "evidence": "PDF valid (1,498,389 bytes, 27 pages); 226 FlateDecode streams decompressed with 0 placeholder leaks."
+    }
+  ]
+}
