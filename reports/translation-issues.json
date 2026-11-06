@@ -1,0 +1,98 @@
+[
+  {
+    "id": "ISSUE-01",
+    "file": "book/translated/v2/s07/m01/02-map-extension-runtimes.md",
+    "section": "المقدمة (Paragraph 1)",
+    "original_en": "Before you weigh specific technologies against each other, you build a mental model for where code runs and what starts it running.",
+    "existing_ar": "وقبل أن تفاضل بين التقنيات المحددة في مواجهة بعضها البعض، تحتاج أولاً إلى بناء نموذج ذهني واضح للمكان الفعلي الذي يعمل فيه الكود (Where code runs) وما الذي يطلق شرارة تشغيله (What starts it running).",
+    "category": "LITERAL_TRANSLATION",
+    "severity": "HIGH",
+    "suggested_ar": "وقبل المقارنة بين التقنيات المختلفة، ينبغي بناء نموذج ذهني واضح لبيئة استضافة وتنفيذ الكود ومُحفّزات تشغيله.",
+    "explanation": "عبارة 'ما الذي يطلق شرارة تشغيله' ترجمة مجازية حرفية وغير مهنية لعبارة 'what starts it running'؛ والمصطلح الهندسي الصحيح هو 'مُحفّزات التشغيل' (Triggers).",
+    "status": "APPROVED_CORRECTION"
+  },
+  {
+    "id": "ISSUE-02",
+    "file": "book/translated/v2/s07/m01/02-map-extension-runtimes.md",
+    "section": "بيئات التشغيل الخمس للتوسيع (Paragraph 2)",
+    "original_en": "Every piece of extension logic lives in one of five runtimes: client, server, cloud, connector, or agent. Each runtime has its own physical home, its own constraints, and its own reason to exist.",
+    "existing_ar": "يعيش كل جزء من منطق التوسيع البرمجي (Extension logic) داخل واحدة من خمس بيئات تشغيل أساسية (Runtimes)... وتمتلك كل بيئة تشغيل موطنها الفيزيائي الخاص، وقيودها التقنية الخاصة، وسبب وجودها المعماري.",
+    "category": "MEANING_DISTORTION",
+    "severity": "HIGH",
+    "suggested_ar": "يُنفَّذ منطق التوسيع البرمجي عبر خمس بيئات تشغيل أساسية: العميل (Client)، أو الخادم (Server)، أو السحابة (Cloud)، أو الموصل (Connector)، أو وكيل الذكاء الاصطناعي (Agent). وتتميز كل بيئة بخصائص استضافة محددة، وقيود تشغيلية، ودور معماري مستقل.",
+    "explanation": "ترجمة 'physical home' إلى 'موطنها الفيزيائي' توهم القارئ بوجود جهاز فيزيائي ملموس لكل بيئة بينما السحابة والموصلات والوكلاء بيئات برمجية سحابية موزعة.",
+    "status": "APPROVED_CORRECTION"
+  },
+  {
+    "id": "ISSUE-03",
+    "file": "book/translated/v2/s07/m01/02-map-extension-runtimes.md",
+    "section": "فقرة الشرح بعد المخطط (Paragraph 3)",
+    "original_en": "Consider the equipment-provisioning system from the Introduction.",
+    "existing_ar": "تأمل نظام تجهيز المعدات الذيطُرح في المقدمة.",
+    "category": "TYPOGRAPHY",
+    "severity": "LOW",
+    "suggested_ar": "تأمل نظام تجهيز المعدات المطروح في المقدمة.",
+    "explanation": "خطأ مطبعي في الكلمة الموصولة 'الذيطُرح' مع غياب المسافة، والأفصح صياغتها اسم مفعول مباشر 'المطروح'.",
+    "status": "APPROVED_CORRECTION"
+  },
+  {
+    "id": "ISSUE-04",
+    "file": "book/translated/v2/s07/m02/03-develop-plug-in-execution-context.md",
+    "section": "المقدمة (Paragraph 1)",
+    "original_en": "Unit 2 establishes that Contoso's allowance check belongs in PreValidation and explains why that stage beats PreOperation for a check that only needs to say no early. This unit turns that stage decision into a working plug-in class, and shows how that class reads the Request record's data through the execution context.",
+    "existing_ar": "أثبتت الوحدة رقم 2 أن فحص رصيد الاستحقاق المالي في شركة Contoso ينتمي معمارياً إلى مرحلة PreValidation، وشرحت لماذا تتفوق تلك المرحلة على مرحلة PreOperation في أي فحص تقتصر وظيفته على رفض العملية مبكراً بأقل تكلفة ممكنة. تحوّل هذه الوحدة ذلك القرار المعماري إلى فئة Plug-in برمجية عاملة بلغة C#، وتوضح كيف تقرأ هذه الفئة بيانات سجل الطلب (Request record) من خلال سياق التنفيذ (ExecutionContext / IPluginExecutionContext).",
+    "category": "GRAMMAR_AND_STYLE",
+    "severity": "MEDIUM",
+    "suggested_ar": "أوضحت الوحدة الثانية أن فحص رصيد الاستحقاق لشركة Contoso يجب تنفيذه في مرحلة PreValidation، وبيّنت أفضلية هذه المرحلة مقارنة بمرحلة PreOperation عند إجراء فحوصات تهدف فقط إلى رفض العملية مبكراً بأقل استهلاك لموارد النظام. وتوضح هذه الوحدة كيفية تحويل هذا القرار المعماري إلى فئة C# تطبيقية، وقراءة بيانات سجل الطلب عبر سياق التنفيذ (ExecutionContext).",
+    "explanation": "الصياغة السابقة ركيكة وتلتزم حرفياً بالترتيب النحوي الإنجليزي وتكرر الأقواس التفسيرية بصورة تعيق القراءة المهنية.",
+    "status": "APPROVED_CORRECTION"
+  },
+  {
+    "id": "ISSUE-05",
+    "file": "book/translated/v2/s07/m02/03-develop-plug-in-execution-context.md",
+    "section": "الحفاظ على فئة الـ Plug-in عديمة الحالة (Paragraph 4)",
+    "original_en": "anything you store as a class-level field or property persists across every invocation that reuses the same cached instance. As a result, one employee's Request data could leak into another employee's execution, or get overwritten mid-flight by a concurrent call.",
+    "existing_ar": "فأي بيانات تخزنها كحقل (Field) أو خاصية (Property) على مستوى الفئة تبقى مخزنة وتنتقل عبر كل استدعاء لاحق يعيد استخدام نفس النسخة المخزنة مؤقتاً. ونتيجة لذلك، قد تتسرب بيانات طلب خاصة بموظف معين إلى تنفيذ خاص بموظف آخر، أو قد تتم الكتابة فوقها أثناء التنفيذ بواسطة استدعاء متزامن (Concurrent call).",
+    "category": "TECHNICAL_MISTRANSLATION",
+    "severity": "HIGH",
+    "suggested_ar": "إذ إن أية بيانات تُحفظ في حقل أو خاصية على مستوى الفئة ستظل قائمة وتؤثر في كل استدعاء لاحق يستخدم نفس النسخة المخبأة في الذاكرة؛ مما يؤدي إلى تسريب بيانات طلب موظف إلى سياق تنفيذ موظف آخر، أو استبدال بياناتها أثناء المعالجة بفعل استدعاء متزامن آخر.",
+    "explanation": "عبارة 'الكتابة فوقها أثناء التنفيذ' تعبير ركيك للمفهوم الهندسي Concurrency Race Condition / Data Overwrite؛ والصياغة الهندسية الصحيحة تعبر عن استبدال البيانات في بيئة التنفيذ المتزامن.",
+    "status": "APPROVED_CORRECTION"
+  },
+  {
+    "id": "ISSUE-06",
+    "file": "book/translated/v2/s07/m02/06-knowledge-check.md",
+    "section": "السؤال الأول (Question 1 Stem)",
+    "original_en": "A developer registers a step that must cancel a Request save whenever an employee has no remaining allowance, and the check needs only data already included in the incoming request.",
+    "existing_ar": "يقوم مطور بتسجيل خطوة (Step) يجب أن تلغي عملية حفظ سجل الطلب (Request) كلما لم يتبقَّ للموظف أي رصيد استحقاق، ويحتاج الفحص فقط إلى البيانات المضمنة بالفعل في الطلب الوارد.",
+    "category": "GRAMMAR_AND_STYLE",
+    "severity": "MEDIUM",
+    "suggested_ar": "يرغب مطور في تسجيل خطوة تُلغي حفظ سجل الطلب فور نفاد رصيد الاستحقاق للموظف، علماً بأن الفحص يعتمد حصراً على البيانات المتوفرة في الطلب الوارد نفسه.",
+    "explanation": "استخدام الفعل المباشر وصياغة سيناريو الاختبار بأسلوب الأسئلة المهنية المعتمدة في اختبارات مايكروسوفت بدلاً من الترجمة الحرفية 'يقوم مطور بتسجيل خطوة يجب أن...'.",
+    "status": "APPROVED_CORRECTION"
+  },
+  {
+    "id": "ISSUE-07",
+    "file": "book/translated/v2/s12-labs/01-equipment-validation-plugin.md",
+    "section": "المقدمة (Paragraph 1)",
+    "original_en": "Equipment Provisioning is a Microsoft Dataverse solution that lets employees request replacement equipment and lets coordinators review and approve those requests.",
+    "existing_ar": "يُعد حل تجهيز المعدات (Equipment Provisioning) حلاً مبنياً على منصة Microsoft Dataverse يتيح للموظفين طلب معدات بديلة، ويتيح للمنسقين مراجعة تلك الطلبات واعتمادها.",
+    "category": "GRAMMAR_AND_STYLE",
+    "severity": "LOW",
+    "suggested_ar": "يُمثّل حل Equipment Provisioning تطبيقاً على منصة Microsoft Dataverse، يُمكّن الموظفين من تقديم طلبات استبدال الأجهزة، ويسمح للمنسقين بمراجعتها واعتمادها.",
+    "explanation": "تكرار كلمة 'يتيح... ويتيح...' مرتين في نفس السطر ركاكة أسلوبية، والصياغة المقترحة أكثر فصاحة وتنويعاً.",
+    "status": "APPROVED_CORRECTION"
+  },
+  {
+    "id": "ISSUE-08",
+    "file": "book/translated/v2/s12-labs/01-equipment-validation-plugin.md",
+    "section": "المتطلبات الأساسية (Prerequisites Step 1)",
+    "original_en": "Dataverse only accepts signed plug-in assemblies, and strong-name keys aren't shipped with the lab files, so create your own.",
+    "existing_ar": "يقبل Dataverse فقط تجميعات الـ Plug-in الموقعة رقمياً (Signed assemblies)، ولا يتم شحن مفاتيح الأسماء القوية (Strong-name keys) مع ملفات المعمل، لذا أنشئ مفتاحك الخاص الآن.",
+    "category": "LITERAL_TRANSLATION",
+    "severity": "MEDIUM",
+    "suggested_ar": "يشترط Dataverse توقيع تجميعات الـ Plug-in رقمياً بمفاتيح تسمية قوية (Strong-name keys). وبما أن ملفات المعمل لا تتضمن هذه المفاتيح مسبقاً، فستقوم بتوليد مفتاحك الخاص عبر السكربت المخصص.",
+    "explanation": "عبارة 'لا يتم شحن المفاتيح' ترجمة حرفية خاطئة لـ 'aren't shipped with'، والصواب أنها غير مرفقة مسبقاً مع حزمة ملفات المعمل.",
+    "status": "APPROVED_CORRECTION"
+  }
+]

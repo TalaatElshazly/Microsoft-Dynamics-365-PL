@@ -1,7 +1,7 @@
 # بناء وتسجيل إضافة برمجية (Plug-in) للتحقق من أهلية المعدات
 
 
-يُعد حل تجهيز المعدات (**Equipment Provisioning**) حلاً مبنياً على منصة Microsoft Dataverse يتيح للموظفين طلب معدات بديلة، ويتيح للمنسقين مراجعة تلك الطلبات واعتمادها. ولا يُسمح باستبدال أي جهاز إلا إذا كان قد مضى على إصدار الجهاز المراد استبداله **24** شهراً على الأقل، أو تم تمييزه بأنه تالف وغير قابل للإصلاح — ولكن في الوضع الحالي يتم فرض هذه القاعدة فقط بواسطة سكربت على نموذج الطلب (Form script)، مما يعني أنه يمكن تجاوزها بسهولة بواسطة أي شخص يقوم بتحديث الطلب مباشرة عبر واجهة Dataverse Web API بدلاً من واجهة النموذج.
+يُمثّل حل (**Equipment Provisioning**) تطبيقاً على منصة Microsoft Dataverse يُمكّن الموظفين من طلب معدات بديلة، ويسمح للمنسقين بمراجعة تلك الطلبات واعتمادها. ولا يُسمح باستبدال أي جهاز إلا إذا كان قد مضى على إصدار الجهاز المراد استبداله **24** شهراً على الأقل، أو تم تمييزه بأنه تالف وغير قابل للإصلاح — ولكن في الوضع الحالي يتم فرض هذه القاعدة فقط بواسطة سكربت على نموذج الطلب (Form script)، مما يعني أنه يمكن تجاوزها بسهولة بواسطة أي شخص يقوم بتحديث الطلب مباشرة عبر واجهة Dataverse Web API بدلاً من واجهة النموذج.
 
 في هذا التمرين العملي، ستكتب وتسجل إضافة برمجية (Dataverse Plug-in) تفرض نفس القاعدة على الخادم (Server) حيث لا يمكن تجاوزها أبداً. ستستخدم حزمة تطوير البرمجيات Dataverse SDK for .NET، وصورة قبلية (Pre-image) لقراءة الحالة السابقة للطلب، وخدمة المؤسسة (Organization service) للبحث عن الجهاز المراد استبداله. ثم ستقوم بتسجيل الـ Plug-in باستخدام أداة Plugin Registration Tool، وتثبت عملياً أنه يغلق الثغرة التي تركها الفحص المقتصر على النموذج مفتوحة. وأخيراً، ستقوم بفهرسة الواجهة البرمجية المخصصة (Custom API) الخاصة بالقاعدة كحدث أعمال (Business event) في Dataverse لكي تتمكن مسارات الأتمتة الأخرى من اكتشافه والتفاعل معه.
 
@@ -90,7 +90,7 @@
 - ملف الفئة [RequestApprovalPlugin.cs](https://raw.githubusercontent.com/MicrosoftLearning/AB-400-microsoft-power-platform-developer/main/Allfiles/01-equipment-validation-plugin/AB400.Lab01/RequestApprovalPlugin.cs){:target="_blank"} من `https://raw.githubusercontent.com/MicrosoftLearning/AB-400-microsoft-power-platform-developer/main/Allfiles/01-equipment-validation-plugin/AB400.Lab01/RequestApprovalPlugin.cs`، وضعه داخل نفس المجلد `AB400.Lab01`
 - سكربت التوقيع [New-StrongNameKey.ps1](https://raw.githubusercontent.com/MicrosoftLearning/AB-400-microsoft-power-platform-developer/main/Allfiles/01-equipment-validation-plugin/New-StrongNameKey.ps1){:target="_blank"} من `https://raw.githubusercontent.com/MicrosoftLearning/AB-400-microsoft-power-platform-developer/main/Allfiles/01-equipment-validation-plugin/New-StrongNameKey.ps1`، وضعه في المجلد الأب الذي يحتوي على المجلد `AB400.Lab01`
 
-1. يقبل Dataverse فقط تجميعات الـ Plug-in الموقعة رقمياً (Signed assemblies)، ولا يتم شحن مفاتيح الأسماء القوية (Strong-name keys) مع ملفات المعمل، لذا أنشئ مفتاحك الخاص الآن. في نافذة الطرفية، داخل المجلد `Allfiles/01-equipment-validation-plugin`، شغّل الأمر التالي:
+1. يشترط Dataverse توقيع تجميعات الـ Plug-in رقمياً بمفاتيح أسماء قوية (Strong-name keys). وبما أن هذه المفاتيح لا تأتي مسبقاً مع ملفات المعمل، فستقوم بإنشاء مفتاحك الخاص الآن. في نافذة الطرفية، داخل المجلد `Allfiles/01-equipment-validation-plugin`، شغّل الأمر التالي:
 
     ```powershell
     .\New-StrongNameKey.ps1
