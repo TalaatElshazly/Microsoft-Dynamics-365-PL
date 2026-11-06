@@ -17,8 +17,8 @@ sys.stdin.reconfigure(encoding="utf-8")
 sys.stdout.reconfigure(encoding="utf-8")
 sys.stderr.reconfigure(encoding="utf-8")
 
-ROOT_DIR = Path(__file__).resolve().parents[2]
-BOOK_DIR = ROOT_DIR / "book"
+BOOK_DIR = Path(__file__).resolve().parents[1]
+ROOT_DIR = BOOK_DIR.parents[1]
 CONFIG_DIR = BOOK_DIR / "config"
 ORIG_DIR = BOOK_DIR / "original"
 TRANS_DIR = BOOK_DIR / "translated"

@@ -128,7 +128,7 @@
       "test_method": "test_AC18_pdf_decompressed_streams_zero_leaks_and_page_count",
       "criterion_description": "Decompressed PDF FlateDecode streams contain zero placeholder leaks across all 27 pages",
       "status": "PASS",
-      "evidence": "PDF valid (1,498,389 bytes, 27 pages); 226 FlateDecode streams decompressed with 0 placeholder leaks."
+      "evidence": "PDF valid (1,493,078 bytes, 26 pages); 225 FlateDecode streams decompressed with 0 placeholder leaks."
     }
   ]
 }
